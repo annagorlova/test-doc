@@ -1,0 +1,343 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Подпись сертификатом без носителя &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="DssSign" href="http/DssSign.html" />
+    <link rel="prev" title="AutosignReceiptsResult" href="proto/AutosignReceiptsResult.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docflows/AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http/GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docflows/InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docflows/Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docflows/AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docflows/UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docflows/NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docflows/TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="howto/powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_UniversalTransferDocument.html">Работа с УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Messages.html">Работа с сообщениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Подпись сертификатом без носителя</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http/DssSign.html">DssSign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http/DssSignResult.html">DssSignResult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proto/AsyncMethodResult.html">AsyncMethodResult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proto/DssSignRequest.html">DssSignRequest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proto/DssSignResult.html">DssSignResult</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Подпись сертификатом без носителя</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/API_Dss.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>Подпись сертификатом без носителя<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Для подписания сертификатом без носителя нужно вызвать метод <a class="reference internal" href="http/DssSign.html"><span class="doc">DssSign</span></a>. В результате его выполнения вы получите идентификатор операции, а на телефон пользователя придет запрос на подтверждение. Затем надо периодически вызывать метод  <a class="reference internal" href="http/DssSignResult.html"><span class="doc">DssSignResult</span></a>, дождаться окончания операции и получить файлы подписи или статус о неуспешном завершении операции.</p>
+<div class="section" id="c-sdk">
+<h2>Пример с использованием C# SDK<a class="headerlink" href="#c-sdk" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span> <span class="n">nameOnShelf1</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="n">UploadFileToShelf</span><span class="p">(</span><span class="n">authToken</span><span class="p">,</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="s">&quot;test 1&quot;</span><span class="p">));</span>
+<span class="kt">var</span> <span class="n">nameOnShelf2</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="n">UploadFileToShelf</span><span class="p">(</span><span class="n">authToken</span><span class="p">,</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="s">&quot;test 2&quot;</span><span class="p">));</span>
+
+<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DssSignRequest</span>
+<span class="p">{</span>
+    <span class="n">Files</span> <span class="p">=</span> <span class="p">{</span>
+        <span class="k">new</span> <span class="n">DssSignFile</span> <span class="p">{</span> <span class="n">FileName</span> <span class="p">=</span> <span class="s">&quot;file1.txt&quot;</span><span class="p">,</span> <span class="n">Content</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Content_v3</span> <span class="p">{</span> <span class="n">NameOnShelf</span> <span class="p">=</span> <span class="s">&quot;__userId__/&quot;</span> <span class="p">+</span> <span class="n">nameOnShelf1</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="k">new</span> <span class="n">DssSignFile</span> <span class="p">{</span> <span class="n">FileName</span> <span class="p">=</span> <span class="s">&quot;file2.txt&quot;</span><span class="p">,</span> <span class="n">Content</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Content_v3</span> <span class="p">{</span> <span class="n">NameOnShelf</span> <span class="p">=</span> <span class="s">&quot;__userId__/&quot;</span> <span class="p">+</span> <span class="n">nameOnShelf2</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">var</span> <span class="n">operation</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="n">DssSign</span><span class="p">(</span><span class="n">authToken</span><span class="p">,</span> <span class="n">boxId</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">dssCertificateThumbprint</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">stopwatch</span> <span class="p">=</span> <span class="n">Stopwatch</span><span class="p">.</span><span class="n">StartNew</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="n">DssSignResult</span><span class="p">(</span><span class="n">authToken</span><span class="p">,</span> <span class="n">boxId</span><span class="p">,</span> <span class="n">operation</span><span class="p">.</span><span class="n">TaskId</span><span class="p">);</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">OperationStatus</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">case</span> <span class="n">DssOperationStatus</span><span class="p">.</span><span class="n">Completed</span><span class="p">:</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">That</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">FileSigningResults</span><span class="p">.</span><span class="n">Count</span><span class="p">,</span> <span class="n">Is</span><span class="p">.</span><span class="n">EqualTo</span><span class="p">(</span><span class="m">2</span><span class="p">));</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">DssOperationStatus</span><span class="p">.</span><span class="n">InProgress</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">stopwatch</span><span class="p">.</span><span class="n">Elapsed</span> <span class="p">&gt;</span> <span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMinutes</span><span class="p">(</span><span class="m">5</span><span class="p">))</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">TimeoutException</span><span class="p">();</span>
+            <span class="n">Thread</span><span class="p">.</span><span class="n">Sleep</span><span class="p">(</span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromSeconds</span><span class="p">(</span><span class="m">15</span><span class="p">));</span>
+            <span class="k">continue</span><span class="p">;</span>
+        <span class="k">default</span><span class="p">:</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidOperationException</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Signing has failed: {0}&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">OperationStatus</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="http">
+<h2>HTTP-интерфейс<a class="headerlink" href="#http" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="toctree-wrapper compound" id="toc3">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="http/DssSign.html">DssSign</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http/DssSignResult.html">DssSignResult</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Структуры данных<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="toctree-wrapper compound" id="toc4">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="proto/AsyncMethodResult.html">AsyncMethodResult</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proto/DssSignRequest.html">DssSignRequest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proto/DssSignResult.html">DssSignResult</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="proto/DssSignResult.html#dss-file-signing-result"><span class="std std-ref">DssFileSigningResult</span></a></p></li>
+<li><p><a class="reference internal" href="proto/DssSignResult.html#dss-file-signing-status"><span class="std std-ref">DssFileSigningStatus</span></a></p></li>
+<li><p><a class="reference internal" href="proto/DssSignResult.html#dss-operation-status"><span class="std std-ref">DssOperationStatus</span></a></p></li>
+<li><p><a class="reference internal" href="proto/DssSignRequest.html#dss-sign-file"><span class="std std-ref">DssSignFile</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="http/DssSign.html" class="btn btn-neutral float-right" title="DssSign" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="proto/AutosignReceiptsResult.html" class="btn btn-neutral float-left" title="AutosignReceiptsResult" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

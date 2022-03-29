@@ -1,0 +1,345 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Message &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="MessagePatch" href="MessagePatch.html" />
+    <link rel="prev" title="Entity" href="Entity%20message.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../http/GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howto/powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_UniversalTransferDocument.html">Работа с УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../API_Messages.html">Работа с сообщениями</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../http/GetEntityContent.html">GetEntityContent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/GetMessage.html">GetMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/PostMessage.html">PostMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/PostMessagePatch.html">PostMessagePatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Entity%20message.html">Entity</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MessagePatch.html">MessagePatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MessagePatchToPost.html">MessagePatchToPost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MessageToPost.html">MessageToPost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SignedContent.html">SignedContent</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../API_Messages.html">Работа с сообщениями</a> &raquo;</li>
+        
+      <li>Message</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/proto/Message.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="message">
+<h1>Message<a class="headerlink" href="#message" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span> <span class="nc">Message</span> <span class="p">{</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">MessageId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">sfixed64</span> <span class="na">TimestampTicks</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">sfixed64</span> <span class="na">LastPatchTimestampTicks</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">FromBoxId</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">FromTitle</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">ToBoxId</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">ToTitle</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="k">repeated</span> <span class="n">Entity</span> <span class="na">Entities</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">IsDraft</span> <span class="o">=</span> <span class="mi">9</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">DraftIsLocked</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">DraftIsRecycled</span> <span class="o">=</span> <span class="mi">11</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">CreatedFromDraftId</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="k">repeated</span> <span class="kt">string</span> <span class="na">DraftIsTransformedToMessageIdList</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">IsDeleted</span> <span class="o">=</span> <span class="mi">14</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">IsTest</span> <span class="o">=</span> <span class="mi">15</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">IsInternal</span> <span class="o">=</span> <span class="mi">16</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">IsProxified</span> <span class="o">=</span> <span class="mi">17</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">ProxyBoxId</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">ProxyTitle</span> <span class="o">=</span> <span class="mi">19</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">PacketIsLocked</span> <span class="o">=</span> <span class="mi">20</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
+    <span class="k">required</span> <span class="n">LockMode</span> <span class="na">LockMode</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
+    <span class="k">required</span> <span class="n">MessageType</span> <span class="na">MessageType</span> <span class="o">=</span> <span class="mi">22</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">TemplateToLetterTransformationInfo</span> <span class="na">TemplateToLetterTransformationInfo</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">IsReusable</span> <span class="o">=</span> <span class="mi">24</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Структура данных <em>Message</em> представляет одно сообщение или черновик в Диадоке:</p>
+<ul class="simple">
+<li><p><em>MessageId</em> - уникальный идентификатор сообщения или черновика.</p></li>
+<li><p><em>TimestampTicks</em> - <a class="reference internal" href="Timestamp.html"><span class="doc">метка времени</span></a> создания сообщения.</p></li>
+<li><p><em>LastPatchTimestampTicks</em> - <a class="reference internal" href="Timestamp.html"><span class="doc">метка времени</span></a> последнего патча (дополнения), примененного к данному сообщению.</p></li>
+<li><p><em>FromBoxId</em> - идентификатор ящика отправителя сообщения.</p></li>
+<li><p><em>ToBoxId</em> - идентификатор ящика получателя сообщения. В случае если данное сообщение является черновиком, данное поле может быть не заполнено.</p></li>
+<li><p><em>FromTitle</em> - человекочитаемое имя ящика отправителя сообщения.</p></li>
+<li><p><em>ToTitle</em> - человекочитаемое имя ящика получателя сообщения. В случае если данное сообщение является черновиком, данное поле может быть не заполнено.</p></li>
+<li><p><em>Entities</em> - список сущностей, составляющих данное сообщение (включая сущности из дополнений к нему). Каждая сущность представлена структурой типа <a class="reference internal" href="Entity%20message.html"><span class="doc">Entity</span></a>.</p></li>
+<li><p><em>IsDraft</em> - флаг, показывающий, является ли данное сообщение черновиком (устаревшее, см. <a class="reference internal" href="MessageType.html"><span class="doc">MessageType</span></a>).</p></li>
+<li><p><em>DraftIsLocked</em> - флаг, показывающий, что данный черновик заблокирован, то есть в него нельзя добавлять, или удалять из него документы. Такой черновик можно только либо отправить, превратив в полноценное сообщение, либо удалить. Данное поле заполняется только в структурах Message, представляющих черновики.</p></li>
+<li><p><em>DraftIsRecycled</em> - флаг, показывающий, что данный черновик утилизирован, то есть он был либо удален, либо на его основе было создано полноценное сообщение и отправлено получателю. В последнем случае у этого черновика также заполнено поле <em>DraftIsTransformedToMessageId</em>, а у соответствующего сообщения заполнено поле <em>CreatedFromDraftId</em>. Поле <em>DraftIsRecycled</em> заполняется только в структурах <em>Message</em>, представляющих черновики.</p></li>
+<li><p><em>CreatedFromDraftId</em> - идентификатор сообщения-черновика, на основе которого было создано данное сообщение. Данное поле заполняется только у тех сообщений, которые формируются на основе черновиков.</p></li>
+<li><p><em>DraftIsTransformedToMessageIdList</em> - идентификатор сообщения, которое было создано на основе данного черновика. Данное поле заполняется только в структурах Message, представляющих черновики.</p></li>
+<li><p><em>IsDeleted</em> - флаг, показывающий, было ли удалено данное сообщение.</p></li>
+<li><p><em>IsTest</em> - флаг, показывающий, что данное сообщение является тестовым и не имеет юридической силы.</p></li>
+<li><p><em>IsInternal</em> - флаг, показывающий, что данное сообщение является внутренним.</p></li>
+<li><p><em>IsProxified</em> - флаг, показывающий отправлен ли документ через промежуточного получателя.</p></li>
+<li><p><em>ProxyBoxId</em> - идентификатор ящика, промежуточного получателя. Если указан ящик промежуточного получателя, то документ доставится конечному получателя только после того, как промежуточный получатель поставит подпись под документом. Если промежуточный получатель отклонит документ, то в ящик конечного получателя он не будет доставлен.</p></li>
+<li><p><em>ProxyTitle</em> - название организации промежуточного получателя.</p></li>
+<li><p><em>PacketIsLocked</em> - признак закрытого пакета. В таком пакете операция применяется ко всем документам сразу. Например, при подписании одного документа, подписываются сразу все.</p></li>
+<li><p><em>LockMode</em> - режим блокировки сообщения. Виды доступных режимы доступны в описании <a class="reference internal" href="LockMode.html"><span class="doc">LockMode</span></a>.</p></li>
+<li><p><em>MessageType</em> - тип сообщения <a class="reference internal" href="MessageType.html"><span class="doc">MessageType</span></a>.</p></li>
+<li><p><em>TemplateToLetterTransformationInfo</em> - содержит информацию о документе, который уже создан или будет создан на основе шаблона <a class="reference internal" href="TemplateToLetterTransformationInfo.html"><span class="doc">TemplateToLetterTransformationInfo</span></a>.</p></li>
+<li><p><em>IsReusable</em> - флаг, показывающий, что сообщение создано на основе многоразового шаблона.</p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="MessagePatch.html" class="btn btn-neutral float-right" title="MessagePatch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Entity%20message.html" class="btn btn-neutral float-left" title="Entity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

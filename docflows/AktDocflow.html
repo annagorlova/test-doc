@@ -1,0 +1,505 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Документооборот актов &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Документооборот УПД" href="UtdDocflow.html" />
+    <link rel="prev" title="Документооборот накладных" href="Torg12Docflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../http/GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howto/powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_UniversalTransferDocument.html">Работа с УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Messages.html">Работа с сообщениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Документооборот актов</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/docflows/AktDocflow.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>Документооборот актов<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="section" id="id2">
+<h2>Форматы<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Подробнее про электронные акты можно прочитать <a class="reference external" href="https://www.diadoc.ru/docs/forms/first-documents/Act">здесь</a></p>
+</div>
+<p>Процесс обмена электронными актами в Диадоке реализован с учетом:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.diadoc.ru/docs/laws/mmb-7-15-820">приказа ФНС РФ от 19.12.2018 N ММВ-7-15/820&#64;</a>,</p></li>
+<li><p><a class="reference external" href="https://www.diadoc.ru/docs/laws/mmb-7-10-552">приказа ФНС от 30 ноября 2015 г. N ММВ-7-10/552&#64;</a>,</p></li>
+<li><p><a class="reference external" href="https://www.diadoc.ru/docs/laws/mmb-7-15-155">приказа ФНС РФ от 24.03.2016 N ММВ-7-15/155&#64;</a> (формат устарел),</p></li>
+<li><p><a class="reference external" href="https://www.diadoc.ru/docs/laws/prikaz-MMB-7-6-172">приказа ФНС России от 21.03.2012 № ММВ-7-6/172&#64;</a> (формат устарел),</p></li>
+</ul>
+<p>В силу приказа <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=328588">N ММВ-7-15/820&#64;</a> утвержден электронный формат универсального передаточного документа УПД. Его можно использовать как первичный документ, подтверждающий совершение хозяйственной операции.</p>
+<ul>
+<li><p><a class="reference download internal" download="" href="../_downloads/c105f189bb1645bb0cd83e5490631151/ON_NSCHFDOPPR_1_997_01_05_01_01.xsd"><code class="xref download docutils literal notranslate"><span class="pre">XSD-схема</span> <span class="pre">формата</span> <span class="pre">титула</span> <span class="pre">продавца</span> <span class="pre">УПД</span> <span class="pre">(функция</span> <span class="pre">ДОП)</span></code></a>;</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>используется для титула исполнителя электронного акта,</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><a class="reference download internal" download="" href="../_downloads/c7afadae5359b2335990130a8b8f6726/ON_NSCHFDOPPOK_1_997_02_05_01_01.xsd"><code class="xref download docutils literal notranslate"><span class="pre">XSD-схема</span> <span class="pre">формата</span> <span class="pre">титула</span> <span class="pre">покупателя</span> <span class="pre">УПД</span> <span class="pre">(функция</span> <span class="pre">ДОП)</span></code></a>;</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>используется для титула заказчика электронного акта.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>В силу приказов <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=265283&amp;cwi=136">N ММВ-7-10/552&#64;</a> электронный акт может быть в следующем формате (documentVerstion=rezru_05_01_02):</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/00470043f27baab5a5dbb25c27812ab4/DP_REZRUISP_1_990_01_05_01_02.xsd"><code class="xref download docutils literal notranslate"><span class="pre">XSD-схема</span> <span class="pre">титула</span> <span class="pre">исполнителя</span> <span class="pre">электронного</span> <span class="pre">акта</span></code></a>;</p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/e08017fff2f9bcd8143fa38155a2c530/DP_REZRUZAK_1_990_02_05_01_02.xsd"><code class="xref download docutils literal notranslate"><span class="pre">XSD-схема</span> <span class="pre">титула</span> <span class="pre">заказчика</span> <span class="pre">электронного</span> <span class="pre">акта</span></code></a>.</p></li>
+</ul>
+<p>XSD-схемы  первого и второго титулов акта последней версии формата 552 могут быть получены с помощью ссылки, доступной в поле <em>XsdUrl</em> контракта <a class="reference internal" href="../proto/DocumentTypeDescription.html"><span class="doc">DocumentTitle</span></a>, в результате вызова метода <a class="reference internal" href="../http/GetDocumentTypes.html"><span class="doc">GetDocumentTypes</span></a>.</p>
+<table class="colwidths-given docutils align-default" id="id8">
+<caption><span class="caption-text">Соответствие формата накладных и AttachmentVersion</span><a class="headerlink" href="#id8" title="Постоянная ссылка на таблицу">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Структура</p></th>
+<th class="head"><p>Форматы</p></th>
+<th class="head"><p>Функция</p></th>
+<th class="head"><p>AttachmentVersion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XmlAcceptanceCertificate</p></td>
+<td><ul class="simple">
+<li><p>приказ №820</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>ДОП</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>utd820_05_01_02_hyphen</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>XmlAcceptanceCertificate</p></td>
+<td><ul class="simple">
+<li><p>приказ №155 (формат устарел)</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>ДОП</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>utd_05_02_01</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>XmlAcceptanceCertificate</p></td>
+<td><ul class="simple">
+<li><p>приказ №552</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>–</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>rezru_05_02_01</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>XmlAcceptanceCertificate</p></td>
+<td><ul class="simple">
+<li><p>приказ №172 (формат устарел)</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>–</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>act_05_01_01</p></li>
+<li><p>act_05_01_02</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h2>Структуры<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Для документов, возникающих в ходе документооборота электронных актов, в Диадоке зарезервированы специальные <a class="reference internal" href="../proto/Entity%20message.html"><span class="doc">типы сущностей</span></a>.</p>
+<p>Для титула исполнителя электронного акта можно использовать следующую структуру:</p>
+<ul class="simple">
+<li><p><em>Attachment/XmlAcceptanceCertificate</em>,</p></li>
+</ul>
+<p>Для титула покупателя электронной накладной можно использовать следующую структуру:</p>
+<ul class="simple">
+<li><p><em>Attachment/XmlAcceptanceCertificateBuyerTitle</em>,</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>Генерация<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<table class="colwidths-given docutils align-default" id="id9">
+<caption><span class="caption-text">Соответствие формата актов и AttachmentVersion</span><a class="headerlink" href="#id9" title="Постоянная ссылка на таблицу">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Титул</p></th>
+<th class="head"><p>Формат</p></th>
+<th class="head"><p>Геренация</p></th>
+<th class="head"><p>DocumentVersion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Титул исполнителя</p></td>
+<td><p>Приказ №820</p></td>
+<td><p><a class="reference internal" href="../http/GenerateTitleXml.html"><span class="doc">GenerateTitleXml</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">documentVersion</span> <span class="pre">=</span> <span class="pre">utd820_05_01_02_hyphen</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Титул заказчика</p></td>
+<td><p>Приказ №820</p></td>
+<td><p><a class="reference internal" href="../http/GenerateTitleXml.html"><span class="doc">GenerateTitleXml</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">documentVersion</span> <span class="pre">=</span> <span class="pre">utd820_05_01_02_hyphen</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Титул исполнителя</p></td>
+<td><p>Приказ №552</p></td>
+<td><p><a class="reference internal" href="../http/GenerateTitleXml.html"><span class="doc">GenerateTitleXml</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">documentVersion</span> <span class="pre">=</span> <span class="pre">rezru_05_01_02</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Титул заказчика</p></td>
+<td><p>Приказ №552</p></td>
+<td><p><a class="reference internal" href="../http/GenerateTitleXml.html"><span class="doc">GenerateTitleXml</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">documentVersion</span> <span class="pre">=</span> <span class="pre">rezru_05_01_02</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h2>Парсинг<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<table class="colwidths-given docutils align-default" id="id10">
+<caption><span class="caption-text">Соответствие формата накладных и AttachmentVersion</span><a class="headerlink" href="#id10" title="Постоянная ссылка на таблицу">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Титул</p></th>
+<th class="head"><p>Формат</p></th>
+<th class="head"><p>Парсинг</p></th>
+<th class="head"><p>DocumentVersion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Титул исполнителя</p></td>
+<td><p>Приказ №820</p></td>
+<td><p><a class="reference internal" href="../http/ParseTitleXml.html"><span class="doc">ParseTitleXml</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">documentVersion</span> <span class="pre">=</span> <span class="pre">utd820_05_01_02_hyphen</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Титул заказчика</p></td>
+<td><p>Приказ №820</p></td>
+<td><p><a class="reference internal" href="../http/ParseTitleXml.html"><span class="doc">ParseTitleXml</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">documentVersion</span> <span class="pre">=</span> <span class="pre">utd820_05_01_02_hyphen</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Титул исполнителя</p></td>
+<td><p>Приказ №552</p></td>
+<td><p><a class="reference internal" href="../http/ParseTitleXml.html"><span class="doc">ParseTitleXml</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">documentVersion</span> <span class="pre">=</span> <span class="pre">rezru_05_01_02</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Титул заказчика</p></td>
+<td><p>Приказ №552</p></td>
+<td><p><a class="reference internal" href="../http/ParseTitleXml.html"><span class="doc">ParseTitleXml</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">documentVersion</span> <span class="pre">=</span> <span class="pre">rezru_05_01_02</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id6">
+<h2>Подписант<a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Акты в форматах №820, №552 подразумевают расширенный набор полей для подписантов. Этот набор полей не содержится ни в сертификате, ни в данных организации.</p>
+<p>Автоматическое заполнение происходит, если в Диадоке есть дополнительные данные, необходимые для подписания. Если дополнительных данных, необходимых для подписания в Диадоке нет, то будет возникать ошибка.</p>
+<p>Расширенные данные можно заполнить методом <a class="reference internal" href="../http/utd/ExtendedSignerDetailsV2.html"><span class="doc">ExtendedSignerDetails</span></a>.</p>
+</div>
+<div class="section" id="id7">
+<h2>Порядок обмена<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Порядок обмена электронными актами между компаниями через Диадок описан <a class="reference external" href="https://wiki.diadoc.ru/pages/viewpage.action?pageId=1147084">здесь</a></p>
+</div>
+<p>Схема, приведенная ниже, демонстрирует порядок обмена электронными актами, реализованный в Диадоке:</p>
+<ol class="arabic simple">
+<li><p>Исполнитель формирует титул исполнителя акта <em>XmlAcceptanceCertificate</em><sub>1</sub>, подписывает его и направляет Заказчику.</p></li>
+<li><p>Диадок доставляет титул исполнителя акта <em>XmlAcceptanceCertificate</em><sub>2</sub>до Заказчика.</p></li>
+<li><p>Заказчик получает титул исполнителя акта <em>XmlAcceptanceCertificate</em><sub>2</sub>, и формирует в ответ титул заказчика акта <em>XmlAcceptanceCertificateBuyerTitle</em><sub>3</sub>, подписывает его и отправляет в сторону Исполнителя.</p></li>
+<li><p>Диадок доставляет титул заказчика акта <em>XmlAcceptanceCertificateBuyerTitle</em><sub>4</sub>до Исполнителя.</p></li>
+<li><p>Если Заказчик обнаружил ошибки в полученном титуле исполнителя акта, он формирует отказ в подписи <em>XmlSignatureRejection</em><sub>5</sub>, подписывает его и направляет Исполнителя.</p></li>
+<li><p>Диадок доставляет отказ в подписи <em>XmlSignatureRejection</em><sub>5</sub>до Исполнителя.</p></li>
+</ol>
+<img alt="../_images/scheme-03-akt-docflow.png" class="align-center" src="../_images/scheme-03-akt-docflow.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="UtdDocflow.html" class="btn btn-neutral float-right" title="Документооборот УПД" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Torg12Docflow.html" class="btn btn-neutral float-left" title="Документооборот накладных" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

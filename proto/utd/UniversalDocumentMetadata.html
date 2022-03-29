@@ -1,0 +1,501 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>UniversalDocumentMetadata &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../search.html" />
+    <link rel="next" title="UniversalTransferDocumentBuyerTitleInfo" href="UniversalTransferDocumentBuyerTitleInfo.html" />
+    <link rel="prev" title="UniversalCorrectionDocumentSellerTitleInfo" href="UniversalCorrectionDocumentSellerTitleInfo.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../docflows/AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../http/GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docflows/InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docflows/Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docflows/AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docflows/UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docflows/NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docflows/TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../API_UniversalTransferDocument.html">Работа с УПД</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../http/GenerateTitleXml.html">GenerateTitleXml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../http/GenerateReceiptXml.html">GenerateReceiptXml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../http/utd/ExtendedSignerDetailsV2.html">ExtendedSignerDetails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../http/PrepareDocumentsToSign.html">PrepareDocumentsToSign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../http/PostMessage.html">PostMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../http/PostMessagePatch.html">PostMessagePatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../http/ParseTitleXml.html">ParseTitleXml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ExtendedOrganizationInfo.html">ExtendedOrganizationInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ExtendedSigner.html">ExtendedSigner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ExtendedSignerDetailsToPost.html">ExtendedSignerDetailsToPost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalCorrectionDocumentSellerTitleInfo.html">UniversalCorrectionDocumentSellerTitleInfo</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">UniversalDocumentMetadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalTransferDocumentBuyerTitleInfo.html">UniversalTransferDocumentBuyerTitleInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalTransferDocumentSellerTitleInfo.html">UniversalTransferDocumentSellerTitleInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PrepareDocumentsToSignRequest.html">PrepareDocumentsToSignRequest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PrepareDocumentsToSignResponse.html">PrepareDocumentsToSignResponse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Messages.html">Работа с сообщениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../API_Invoices.html">Работа со счетами-фактурами</a> &raquo;</li>
+        
+      <li>UniversalDocumentMetadata</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/proto/utd/UniversalDocumentMetadata.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="universaldocumentmetadata">
+<h1>UniversalDocumentMetadata<a class="headerlink" href="#universaldocumentmetadata" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span> <span class="nc">UniversalTransferDocumentMetadata</span> <span class="p">{</span>
+    <span class="k">optional</span> <span class="n">UniversalTransferDocumentStatus</span> <span class="na">DocumentStatus</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="n">UnknownDocumentStatus</span><span class="p">];</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">Total</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// TotalSum;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">Vat</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">//TotalVat;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">Grounds</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// DocumentGrounds</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">DocumentFunction</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">int32</span> <span class="na">Currency</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">sfixed64</span> <span class="na">ConfirmationDateTimeTicks</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">int32</span> <span class="na">InvoiceAmendmentFlags</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span> <span class="nc">UniversalTransferDocumentRevisionMetadata</span> <span class="p">{</span>
+    <span class="k">required</span> <span class="n">UniversalTransferDocument.UniversalTransferDocumentStatus</span> <span class="na">DocumentStatus</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">Total</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// TotalSum;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">Vat</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">//TotalVat;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">Grounds</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// DocumentGrounds</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">DocumentFunction</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">int32</span> <span class="na">Currency</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">sfixed64</span> <span class="na">ConfirmationDateTimeTicks</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">int32</span> <span class="na">InvoiceAmendmentFlags</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">OriginalInvoiceNumber</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">OriginalInvoiceDate</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span> <span class="nc">UniversalCorrectionDocumentMetadata</span> <span class="p">{</span>
+    <span class="k">required</span> <span class="n">UniversalTransferDocument.UniversalTransferDocumentStatus</span> <span class="na">DocumentStatus</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">TotalInc</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">TotalDec</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">VatInc</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">VatDec</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">Grounds</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span> <span class="c1">// DocumentGrounds</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">DocumentFunction</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">int32</span> <span class="na">Currency</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">sfixed64</span> <span class="na">ConfirmationDateTimeTicks</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">int32</span> <span class="na">InvoiceAmendmentFlags</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">OriginalInvoiceNumber</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">OriginalInvoiceDate</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">OriginalInvoiceRevisionNumber</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">OriginalInvoiceRevisionDate</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span> <span class="nc">UniversalCorrectionDocumentRevisionMetadata</span> <span class="p">{</span>
+    <span class="k">required</span> <span class="n">UniversalTransferDocument.UniversalTransferDocumentStatus</span> <span class="na">DocumentStatus</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">TotalInc</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">TotalDec</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">VatInc</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">VatDec</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">Grounds</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span> <span class="c1">// DocumentGrounds</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">DocumentFunction</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">int32</span> <span class="na">Currency</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">sfixed64</span> <span class="na">ConfirmationDateTimeTicks</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">int32</span> <span class="na">InvoiceAmendmentFlags</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">OriginalInvoiceNumber</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">OriginalInvoiceDate</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">OriginalInvoiceRevisionNumber</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">OriginalInvoiceRevisionDate</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">OriginalInvoiceCorrectionNumber</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">OriginalInvoiceCorrectionDate</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">enum</span> <span class="n">UniversalTransferDocumentStatus</span> <span class="p">{</span>
+    <span class="na">UnknownDocumentStatus</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// This type will be reported to legacy client when it receives unknown status from server</span>
+    <span class="na">OutboundWaitingForSenderSignature</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="na">OutboundWaitingForInvoiceReceiptAndRecipientSignature</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="na">OutboundWaitingForInvoiceReceipt</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="na">OutboundWaitingForRecipientSignature</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="na">OutboundWithRecipientSignature</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="na">OutboundRecipientSignatureRequestRejected</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+    <span class="na">OutboundInvalidSenderSignature</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="na">OutboundNotFinished</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="na">OutboundFinished</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+
+    <span class="na">InboundWaitingForRecipientSignature</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+    <span class="na">InboundWithRecipientSignature</span> <span class="o">=</span> <span class="mi">17</span><span class="p">;</span>
+    <span class="na">InboundRecipientSignatureRequestRejected</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+    <span class="na">InboundInvalidRecipientSignature</span> <span class="o">=</span> <span class="mi">19</span><span class="p">;</span>
+    <span class="na">InboundNotFinished</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="na">InboundFinished</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Структура данных <em>UniversalTransferDocumentMetadata</em> содержит дополнительные атрибуты документа (в структуре <a class="reference internal" href="../Document.html"><span class="doc">Document</span></a>) специфичные для УПД:</p>
+<ul>
+<li><p><em>DocumentStatus</em> определяет состояние, в котором находится документооборот по данному УПД; принимает одно из значений перечисления <em>UniversalTransferDocumentStatus</em>.</p></li>
+<li><p><em>Total</em> - сумма УПД (берется из самого файла УПД).</p></li>
+<li><p><em>Vat</em> - сумма НДС УПД (берется из самого файла УПД).</p></li>
+<li><p><em>Grounds</em> - основания для первичного документа; представляются в виде неформализованной строки текста, например, «Договор №1234, Заказ №321».</p></li>
+<li><p><em>DocumentFunction</em> -</p></li>
+<li><p><em>Currency</em> - код валюты УПД (берется из самого файла УПД).</p></li>
+<li><p><em>ConfirmationDateTimeTicks</em> - метка времени подтверждения оператора ДО об отправке исходящего УПД или о доставке входящего УПД. Представляет собой целое число тиков (100-наносекундных интервалов), прошедших с момента времени 00:00:00 01.01.0001. Данная метка представляет момент времени в московском часовом поясе (GMT+4).</p></li>
+<li><p><a class="reference internal" href="../InvoiceAmendmentFlags.html"><span class="doc">InvoiceAmendmentFlags</span></a> отражает статус данного УПД:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>было ли затребовано уточнение, передавалось ли исправление УПД, передавался ли УКД;</p></li>
+<li><p>представляет собой битовую маску, составленную из одного или нескольких значений перечисления <a class="reference internal" href="../InvoiceAmendmentFlags.html"><span class="doc">InvoiceAmendmentFlags</span></a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Структура данных <em>UniversalTransferDocumentRevisionMetadata</em> содержит дополнительные атрибуты документа (в структуре <a class="reference internal" href="../Document.html"><span class="doc">Document</span></a>) специфичные для исправлений УПД:</p>
+<ul>
+<li><p><em>DocumentStatus</em> определяет состояние, в котором находится документооборот по данному исправлению УПД; принимает одно из значений перечисления <em>UniversalTransferDocumentStatus</em>.</p></li>
+<li><p><em>OriginalInvoiceNumber</em> - номер исходного УПД (берется из самого файла исправления УПД).</p></li>
+<li><p><em>OriginalInvoiceDate</em> - дата исходного УПД в формате ДД.ММ.ГГГГ (берется из самого файла исправления УПД).</p></li>
+<li><p><em>Total</em> - сумма исправления УПД (берется из самого файла исправления УПД).</p></li>
+<li><p><em>Vat</em> - сумма НДС исправления УПД (берется из самого файла исправления УПД).</p></li>
+<li><p><em>Grounds</em> - основания для первичного документа; представляются в виде неформализованной строки текста, например, «Договор №1234, Заказ №321».</p></li>
+<li><p><em>DocumentFunction</em> -</p></li>
+<li><p><em>Currency</em> - код валюты исправления УПД (берется из самого файла исправления УПД).</p></li>
+<li><p><em>ConfirmationDateTimeTicks</em> - метка времени подтверждения оператора ДО об отправке исходящего исправления УПД или о доставке входящего исправления УПД.
+Представляет собой целое число тиков (100-наносекундных интервалов), прошедших с момента времени 00:00:00 01.01.0001. Данная метка представляет момент времени в московском часовом поясе (GMT+4).</p></li>
+<li><p><a class="reference internal" href="../InvoiceAmendmentFlags.html"><span class="doc">InvoiceAmendmentFlags</span></a> отражает статус данного исправления УПД:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>было ли затребовано уточнение, передавалось ли исправление УПД, передавался ли УКД;</p></li>
+<li><p>представляет собой битовую маску, составленную из одного или нескольких значений перечисления <a class="reference internal" href="../InvoiceAmendmentFlags.html"><span class="doc">InvoiceAmendmentFlags</span></a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Структура данных <em>UniversalCorrectionDocumentMetadata</em> содержит дополнительные атрибуты документа (в структуре <a class="reference internal" href="../Document.html"><span class="doc">Document</span></a>) специфичные для УКД:</p>
+<ul>
+<li><p><em>DocumentStatus</em> определяет состояние, в котором находится документооборот по данному УКД; принимает одно из значений перечисления <em>UniversalTransferDocumentStatus</em>.</p></li>
+<li><p><em>OriginalInvoiceNumber</em> - номер исходного УПД (берется из самого файла УКД).</p></li>
+<li><p><em>OriginalInvoiceDate</em> - дата исходного УПД в формате ДД.ММ.ГГГГ (берется из самого файла УКД).</p></li>
+<li><p><em>OriginalInvoiceRevisionNumber</em> - номер исходного исправления УПД (берется из самого файла УКД, может отсутствовать).</p></li>
+<li><p><em>OriginalInvoiceRevisionDate</em> - дата исходного исправления УКД в формате ДД.ММ.ГГГГ (берется из самого файла УКД, может отсутствовать).</p></li>
+<li><p><em>TotalInc</em> - сумма к доплате УКД (берется из самого файла УКД).</p></li>
+<li><p><em>TotalDec</em> - сумма к уменьшению УКД (берется из самого файла УКД).</p></li>
+<li><p><em>VatInc</em> - сумма НДС к доплате УКД (берется из самого файла УКД).</p></li>
+<li><p><em>VatDec</em> - сумма НДС к уменьшению УКД (берется из самого файла УКД).</p></li>
+<li><p><em>Grounds</em> - основания для первичного документа; представляются в виде неформализованной строки текста, например, «Договор №1234, Заказ №321».</p></li>
+<li><p><em>DocumentFunction</em> -</p></li>
+<li><p><em>Currency</em> - код валюты УКД (берется из самого файла УКД).</p></li>
+<li><p><em>ConfirmationDateTimeTicks</em> - метка времени подтверждения оператора ДО об отправке исходящего КСФ или о доставке входящего КСФ.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Представляет собой целое число тиков (100-наносекундных интервалов), прошедших с момента времени 00:00:00 01.01.0001.</p></li>
+<li><p>Данная метка представляет момент времени в московском часовом поясе (GMT+4).</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><a class="reference internal" href="../InvoiceAmendmentFlags.html"><span class="doc">InvoiceAmendmentFlags</span></a> отражает статус данного УКД:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>было ли затребовано уточнение, передавалось ли исправление УКД;</p></li>
+<li><p>представляет собой битовую маску, составленную из одного или нескольких значений перечисления <a class="reference internal" href="../InvoiceAmendmentFlags.html"><span class="doc">InvoiceAmendmentFlags</span></a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Структура данных <em>UniversalCorrectionDocumentRevisionMetadata</em> содержит дополнительные атрибуты документа (в структуре <a class="reference internal" href="../Document.html"><span class="doc">Document</span></a>) специфичные для исправлений УКД:</p>
+<ul>
+<li><p><em>DocumentStatus</em> определяет состояние, в котором находится документооборот по данному исправлению УКД; принимает одно из значений перечисления <em>UniversalTransferDocumentStatus</em>.</p></li>
+<li><p><em>OriginalInvoiceNumber</em> - номер исходного УПД (берется из самого файла исправления УКД).</p></li>
+<li><p><em>OriginalInvoiceDate</em> - дата исходного УПД в формате ДД.ММ.ГГГГ (берется из самого файла исправления УКД).</p></li>
+<li><p><em>OriginalInvoiceRevisionNumber</em> - номер исходного исправления УПД (берется из самого файла исправления УКД, может отсутствовать).</p></li>
+<li><p><em>OriginalInvoiceRevisionDate</em> - дата исходного исправления УПД в формате ДД.ММ.ГГГГ (берется из самого файла исправления УКД,
+может отсутствовать).</p></li>
+<li><p><em>OriginalInvoiceCorrectionNumber</em> - номер исходного УКД (берется из самого файла исправления УКД).</p></li>
+<li><p><em>OriginalInvoiceCorrectionDate</em> - дата исходного УКД в формате ДД.ММ.ГГГГ (берется из самого файла исправления УКД).</p></li>
+<li><p><em>TotalInc</em> - сумма к доплате исправления УКД (берется из самого файла исправления УКД).</p></li>
+<li><p><em>TotalDec</em> - сумма к уменьшению исправления УКД (берется из самого файла исправления УКД).</p></li>
+<li><p><em>VatInc</em> - сумма НДС к доплате исправления УКД (берется из самого файла исправления УКД).</p></li>
+<li><p><em>VatDec</em> - сумма НДС к уменьшению исправления УКД (берется из самого файла исправления УКД).</p></li>
+<li><p><em>Grounds</em> - основания для первичного документа; представляются в виде неформализованной строки текста, например, «Договор №1234, Заказ №321».</p></li>
+<li><p><em>DocumentFunction</em> -</p></li>
+<li><p><em>Currency</em> - код валюты исправления УКД (берется из самого файла исправления УКД).</p></li>
+<li><dl class="simple">
+<dt><em>ConfirmationDateTimeTicks</em> - метка времени подтверждения оператора ДО об отправке исходящего исправления УКД или о доставке входящего исправления УКД.</dt><dd><ul class="simple">
+<li><p>Представляет собой целое число тиков (100-наносекундных интервалов), прошедших с момента времени 00:00:00 01.01.0001.</p></li>
+<li><p>Данная метка представляет момент времени в московском часовом поясе (GMT+4).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference internal" href="../InvoiceAmendmentFlags.html"><span class="doc">InvoiceAmendmentFlags</span></a> отражает статус данного исправления УКД:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>было ли затребовано уточнение, передавалось ли исправления УКД;</p></li>
+<li><p>представляет собой битовую маску, составленную из одного или нескольких значений перечисления <a class="reference internal" href="../InvoiceAmendmentFlags.html"><span class="doc">InvoiceAmendmentFlags</span></a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Перечисление <em>UniversalTransferDocumentStatus</em> задает возможные варианты состояний, в которых может находиться УПД/ИУПД/УКД/ИУКД:</p>
+<ul class="simple">
+<li><p><em>UnknownDocumentStatus</em> - неизвестный статус; может выдаваться лишь в случае, когда клиент использует устаревшую версию SDK и не может интерпретировать статус документа, переданный сервером,</p></li>
+<li><p><em>OutboundWaitingForSenderSignature</em> - документ исходящий, документ не отправлен, поскольку не подписан отправителем,</p></li>
+<li><p><em>OutboundWaitingForInvoiceReceiptAndRecipientSignature</em> - документ исходящий, от покупателя ожидается извещение о получении УПД/ИУПД/УКД/ИУКД, ответная подпись, либо отказ от ее формирования,</p></li>
+<li><p><em>OutboundWaitingForInvoiceReceipt</em> - документ исходящий, ожидается извещение о получении УПД/ИУПД/УКД/ИУКД от покупателя,</p></li>
+<li><p><em>OutboundWaitingForRecipientSignature</em> - документ исходящий, ответная подпись, либо отказ от ее формирования еще не получены,</p></li>
+<li><p><em>OutboundWithRecipientSignature</em> - документ исходящий, ответная подпись получена,</p></li>
+<li><p><em>OutboundRecipientSignatureRequestRejected</em> - документ исходящий, получен отказ от формирования ответной подписи,</p></li>
+<li><p><em>OutboundInvalidSenderSignature</em> - документ исходящий, документ не отправлен, поскольку подпись отправителя не является корректной,</p></li>
+<li><p><em>OutboundFinished</em> - документ исходящий, документооборот завершен,</p></li>
+<li><p><em>OutboundNotFinished</em> - документ исходящий, извещение о получении УПД/ИУПД/УКД/ИУКД от покупателя уже есть, но документооборот еще не завершен,</p></li>
+<li><p><em>InboundWaitingForRecipientSignature</em> (документ входящий, ответная подпись, либо отказ от ее формирования еще не отправлены),</p></li>
+<li><p><em>InboundWithRecipientSignature</em> (документ входящий, ответная подпись поставлена),</p></li>
+<li><p><em>InboundRecipientSignatureRequestRejected</em> (документ входящий, отправлен отказ от формирования ответной подписи),</p></li>
+<li><p><em>InboundInvalidRecipientSignature</em> (документ входящий, документооборот не завершен, поскольку подпись получателя не является корректной),</p></li>
+<li><p><em>InboundNotFinished</em> (документ входящий, документооборот не завершен),</p></li>
+<li><p><em>InboundFinished</em> (документ входящий, документооборот завершен).</p></li>
+</ul>
+<p>Статус рассчитывается без учета уведомлений об уточнении и извещений об их получении.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="UniversalTransferDocumentBuyerTitleInfo.html" class="btn btn-neutral float-right" title="UniversalTransferDocumentBuyerTitleInfo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="UniversalCorrectionDocumentSellerTitleInfo.html" class="btn btn-neutral float-left" title="UniversalCorrectionDocumentSellerTitleInfo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

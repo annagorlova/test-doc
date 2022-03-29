@@ -1,0 +1,825 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>HTTP Routing Table &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+ 
+
+    <script>
+      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
+    </script>
+
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docflows/AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http/GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docflows/InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docflows/Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docflows/AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docflows/UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docflows/NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docflows/TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="howto/powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_UniversalTransferDocument.html">Работа с УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Messages.html">Работа с сообщениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>HTTP Routing Table</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+   <h1>HTTP Routing Table</h1>
+
+   <div class="modindex-jumpbox">
+   <a href="#cap-/AddEmployeePowerOfAttorney"><strong>/AddEmployeePowerOfAttorney</strong></a> | 
+   <a href="#cap-/CreateEmployee"><strong>/CreateEmployee</strong></a> | 
+   <a href="#cap-/DeleteEmployee"><strong>/DeleteEmployee</strong></a> | 
+   <a href="#cap-/DeleteEmployeePowerOfAttorney"><strong>/DeleteEmployeePowerOfAttorney</strong></a> | 
+   <a href="#cap-/DetectCustomPrintForms"><strong>/DetectCustomPrintForms</strong></a> | 
+   <a href="#cap-/DetectDocumentTitles"><strong>/DetectDocumentTitles</strong></a> | 
+   <a href="#cap-/DetectDocumentTypes"><strong>/DetectDocumentTypes</strong></a> | 
+   <a href="#cap-/DssSign"><strong>/DssSign</strong></a> | 
+   <a href="#cap-/DssSignResult"><strong>/DssSignResult</strong></a> | 
+   <a href="#cap-/ExtendedSignerDetails"><strong>/ExtendedSignerDetails</strong></a> | 
+   <a href="#cap-/GenerateAcceptanceCertificateXmlForBuyer"><strong>/GenerateAcceptanceCertificateXmlForBuyer</strong></a> | 
+   <a href="#cap-/GenerateAcceptanceCertificateXmlForSeller"><strong>/GenerateAcceptanceCertificateXmlForSeller</strong></a> | 
+   <a href="#cap-/GenerateDocumentReceiptXml"><strong>/GenerateDocumentReceiptXml</strong></a> | 
+   <a href="#cap-/GenerateInvoiceDocumentReceiptXml"><strong>/GenerateInvoiceDocumentReceiptXml</strong></a> | 
+   <a href="#cap-/GenerateReceiptXml"><strong>/GenerateReceiptXml</strong></a> | 
+   <a href="#cap-/GenerateRecipientTitleXml"><strong>/GenerateRecipientTitleXml</strong></a> | 
+   <a href="#cap-/GenerateSenderTitleXml"><strong>/GenerateSenderTitleXml</strong></a> | 
+   <a href="#cap-/GenerateTitleXml"><strong>/GenerateTitleXml</strong></a> | 
+   <a href="#cap-/GenerateTorg12XmlForBuyer"><strong>/GenerateTorg12XmlForBuyer</strong></a> | 
+   <a href="#cap-/GenerateTorg12XmlForSeller"><strong>/GenerateTorg12XmlForSeller</strong></a> | 
+   <a href="#cap-/GetDocumentsByMessageId"><strong>/GetDocumentsByMessageId</strong></a> | 
+   <a href="#cap-/GetEmployee"><strong>/GetEmployee</strong></a> | 
+   <a href="#cap-/GetEmployeePowersOfAttorney"><strong>/GetEmployeePowersOfAttorney</strong></a> | 
+   <a href="#cap-/GetEmployees"><strong>/GetEmployees</strong></a> | 
+   <a href="#cap-/GetMyCertificates"><strong>/GetMyCertificates</strong></a> | 
+   <a href="#cap-/GetMyEmployee"><strong>/GetMyEmployee</strong></a> | 
+   <a href="#cap-/GetMyUser"><strong>/GetMyUser</strong></a> | 
+   <a href="#cap-/GetOrganization"><strong>/GetOrganization</strong></a> | 
+   <a href="#cap-/GetOrganizationFeatures"><strong>/GetOrganizationFeatures</strong></a> | 
+   <a href="#cap-/GetPowerOfAttorneyInfo"><strong>/GetPowerOfAttorneyInfo</strong></a> | 
+   <a href="#cap-/GetSubscriptions"><strong>/GetSubscriptions</strong></a> | 
+   <a href="#cap-/GetTemplate"><strong>/GetTemplate</strong></a> | 
+   <a href="#cap-/ParseAcceptanceCertificateBuyerTitleXml"><strong>/ParseAcceptanceCertificateBuyerTitleXml</strong></a> | 
+   <a href="#cap-/ParseAcceptanceCertificateSellerTitleXml"><strong>/ParseAcceptanceCertificateSellerTitleXml</strong></a> | 
+   <a href="#cap-/ParseTitleXml"><strong>/ParseTitleXml</strong></a> | 
+   <a href="#cap-/ParseTorg12BuyerTitleXml"><strong>/ParseTorg12BuyerTitleXml</strong></a> | 
+   <a href="#cap-/ParseTorg12SellerTitleXml"><strong>/ParseTorg12SellerTitleXml</strong></a> | 
+   <a href="#cap-/PostTemplate"><strong>/PostTemplate</strong></a> | 
+   <a href="#cap-/PostTemplatePatch"><strong>/PostTemplatePatch</strong></a> | 
+   <a href="#cap-/PrevalidatePowerOfAttorney"><strong>/PrevalidatePowerOfAttorney</strong></a> | 
+   <a href="#cap-/Register"><strong>/Register</strong></a> | 
+   <a href="#cap-/RegisterConfirm"><strong>/RegisterConfirm</strong></a> | 
+   <a href="#cap-/RegisterPowerOfAttorney"><strong>/RegisterPowerOfAttorney</strong></a> | 
+   <a href="#cap-/RegisterPowerOfAttorneyResult"><strong>/RegisterPowerOfAttorneyResult</strong></a> | 
+   <a href="#cap-/SendFnsRegistrationMessage"><strong>/SendFnsRegistrationMessage</strong></a> | 
+   <a href="#cap-/TransformTemplateToMessage"><strong>/TransformTemplateToMessage</strong></a> | 
+   <a href="#cap-/UpdateEmployee"><strong>/UpdateEmployee</strong></a> | 
+   <a href="#cap-/UpdateEmployeePowerOfAttorney"><strong>/UpdateEmployeePowerOfAttorney</strong></a> | 
+   <a href="#cap-/UpdateMyUser"><strong>/UpdateMyUser</strong></a> | 
+   <a href="#cap-/UpdateSubscriptions"><strong>/UpdateSubscriptions</strong></a> | 
+   <a href="#cap-/V2"><strong>/V2</strong></a> | 
+   <a href="#cap-/V3"><strong>/V3</strong></a> | 
+   <a href="#cap-/admin"><strong>/admin</strong></a>
+   </div>
+
+   <table class="indextable modindextable">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/AddEmployeePowerOfAttorney"><td></td><td>
+       <strong>/AddEmployeePowerOfAttorney</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/AddEmployeePowerOfAttorney.html#post--AddEmployeePowerOfAttorney"><code class="xref">POST /AddEmployeePowerOfAttorney</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/CreateEmployee"><td></td><td>
+       <strong>/CreateEmployee</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/CreateEmployee.html#post--CreateEmployee"><code class="xref">POST /CreateEmployee</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/DeleteEmployee"><td></td><td>
+       <strong>/DeleteEmployee</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/DeleteEmployee.html#post--DeleteEmployee"><code class="xref">POST /DeleteEmployee</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/DeleteEmployeePowerOfAttorney"><td></td><td>
+       <strong>/DeleteEmployeePowerOfAttorney</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/DeleteEmployeePowerOfAttorney.html#post--DeleteEmployeePowerOfAttorney"><code class="xref">POST /DeleteEmployeePowerOfAttorney</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/DetectCustomPrintForms"><td></td><td>
+       <strong>/DetectCustomPrintForms</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/DetectCustomPrintForms.html#post--DetectCustomPrintForms"><code class="xref">POST /DetectCustomPrintForms</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/DetectDocumentTitles"><td></td><td>
+       <strong>/DetectDocumentTitles</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/DetectDocumentTitles.html#get--DetectDocumentTitles"><code class="xref">GET /DetectDocumentTitles</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/DetectDocumentTitles.html#post--DetectDocumentTitles"><code class="xref">POST /DetectDocumentTitles</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/DetectDocumentTypes"><td></td><td>
+       <strong>/DetectDocumentTypes</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/DetectDocumentTypes.html#post--DetectDocumentTypes"><code class="xref">POST /DetectDocumentTypes</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/DssSign"><td></td><td>
+       <strong>/DssSign</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/DssSign.html#post--DssSign"><code class="xref">POST /DssSign</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/DssSignResult"><td></td><td>
+       <strong>/DssSignResult</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/DssSignResult.html#get--DssSignResult"><code class="xref">GET /DssSignResult</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/ExtendedSignerDetails"><td></td><td>
+       <strong>/ExtendedSignerDetails</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/utd/ExtendedSignerDetails.html#get--ExtendedSignerDetails"><code class="xref">GET /ExtendedSignerDetails</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/utd/ExtendedSignerDetails.html#post--ExtendedSignerDetails"><code class="xref">POST /ExtendedSignerDetails</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GenerateAcceptanceCertificateXmlForBuyer"><td></td><td>
+       <strong>/GenerateAcceptanceCertificateXmlForBuyer</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GenerateAcceptanceCertificateXmlForBuyer.html#post--GenerateAcceptanceCertificateXmlForBuyer"><code class="xref">POST /GenerateAcceptanceCertificateXmlForBuyer</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GenerateAcceptanceCertificateXmlForSeller"><td></td><td>
+       <strong>/GenerateAcceptanceCertificateXmlForSeller</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GenerateAcceptanceCertificateXmlForSeller.html#post--GenerateAcceptanceCertificateXmlForSeller"><code class="xref">POST /GenerateAcceptanceCertificateXmlForSeller</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GenerateDocumentReceiptXml"><td></td><td>
+       <strong>/GenerateDocumentReceiptXml</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GenerateDocumentReceiptXml.html#post--GenerateDocumentReceiptXml"><code class="xref">POST /GenerateDocumentReceiptXml</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GenerateInvoiceDocumentReceiptXml"><td></td><td>
+       <strong>/GenerateInvoiceDocumentReceiptXml</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GenerateInvoiceDocumentReceiptXml.html#post--GenerateInvoiceDocumentReceiptXml"><code class="xref">POST /GenerateInvoiceDocumentReceiptXml</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GenerateReceiptXml"><td></td><td>
+       <strong>/GenerateReceiptXml</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GenerateReceiptXml.html#post--GenerateReceiptXml"><code class="xref">POST /GenerateReceiptXml</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GenerateRecipientTitleXml"><td></td><td>
+       <strong>/GenerateRecipientTitleXml</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GenerateRecipientTitleXml.html#post--GenerateRecipientTitleXml"><code class="xref">POST /GenerateRecipientTitleXml</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GenerateSenderTitleXml"><td></td><td>
+       <strong>/GenerateSenderTitleXml</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GenerateSenderTitleXml.html#post--GenerateSenderTitleXml"><code class="xref">POST /GenerateSenderTitleXml</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GenerateTitleXml"><td></td><td>
+       <strong>/GenerateTitleXml</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GenerateTitleXml.html#post--GenerateTitleXml"><code class="xref">POST /GenerateTitleXml</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GenerateTorg12XmlForBuyer"><td></td><td>
+       <strong>/GenerateTorg12XmlForBuyer</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GenerateTorg12XmlForBuyer.html#post--GenerateTorg12XmlForBuyer"><code class="xref">POST /GenerateTorg12XmlForBuyer</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GenerateTorg12XmlForSeller"><td></td><td>
+       <strong>/GenerateTorg12XmlForSeller</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GenerateTorg12XmlForSeller.html#post--GenerateTorg12XmlForSeller"><code class="xref">POST /GenerateTorg12XmlForSeller</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GetDocumentsByMessageId"><td></td><td>
+       <strong>/GetDocumentsByMessageId</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetDocumentsByMessageId.html#get--GetDocumentsByMessageId"><code class="xref">GET /GetDocumentsByMessageId</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GetEmployee"><td></td><td>
+       <strong>/GetEmployee</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetEmployee.html#get--GetEmployee"><code class="xref">GET /GetEmployee</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GetEmployeePowersOfAttorney"><td></td><td>
+       <strong>/GetEmployeePowersOfAttorney</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetEmployeePowersOfAttorney.html#get--GetEmployeePowersOfAttorney"><code class="xref">GET /GetEmployeePowersOfAttorney</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GetEmployees"><td></td><td>
+       <strong>/GetEmployees</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetEmployees.html#get--GetEmployees"><code class="xref">GET /GetEmployees</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GetMyCertificates"><td></td><td>
+       <strong>/GetMyCertificates</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetMyCertificates.html#get--GetMyCertificates"><code class="xref">GET /GetMyCertificates</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GetMyEmployee"><td></td><td>
+       <strong>/GetMyEmployee</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetMyEmployee.html#get--GetMyEmployee"><code class="xref">GET /GetMyEmployee</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GetMyUser"><td></td><td>
+       <strong>/GetMyUser</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetMyUser.html#get--GetMyUser"><code class="xref">GET /GetMyUser</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GetOrganization"><td></td><td>
+       <strong>/GetOrganization</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetOrganization.html#get--GetOrganization"><code class="xref">GET /GetOrganization</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GetOrganizationFeatures"><td></td><td>
+       <strong>/GetOrganizationFeatures</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/Organizations/GetOrganizationFeatures.html#get--GetOrganizationFeatures"><code class="xref">GET /GetOrganizationFeatures</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GetPowerOfAttorneyInfo"><td></td><td>
+       <strong>/GetPowerOfAttorneyInfo</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetPowerOfAttorneyInfo.html#get--GetPowerOfAttorneyInfo"><code class="xref">GET /GetPowerOfAttorneyInfo</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GetSubscriptions"><td></td><td>
+       <strong>/GetSubscriptions</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetSubscriptions.html#get--GetSubscriptions"><code class="xref">GET /GetSubscriptions</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/GetTemplate"><td></td><td>
+       <strong>/GetTemplate</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetTemplate.html#get--GetTemplate"><code class="xref">GET /GetTemplate</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/ParseAcceptanceCertificateBuyerTitleXml"><td></td><td>
+       <strong>/ParseAcceptanceCertificateBuyerTitleXml</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/ParseAcceptanceCertificateBuyerTitleXml.html#post--ParseAcceptanceCertificateBuyerTitleXml"><code class="xref">POST /ParseAcceptanceCertificateBuyerTitleXml</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/ParseAcceptanceCertificateSellerTitleXml"><td></td><td>
+       <strong>/ParseAcceptanceCertificateSellerTitleXml</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/ParseAcceptanceCertificateSellerTitleXml.html#post--ParseAcceptanceCertificateSellerTitleXml"><code class="xref">POST /ParseAcceptanceCertificateSellerTitleXml</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/ParseTitleXml"><td></td><td>
+       <strong>/ParseTitleXml</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/ParseTitleXml.html#post--ParseTitleXml"><code class="xref">POST /ParseTitleXml</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/ParseTorg12BuyerTitleXml"><td></td><td>
+       <strong>/ParseTorg12BuyerTitleXml</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/ParseTorg12BuyerTitleXml.html#post--ParseTorg12BuyerTitleXml"><code class="xref">POST /ParseTorg12BuyerTitleXml</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/ParseTorg12SellerTitleXml"><td></td><td>
+       <strong>/ParseTorg12SellerTitleXml</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/ParseTorg12SellerTitleXml.html#post--ParseTorg12SellerTitleXml"><code class="xref">POST /ParseTorg12SellerTitleXml</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/PostTemplate"><td></td><td>
+       <strong>/PostTemplate</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/PostTemplate.html#post--PostTemplate"><code class="xref">POST /PostTemplate</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/PostTemplatePatch"><td></td><td>
+       <strong>/PostTemplatePatch</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/PostTemplatePatch.html#post--PostTemplatePatch"><code class="xref">POST /PostTemplatePatch</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/PrevalidatePowerOfAttorney"><td></td><td>
+       <strong>/PrevalidatePowerOfAttorney</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/PrevalidatePowerOfAttorney.html#post--PrevalidatePowerOfAttorney"><code class="xref">POST /PrevalidatePowerOfAttorney</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/Register"><td></td><td>
+       <strong>/Register</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/Register.html#post--Register"><code class="xref">POST /Register</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/RegisterConfirm"><td></td><td>
+       <strong>/RegisterConfirm</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/RegisterConfirm.html#post--RegisterConfirm"><code class="xref">POST /RegisterConfirm</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/RegisterPowerOfAttorney"><td></td><td>
+       <strong>/RegisterPowerOfAttorney</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/RegisterPowerOfAttorney.html#post--RegisterPowerOfAttorney"><code class="xref">POST /RegisterPowerOfAttorney</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/RegisterPowerOfAttorneyResult"><td></td><td>
+       <strong>/RegisterPowerOfAttorneyResult</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/RegisterPowerOfAttorneyResult.html#get--RegisterPowerOfAttorneyResult"><code class="xref">GET /RegisterPowerOfAttorneyResult</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/SendFnsRegistrationMessage"><td></td><td>
+       <strong>/SendFnsRegistrationMessage</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/SendFnsRegistrationMessage.html#post--SendFnsRegistrationMessage"><code class="xref">POST /SendFnsRegistrationMessage</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/TransformTemplateToMessage"><td></td><td>
+       <strong>/TransformTemplateToMessage</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/TransformTemplateToMessage.html#post--TransformTemplateToMessage"><code class="xref">POST /TransformTemplateToMessage</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/UpdateEmployee"><td></td><td>
+       <strong>/UpdateEmployee</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/UpdateEmployee.html#post--UpdateEmployee"><code class="xref">POST /UpdateEmployee</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/UpdateEmployeePowerOfAttorney"><td></td><td>
+       <strong>/UpdateEmployeePowerOfAttorney</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/UpdateEmployeePowerOfAttorney.html#post--UpdateEmployeePowerOfAttorney"><code class="xref">POST /UpdateEmployeePowerOfAttorney</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/UpdateMyUser"><td></td><td>
+       <strong>/UpdateMyUser</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/UpdateMyUser.html#post--UpdateMyUser"><code class="xref">POST /UpdateMyUser</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/UpdateSubscriptions"><td></td><td>
+       <strong>/UpdateSubscriptions</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/UpdateSubscriptions.html#post--UpdateSubscriptions"><code class="xref">POST /UpdateSubscriptions</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/V2"><td></td><td>
+       <strong>/V2</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/utd/ExtendedSignerDetailsV2.html#get--V2-ExtendedSignerDetails"><code class="xref">GET /V2/ExtendedSignerDetails</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetDocumentTypes.html#get--V2-GetDocumentTypes"><code class="xref">GET /V2/GetDocumentTypes</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetMyUser.html#get--V2-GetMyUser"><code class="xref">GET /V2/GetMyUser</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/utd/ExtendedSignerDetailsV2.html#post--V2-ExtendedSignerDetails"><code class="xref">POST /V2/ExtendedSignerDetails</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/V3"><td></td><td>
+       <strong>/V3</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetDocuments.html#get--V3-GetDocuments"><code class="xref">GET /V3/GetDocuments</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/Authenticate.html#post--V3-Authenticate"><code class="xref">POST /V3/Authenticate</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetDocflowEvents_V3.html#post--V3-GetDocflowEvents"><code class="xref">POST /V3/GetDocflowEvents</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetDocflows_V3.html#post--V3-GetDocflows"><code class="xref">POST /V3/GetDocflows</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/GetDocflowsByPacketId_V3.html#post--V3-GetDocflowsByPacketId"><code class="xref">POST /V3/GetDocflowsByPacketId</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/SearchDocflows_V3.html#post--V3-SearchDocflows"><code class="xref">POST /V3/SearchDocflows</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/admin"><td></td><td>
+       <strong>/admin</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/Departments/GetDepartment.html#get--admin-GetDepartment"><code class="xref">GET /admin/GetDepartment</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/Departments/GetDepartments.html#get--admin-GetDepartments"><code class="xref">GET /admin/GetDepartments</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/Departments/CreateDepartment.html#post--admin-CreateDepartment"><code class="xref">POST /admin/CreateDepartment</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/Departments/DeleteDepartment.html#post--admin-DeleteDepartment"><code class="xref">POST /admin/DeleteDepartment</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="http/Departments/UpdateDepartment.html#post--admin-UpdateDepartment"><code class="xref">POST /admin/UpdateDepartment</code></a></td><td>
+       <em></em></td></tr>
+   </table>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

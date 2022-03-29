@@ -1,0 +1,376 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Authenticate &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="GetExternalServiceAuthInfo" href="GetExternalServiceAuthInfo.html" />
+    <link rel="prev" title="Авторизация" href="../Authorization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howto/powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../Authorization.html">Авторизация</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Authenticate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetExternalServiceAuthInfo.html">GetExternalServiceAuthInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proto/ExternalServiceAuthInfo.html">ExternalServiceAuthInfo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_UniversalTransferDocument.html">Работа с УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Messages.html">Работа с сообщениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../Authorization.html">Авторизация</a> &raquo;</li>
+        
+      <li>Authenticate</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/http/Authenticate.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="authenticate">
+<h1>Authenticate<a class="headerlink" href="#authenticate" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="contents local topic" id="id1">
+<ul class="simple">
+<li><p><a class="reference internal" href="#authenticate-v3" id="id3">Authenticate v3</a></p></li>
+<li><p><a class="reference internal" href="#authenticate-v2" id="id4">Authenticate v2</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id5">Authenticate</a></p></li>
+</ul>
+</div>
+<div class="section" id="authenticate-v3">
+<h2><a class="toc-backref" href="#id3">Authenticate v3</a><a class="headerlink" href="#authenticate-v3" title="Ссылка на этот заголовок">¶</a></h2>
+<dl class="http post">
+<dt id="post--V3-Authenticate">
+<code class="sig-name descname"><span class="pre">POST</span> </code><code class="sig-name descname"><span class="pre">/V3/Authenticate</span></code><a class="headerlink" href="#post--V3-Authenticate" title="Ссылка на это определение">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Request Headers</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a> – данные, необходимые для <a class="reference internal" href="../Authorization.html"><span class="doc">авторизации</span></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Query Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>type</strong> – Параметр type обозначает метод, которым пользователь хочет аутентифицироваться. Параметр не может быть пустым и принимает значения</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – операция успешно завершена;</p></li>
+<li><p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> – данные в запросе имеют неверный формат или отсутствуют обязательные параметры;</p></li>
+<li><p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> – в запросе отсутствует HTTP-заголовок <code class="docutils literal notranslate"><span class="pre">Authorization</span></code>, или в этом заголовке отсутствует параметр <em>ddauth_api_client_id</em>, или переданный в нем ключ разработчика не зарегистрирован в Диадоке;</p></li>
+<li><p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6">405 Method Not Allowed</a> – используется неподходящий HTTP-метод;</p></li>
+<li><p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1">500 Internal Server Error</a> – при обработке запроса возникла непредвиденная ошибка.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Параметр <em>type</em> может принимать значения:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>password - логин и пароль</p></li>
+<li><p>sid - <a class="reference external" href="https://docs-ke.readthedocs.io/ru/latest/auth/auth.sid.html">auth.sid</a> из API Аутентификатора</p></li>
+<li><p>certificate - сертификат</p></li>
+<li><p>trust - доверительная аутентификаци</p></li>
+</ul>
+</div></blockquote>
+<p>В версии v3 от передаваемого параметра <em>type</em> зависит тело запроса.</p>
+<ul class="simple">
+<li><p><strong>Аутентификация по логину и паролю</strong> :</p></li>
+</ul>
+<p>Необходимо указывать type - password, и в теле запроса передавать сериализованный объект.
+Возможно передавать данные в формате json, в этом случае необходимо указать заголовок <em>Content-Type: application/json</em></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;login&quot;</span> <span class="p">:</span> <span class="s2">&quot;login&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;password&quot;</span> <span class="p">:</span> <span class="s2">&quot;pass&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Либо передавать в формате protobuf. В этом случае Content-Type указывать не обязательно, так как по умолчанию десериализация происходит из protobuf.</p>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span> <span class="nc">LoginPassword</span> <span class="p">{</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">Login</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">Password</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Аутентификация по auth.sid API аутентификатора</strong> :</p></li>
+</ul>
+<p>Необходимо указать type - sid, в теле запроса передавая <a class="reference external" href="https://docs-ke.readthedocs.io/ru/latest/auth/auth.sid.html">auth.sid</a> c заголовком <em>Content-Type: text/plain</em></p>
+<ul class="simple">
+<li><p><strong>Аутентификация по сертификату</strong>:</p></li>
+</ul>
+<p>Необходимо указать type - certificate, в тело запроса передать бинарное содержимое открытого ключа сертификата c заголовком
+<em>Content-Type: application/octet-stream</em>.</p>
+<p>В ответе метода возвращается зашифрованная строка. Полученный ответ следует расшифровать закрытым ключом сертификата. Расшифрованный файл надо декодировать, преобразовать все символы полученной base64 строки в URL формат и передать результат на вход <a class="reference internal" href="AuthenticateConfirm.html"><span class="doc">AuthenticateConfirm</span></a></p>
+<ul class="simple">
+<li><p><strong>Доверительная аутентификация</strong></p></li>
+</ul>
+<p>Чтобы сохранить привязку(Binding) для доверительной аутентификации, необходимо авторизоваться с помощью пароля или сертификата, с указанием заголовков:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>X-Diadoc-ServiceKey (ServiceKey)</p></li>
+<li><p>X-Diadoc-ServiceUserId (ServiceUserId)</p></li>
+</ul>
+</div></blockquote>
+<p>Чтобы воспользоваться доверительной аутентификацией, необходимо указать type - trust, с указанием заголовков X-Diadoc-ServiceKey, X-Diadoc-ServiceUserId, после создания привязки.</p>
+</div>
+<div class="section" id="authenticate-v2">
+<h2><a class="toc-backref" href="#id4">Authenticate v2</a><a class="headerlink" href="#authenticate-v2" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Метод устарел</p>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id5">Authenticate</a><a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Метод устарел</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="GetExternalServiceAuthInfo.html" class="btn btn-neutral float-right" title="GetExternalServiceAuthInfo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Authorization.html" class="btn btn-neutral float-left" title="Авторизация" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

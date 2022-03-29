@@ -1,0 +1,496 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>DocumentInfoV3 &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="DocumentType" href="DocumentType.html" />
+    <link rel="prev" title="DocumentInfo" href="DocumentInfo.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../http/GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howto/powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_UniversalTransferDocument.html">Работа с УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Messages.html">Работа с сообщениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../Docflow%20API.html">Docflow API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../http/GetDocflows_V3.html">GetDocflows (версия 3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/GetDocflowsByPacketId_V3.html">GetDocflowsByPacketId (версия 3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/SearchDocflows_V3.html">SearchDocflows (версия 3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/GetDocflowEvents_V3.html">GetDocflowEvents (версия 3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/GetDocflows.html">GetDocflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/GetDocflowsByPacketId.html">GetDocflowsByPacketId</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/SearchDocflows.html">SearchDocflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/GetDocflowEvents.html">GetDocflowEvents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Attachment.html">Attachment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicDocumentInfo.html">BasicDocumentInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BilateralDocflow.html">BilateralDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BuyerTitleDocflow.html">BuyerTitleDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CertificateChainElement.html">CertificateChainElement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CertificateVerificationResult.html">CertificateVerificationResult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Content.html">Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ContractDocumentInfo.html">ContractDocumentInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CustomDataItem.html">CustomDataItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Docflow.html">Docflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocflowV3.html">DocflowV3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocflowEvent.html">DocflowEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocflowEventV3.html">DocflowEventV3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocflowStatus.html">DocflowStatus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocflowStatusV3.html">DocflowStatusV3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocflowStatusModel.html">DocflowStatusModel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocflowStatusModelV3.html">DocflowStatusModelV3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocflowStatusSeverity.html">DocflowStatusSeverity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocumentDateAndNumber.html">DocumentDateAndNumber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocumentDirection.html">DocumentDirection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocumentId.html">DocumentId</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocumentInfo.html">DocumentInfo</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DocumentInfoV3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocumentType.html">DocumentType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocumentWithDocflow.html">DocumentWithDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DocumentWithDocflowV3.html">DocumentWithDocflowV3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Entity.html">Entity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FetchedDocument.html">FetchedDocument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FetchedDocumentV3.html">FetchedDocumentV3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetDocflowBatchRequest.html">GetDocflowBatchRequest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetDocflowBatchResponse.html">GetDocflowBatchResponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetDocflowBatchResponseV3.html">GetDocflowBatchResponseV3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetDocflowEventsRequest.html">GetDocflowEventsRequest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetDocflowEventsResponse.html">GetDocflowEventsResponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetDocflowEventsResponseV3.html">GetDocflowEventsResponseV3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetDocflowRequest.html">GetDocflowRequest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetDocflowsByPacketIdRequest.html">GetDocflowsByPacketIdRequest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetDocflowsByPacketIdResponse.html">GetDocflowsByPacketIdResponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GetDocflowsByPacketIdResponseV3.html">GetDocflowsByPacketIdResponseV3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InboundInvoiceDocflow.html">InboundInvoiceDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InboundInvoiceReceiptDocflow.html">InboundInvoiceReceiptDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InvoiceConfirmationDocflow.html">InvoiceConfirmationDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InvoiceCorrectionDocumentInfo.html">InvoiceCorrectionDocumentInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InvoiceCorrectionRequestDocflow.html">InvoiceCorrectionRequestDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InvoiceDocumentInfo.html">InvoiceDocumentInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OutboundInvoiceDocflow.html">OutboundInvoiceDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OuterDocflow.html">OuterDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OuterDocflowEntities.html">OuterDocflowEntities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PriceListDocumentInfo.html">PriceListDocumentInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ReceiptDocflow.html">ReceiptDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RecipientSignatureDocflow.html">RecipientSignatureDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RecipientSignatureRejectionDocflow.html">RecipientSignatureRejectionDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResolutionDocflowV3.html">ResolutionDocflowV3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RevocationDocflow.html">RevocationDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RevocationDocflowV3.html">RevocationDocflowV3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResolutionEntitiesV3.html">ResolutionEntitiesV3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResolutionStatusDocflow.html">ResolutionStatusDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SearchDocflowsRequest.html">SearchDocflowsRequest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SearchDocflowsResponse.html">SearchDocflowsResponse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SearchScope.html">SearchScope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Signature.html">Signature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SignatureVerificationResult.html">SignatureVerificationResult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SignedAttachment.html">SignedAttachment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SortDirection.html">SortDirection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TimeBasedFilter.html">TimeBasedFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timestamp.html">Timestamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UnilateralDocflow.html">UnilateralDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utd/docflow/InboundUniversalTransferDocumentDocflow.html">InboundUniversalTransferDocumentDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utd/docflow/OutboundUniversalTransferDocumentDocflow.html">OutboundUniversalTransferDocumentDocflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utd/docflow/UniversalCorrectionDocumentInfo.html">UniversalCorrectionDocumentInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utd/docflow/UniversalTransferDocumentInfo.html">UniversalTransferDocumentInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="XmlBilateralDocflow.html">XmlBilateralDocflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../Docflow%20API.html">Docflow API</a> &raquo;</li>
+        
+      <li>DocumentInfoV3</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/proto/DocumentInfoV3.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="documentinfov3">
+<h1>DocumentInfoV3<a class="headerlink" href="#documentinfov3" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span> <span class="nc">DocumentInfoV3</span>
+<span class="p">{</span>
+    <span class="k">required</span> <span class="n">FullVersion</span> <span class="na">FullVersion</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">required</span> <span class="n">Documents.MessageType</span> <span class="na">MessageType</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">int32</span> <span class="na">WorkflowId</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">required</span> <span class="n">DocumentParticipants</span> <span class="na">Participants</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="k">required</span> <span class="n">DocumentDirection</span> <span class="na">DocumentDirection</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">DepartmentId</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">CustomDocumentId</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="k">repeated</span> <span class="n">Events.MetadataItem</span> <span class="na">Metadata</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="k">repeated</span> <span class="n">CustomDataItem</span> <span class="na">CustomData</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+    <span class="k">required</span> <span class="n">DocumentLinks</span> <span class="na">DocumentLinks</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="k">required</span> <span class="n">PacketInfo</span> <span class="na">PacketInfo</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">bool</span> <span class="na">IsRead</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">bool</span> <span class="na">IsDeleted</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">bool</span> <span class="na">IsInvitation</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">DocumentLetterInfo</span> <span class="na">LetterInfo</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">DocumentDraftInfo</span> <span class="na">DraftInfo</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">DocumentTemplateInfo</span> <span class="na">TemplateInfo</span> <span class="o">=</span> <span class="mi">17</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">Documents.Origin</span> <span class="na">Origin</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">EditingSettingId</span> <span class="o">=</span> <span class="mi">19</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Структура <em>DocumentInfoV3</em> представляет данные документа, которые не меняются в течение его жизненного цикла (метаданные). Как часть структуры <a class="reference internal" href="DocumentWithDocflowV3.html"><span class="doc">DocumentWithDocflowV3</span></a>, возвращается методами <a class="reference internal" href="../http/GetDocflows_V3.html"><span class="doc">GetDocflows (версия 3)</span></a>, <a class="reference internal" href="../http/GetDocflowsByPacketId_V3.html"><span class="doc">GetDocflowsByPacketId (версия 3)</span></a>, <a class="reference internal" href="../http/SearchDocflows_V3.html"><span class="doc">SearchDocflows (версия 3)</span></a>.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="FullVersion.html"><span class="doc">FullVersion</span></a> - тип, функция и версия документа</p></li>
+<li><p><a class="reference internal" href="MessageType.html"><span class="doc">MessageType</span></a> - тип сообщения: письмо, черновик или шаблон</p></li>
+<li><p><em>WorkflowId</em> - <a class="reference internal" href="DocumentWorkflow.html"><span class="doc">вид документооборота</span></a></p></li>
+<li><p><a class="reference internal" href="DocumentParticipants.html"><span class="doc">Participants</span></a> - участники документооборота</p></li>
+<li><p><a class="reference internal" href="DocumentDirection.html"><span class="doc">DocumentDirection</span></a> - направление движения документа</p></li>
+<li><p><em>DepartmentId</em> - идентификатор подразделения, в котором находится документ</p></li>
+<li><p><em>CustomDocumentId</em> - идентификатор документа, определяемый внешней системой</p></li>
+<li><p><a class="reference internal" href="MetadataItem.html"><span class="doc">Metadata</span></a> - метаданные документа</p></li>
+<li><p><a class="reference internal" href="CustomDataItem.html"><span class="doc">CustomData</span></a> - пользовательские данные, привязанные к документу</p></li>
+<li><p><a class="reference internal" href="DocumentLinks.html"><span class="doc">DocumentLinks</span></a> - идентификаторы документов, на которые ссылается данный документ, и которые ссылаются на данный документ</p></li>
+<li><p><a class="reference internal" href="PacketInfo.html"><span class="doc">PacketInfo</span></a> - информация о пакете, в котором содержится документ</p></li>
+<li><p><em>IsRead</em> - был ли документ прочитан сотрудником организации</p></li>
+<li><p><em>IsDeleted</em> - был ли удален данный документ</p></li>
+<li><p><em>IsInvitation</em> - является ли документ приглашением к ЭДО (тип документа - TrustConnectionRequest, или он поддерживает работу в режиме приглашения и отправлен в таком режиме)</p></li>
+<li><p><a class="reference internal" href="#document-letter-info"><span class="std std-ref">LetterInfo</span></a> - информация о письме, заполянется когда MessageType = Letter</p></li>
+<li><p><a class="reference internal" href="#document-draft-info"><span class="std std-ref">DraftInfo</span></a> - информация о черновике, заполянется когда MessageType = Draft</p></li>
+<li><p><a class="reference internal" href="#document-template-info"><span class="std std-ref">TemplateInfo</span></a> - информация о шаблоне, заполянется когда MessageType = Template</p></li>
+<li><p><a class="reference internal" href="Origin.html"><span class="doc">Origin</span></a> - ссылка на письмо, на основе которого был создан документ</p></li>
+<li><p><em>EditingSettingId</em> - идентификатор настройки редактирования содержимого документа. Наличие настройки означает, что в содержимом файла может отсутствовать контент, редактирование которого разрешено этой настройкой.</p></li>
+</ul>
+<div class="section" id="documentletterinfo">
+<span id="document-letter-info"></span><h2>DocumentLetterInfo<a class="headerlink" href="#documentletterinfo" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span> <span class="nc">DocumentLetterInfo</span>
+<span class="p">{</span>
+    <span class="k">required</span> <span class="kt">bool</span> <span class="na">IsEncrypted</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">repeated</span> <span class="n">ForwardDocumentEvent</span> <span class="na">ForwardDocumentEvents</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">bool</span> <span class="na">IsTest</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Структура содержит свойства, присущие только документам в письме.</p>
+<ul class="simple">
+<li><p><em>IsEncrypted</em> - является ли документ зашифрованным</p></li>
+<li><p><a class="reference internal" href="ForwardDocumentEvent.html"><span class="doc">ForwardDocumentEvents</span></a> - события пересылки документа третьим сторонам</p></li>
+<li><p><em>IsTest</em> - является ли документ тестовым</p></li>
+</ul>
+</div>
+<div class="section" id="documentdraftinfo">
+<span id="document-draft-info"></span><h2>DocumentDraftInfo<a class="headerlink" href="#documentdraftinfo" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span> <span class="nc">DocumentDraftInfo</span>
+<span class="p">{</span>
+    <span class="k">required</span> <span class="kt">bool</span> <span class="na">IsRecycled</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">bool</span> <span class="na">IsLocked</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">repeated</span> <span class="kt">string</span> <span class="na">TransformedToLetterIds</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Структура содержит свойства, присущие только документам в черновике.</p>
+<ul class="simple">
+<li><p><em>IsRecycled</em> - удален ли черновик</p></li>
+<li><p><em>IsLocked</em> - залочен ли черновик</p></li>
+<li><p><em>TransformedToLetterIds</em> - список идентификаторов писем, созданных на основе данного черновика</p></li>
+</ul>
+</div>
+<div class="section" id="documenttemplateinfo">
+<span id="document-template-info"></span><h2>DocumentTemplateInfo<a class="headerlink" href="#documenttemplateinfo" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span> <span class="nc">DocumentTemplateInfo</span>
+<span class="p">{</span>
+    <span class="k">required</span> <span class="n">DocumentParticipants</span> <span class="na">LetterParticipants</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">repeated</span> <span class="kt">string</span> <span class="na">TransformedToLetterIds</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">repeated</span> <span class="n">TemplateTransformationInfo</span> <span class="na">TemplateTransformationInfos</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">TemplateRefusalInfo</span> <span class="na">TemplateRefusalInfo</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">IsReusable</span> <span class="o">=</span> <span class="mi">5</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Структура содержит свойства, присущие только документам в шаблоне</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="DocumentParticipants.html"><span class="doc">LetterParticipants</span></a> - информация об отправителе и получателе письма, которое можно создать на основе данного шаблона</p></li>
+<li><p><a class="reference internal" href="#template-transformation-info"><span class="std std-ref">TemplateTransformationInfo</span></a> - список идентификаторов писем, созданных на основе данного шаблона и содержащих данный документ</p></li>
+<li><p><a class="reference internal" href="#template-refusal-info"><span class="std std-ref">TemplateRefusalInfo</span></a> - информация об отклонении или отзыве шаблона</p></li>
+<li><p><em>IsReusable</em> - признак указывает на то, что шаблон может быть использован больше одного раза</p></li>
+</ul>
+<div class="section" id="templatetransformationinfo">
+<span id="template-transformation-info"></span><h3>TemplateTransformationInfo<a class="headerlink" href="#templatetransformationinfo" title="Ссылка на этот заголовок">¶</a></h3>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span> <span class="nc">TemplateTransformationInfo</span>
+<span class="p">{</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">TransformationId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">DocumentId</span> <span class="na">TransformedToLetterId</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">AuthorUserId</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Структура содержит информацию о документе, созданном на основе шаблона.</p>
+<ul class="simple">
+<li><p><em>TransformationId</em> - идентификатор трансформации</p></li>
+<li><p><a class="reference internal" href="DocumentId.html"><span class="doc">TransformedToLetterId</span></a> - идентификаторы письма и документа, созданного на основе шаблона</p></li>
+<li><p><em>AuthorUserId</em> - идентификатор пользователя, который создал документ из шаблона</p></li>
+</ul>
+</div>
+<div class="section" id="templaterefusalinfo">
+<span id="template-refusal-info"></span><h3>TemplateRefusalInfo<a class="headerlink" href="#templaterefusalinfo" title="Ссылка на этот заголовок">¶</a></h3>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span> <span class="nc">TemplateRefusalInfo</span>
+<span class="p">{</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">BoxId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">AuthorUserId</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">AuthorName</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">Comment</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Структура содержит информацию об отклонении или отзыве шаблона.</p>
+<ul class="simple">
+<li><p><em>BoxId</em> - идентификатор ящика, на стороне которого выполнено отклонение или отзыв.</p></li>
+<li><p><em>AuthorUserId</em> - идентификатор пользователя, который выполнил отклонение или отзыв.</p></li>
+<li><p><em>AuthorName</em> - ФИО пользователя, который выполнил отклонение или отзыв.</p></li>
+<li><p><em>Comment</em> - комментарий, который был указан при отклонении или отзыве.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="DocumentType.html" class="btn btn-neutral float-right" title="DocumentType" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="DocumentInfo.html" class="btn btn-neutral float-left" title="DocumentInfo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

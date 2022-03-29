@@ -1,0 +1,669 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Работа с документами с маркированными товарами &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Работа с документами в 820 формате" href="utd820.html" />
+    <link rel="prev" title="Работа с машиночитаемой доверенностью" href="powerofattorney.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../http/GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_UniversalTransferDocument.html">Работа с УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Messages.html">Работа с сообщениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Работа с документами с маркированными товарами</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/howto/marking_ttgis.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>Работа с документами с маркированными товарами<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="section" id="id2">
+<h2>ЭДО и система маркировки<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<p>С 1 января 2019 года действует <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=327036&amp;cwi=09">Федеральный закон от 25.12.2018 N 488-ФЗ</a>, который определяет требования к работе с маркированными товарами. Все участники оборота маркированных товаров должны передавать сведения о переходе права собственности на товар в информационную систему оператора маркировки ГИС МТ “Честный ЗНАК”.</p>
+<p>Рассмотрим процесс работы с маркированными товарами через api Диадока, который включает следующие шаги:</p>
+<p><em>1. Продавец</em>:</p>
+<ul class="simple">
+<li><p>генерирует титул продавца с маркированными товарами,</p></li>
+<li><p>отправляет его покупателю.</p></li>
+</ul>
+<p><em>2. Покупатель</em>:</p>
+<ul class="simple">
+<li><p>получает титул продавца с маркированными товарами,</p></li>
+<li><p>генерирует титул покупателя,</p></li>
+<li><p>отправляет его продавцу.</p></li>
+</ul>
+<p><em>3. Оператор ЭДО</em>:</p>
+<ul class="simple">
+<li><p>отправляет документ с маркированными товарами в ГИС МТ «Честный ЗНАК»,</p></li>
+<li><p>получает промежуточные и конечный статусы обработки документа в ГИС МТ «Честный ЗНАК».</p></li>
+</ul>
+<p><em>4. Продавец и Покупатель</em>:</p>
+<ul class="simple">
+<li><p>узнают статус обработки документа в ГИС МТ «Честный ЗНАК».</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>Генерация, подписание, отправка документов с маркированными товарами<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Выполняются аналогично документам без маркированных товаров. Подробнее об этом можно почитать в <a class="reference external" href="https://api-docs.diadoc.ru/ru/latest/howto/utd820.html">статье про работу с документами 820 формата</a>.</p>
+</div>
+<div class="section" id="id5">
+<h2>Передача документов в ГИС МТ «Честный ЗНАК»<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Чтобы данные по документам передавались в ГИС МТ автоматически, должен быть подключен <a class="reference external" href="https://www.diadoc.ru/lp-edovmarkirovke">сервис передачи данных</a>. В противном случае передавать данные и отслеживать статус нужно вручную через личный кабинет Честного ЗНАКа.</p>
+<table class="colwidths-given docutils align-default" id="id10">
+<caption><span class="caption-text">Типы документов, по которым нужно передавать данные в ГИС МТ «Честный ЗНАК»</span><a class="headerlink" href="#id10" title="Постоянная ссылка на таблицу">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>TypeNamedId</p></th>
+<th class="head"><p>Function</p></th>
+<th class="head"><p>Version</p></th>
+<th class="head"><p>Формат</p></th>
+<th class="head"><p>Дополнительные условия</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>UniversalTransferDocument</p></td>
+<td><p>СЧФДОП,</p>
+<p>ДОП</p>
+</td>
+<td><p>utd820_05_01_01,</p>
+<p>utd820_05_01_01_hyphen,</p>
+<p>utd820_05_01_02_hyphen</p>
+</td>
+<td><p>приказ №820</p></td>
+<td><p>В документах должны быть данные по маркированным товарам:</p>
+<ul class="simple">
+<li><p>префикс в ИдФайл равен ON_NSCHFDOPPRMARK в 1 титуле и ON_NSCHFDOPOKMARK во 2 титуле</p></li>
+<li><p>внутри элемента Документ/ТаблСчФакт/СведТов/ДопСведТов/НомСредИдентТов указаны коды маркировки</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UniversalTransferDocumentRevision</p></td>
+<td><p>СЧФДОП,</p>
+<p>ДОП</p>
+</td>
+<td><p>utd820_05_01_01,</p>
+<p>utd820_05_01_01_hyphen,</p>
+<p>utd820_05_01_02_hyphen</p>
+</td>
+<td><p>приказ №820</p></td>
+<td><p>В документах должны быть данные по маркированным товарам:</p>
+<ul class="simple">
+<li><p>префикс в ИдФайл равен ON_NSCHFDOPPRMARK в 1 титуле и ON_NSCHFDOPOKMARK во 2 титуле</p></li>
+<li><p>внутри элемента Документ/ТаблСчФакт/СведТов/ДопСведТов/НомСредИдентТов указаны коды маркировки</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>UniversalTransferDocument</p></td>
+<td><p>СЧФДОП,</p>
+<p>ДОП</p>
+</td>
+<td><p>utd_05_01_05,</p>
+<p>utd_05_02_01</p>
+</td>
+<td><p>приказ №155</p>
+<p>(действовал до 31.12.2019)</p>
+</td>
+<td><p>В документах должны быть данные по маркированным товарам:</p>
+<ul class="simple">
+<li><p>в Документ/ТаблСчФакт/СведТов/ИнфПолФХЖ2 указаны коды маркировки в формате &lt;ИнфПолФХЖ2 Идентиф=cis Значен=…&gt;</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UniversalTransferDocumentRevision</p></td>
+<td><p>СЧФДОП,</p>
+<p>ДОП</p>
+</td>
+<td><p>utd_05_01_05,</p>
+<p>utd_05_02_01</p>
+</td>
+<td><p>приказ №155</p>
+<p>(действовал до 31.12.2019)</p>
+</td>
+<td><p>В документах должны быть данные по маркированным товарам:</p>
+<ul class="simple">
+<li><p>в Документ/ТаблСчФакт/СведТов/ИнфПолФХЖ2 указаны коды маркировки в формате &lt;ИнфПолФХЖ2 Идентиф=cis Значен=…&gt;</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>XmlTorg12</p></td>
+<td><p>default</p></td>
+<td><p>utd820_05_01_01,</p>
+<p>utd820_05_01_01_hyphen,</p>
+<p>utd820_05_01_02_hyphen</p>
+</td>
+<td><p>приказ №820</p></td>
+<td><p>В документах должны быть данные по маркированным товарам:</p>
+<ul class="simple">
+<li><p>префикс в ИдФайл равен ON_NSCHFDOPPRMARK в 1 титуле и ON_NSCHFDOPOKMARK во 2 титуле</p></li>
+<li><p>внутри элемента Документ/ТаблСчФакт/СведТов/ДопСведТов/НомСредИдентТов указаны коды маркировки</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UniversalCorrectionDocument</p></td>
+<td><p>КСЧФДИС,</p>
+<p>ДИС</p>
+</td>
+<td><p>ucd_05_01_05,</p>
+<p>ucd_05_02_01</p>
+</td>
+<td><p>приказ №189</p>
+<p>(действовал до 30.09.2021)</p>
+</td>
+<td><p>В документах должны быть данные по маркированным товарам:</p>
+<ul class="simple">
+<li><p>в Документ/ТаблСчФакт/СведТов/ИнфПолФХЖ2 указаны коды маркировки в формате &lt;ИнфПолФХЖ2 Идентиф=cis Значен=…&gt;</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>UniversalCorrectionDocumentRevision</p></td>
+<td><p>КСЧФДИС,</p>
+<p>ДИС</p>
+</td>
+<td><p>ucd_05_01_05,</p>
+<p>ucd_05_02_01</p>
+</td>
+<td><p>приказ №189</p>
+<p>(действовал до 30.09.2021)</p>
+</td>
+<td><p>В документах должны быть данные по маркированным товарам:</p>
+<ul class="simple">
+<li><p>в Документ/ТаблСчФакт/СведТов/ИнфПолФХЖ2 указаны коды маркировки в формате &lt;ИнфПолФХЖ2 Идентиф=cis Значен=…&gt;</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UniversalCorrectionDocument</p></td>
+<td><p>КСЧФДИС,</p>
+<p>ДИС</p>
+</td>
+<td><p>ucd736_05_01_02,</p>
+<p>ucd736_05_01_01</p>
+</td>
+<td><p>приказ №736</p></td>
+<td><p>В документах должны быть данные по маркированным товарам:</p>
+<ul class="simple">
+<li><p>префикс в ИдФайл равен ON_NKORSCHFDOPPRMARK в 1 титуле и ON_NKORSCHFDOPPRMARK во 2 титуле</p></li>
+<li><p>внутри элементов Документ.ТаблКСчФ.СведТов.НомСредИдентТовДо и Документ.ТаблКСчФ.СведТов.НомСредИдентТовПосле указаны коды маркировки</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>UniversalCorrectionDocumentRevision</p></td>
+<td><p>КСЧФДИС,</p>
+<p>ДИС</p>
+</td>
+<td><p>ucd736_05_01_02,</p>
+<p>ucd736_05_01_01</p>
+</td>
+<td><p>приказ №736</p></td>
+<td><p>В документах должны быть данные по маркированным товарам:</p>
+<ul class="simple">
+<li><p>префикс в ИдФайл равен ON_NKORSCHFDOPPRMARK в 1 титуле и ON_NKORSCHFDOPPRMARK во 2 титуле</p></li>
+<li><p>внутри элементов Документ.ТаблКСчФ.СведТов.НомСредИдентТовДо и Документ.ТаблКСчФ.СведТов.НомСредИдентТовПосле указаны коды маркировки</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Данные в ГИС МТ «Честный ЗНАК» передаются:</p>
+<ul class="simple">
+<li><p>после подписания документа обеими сторонами,</p></li>
+<li><p>после аннулирования подписанного документа.</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>Получение статуса ГИС МТ «Честный ЗНАК»<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Статус ГИС МТ «Честный ЗНАК» можно получить только по тем документы, которые были переданы в ГИС МТ автоматически. Для автоматической передачи должен быть подключен <a class="reference external" href="https://www.diadoc.ru/lp-edovmarkirovke">сервис передачи данных</a>.</p>
+<p>Информацию о статусе обработки документов в ГИС МТ “Честный ЗНАК” можно получить в виде структуры <a class="reference internal" href="../proto/OuterDocflow.html"><span class="doc">OuterDocflow</span></a> в методах:</p>
+<ul class="simple">
+<li><p>работы с сообщениями <a class="reference internal" href="../http/GetMessage.html"><span class="doc">GetMessage</span></a> - возвращается информация о всех полученных статусах ГИС МТ</p></li>
+<li><p>работы с событиями <a class="reference internal" href="../http/GetEvent.html"><span class="doc">GetEvent</span></a>, <a class="reference internal" href="../http/GetNewEvents.html"><span class="doc">GetNewEvents</span></a>, <a class="reference internal" href="../http/GetLastEvent.html"><span class="doc">GetLastEvent</span></a> - возвращается информация о всех полученных статусах ГИС МТ,</p></li>
+<li><p>работы с документами <a class="reference internal" href="../http/GetDocument.html"><span class="doc">GetDocument</span></a>, <a class="reference internal" href="../http/GetDocumentsByMessageId.html"><span class="doc">GetDocumentsByMessageId</span></a>, <a class="reference internal" href="../http/GetDocuments.html"><span class="doc">GetDocuments</span></a> - возвращается только последний полученный статус по документу либо запросу на аннулирование.</p></li>
+</ul>
+<p>В <a class="reference internal" href="../proto/OuterDocflow.html"><span class="doc">OuterDocflow</span></a> может содержаться информация не только о взаимодействии с ГИС МТ «Честный ЗНАК», но и о других внешних документооборотах. Статусам ГИС МТ «Честный ЗНАК» соответствует DocflowNamedId=TtGis</p>
+<p>Пример ответа:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;OuterDocflowInfo&quot;</span><span class="p">:</span>
+<span class="p">{</span>
+   <span class="nt">&quot;DocflowNamedId&quot;</span><span class="p">:</span> <span class="s2">&quot;TtGis&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;DocflowFriendlyName&quot;</span><span class="p">:</span><span class="s2">&quot;ГИС МТ&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;Status&quot;</span><span class="p">:{</span>
+     <span class="nt">&quot;NamedId&quot;</span><span class="p">:</span><span class="s2">&quot;ProcessingError&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;FriendlyName&quot;</span><span class="p">:</span><span class="s2">&quot;Ошибка в ГИС МТ &quot;&quot;Честный ЗНАК&quot;&quot;&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;Details&quot;</span><span class="p">:[</span>
+     <span class="p">{</span>
+        <span class="nt">&quot;Code&quot;</span><span class="p">:</span><span class="s2">&quot;4&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Text&quot;</span><span class="p">:</span><span class="s2">&quot;Документ с таким номером уже зарегистрирован в ГИС МТ&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+        <span class="nt">&quot;Code&quot;</span><span class="p">:</span><span class="s2">&quot;24&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Text&quot;</span><span class="p">:</span><span class="s2">&quot;Статус кода маркировки {КМ} не соответствует выполняемой операции&quot;</span>
+     <span class="p">}</span>
+  <span class="p">]}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>В DocflowAPI V3 данные о статусах ГИС МТ можно получить в <a class="reference internal" href="../http/GetDocflows_V3.html"><span class="doc">GetDocflows (версия 3)</span></a>, <a class="reference internal" href="../http/GetDocflowsByPacketId_V3.html"><span class="doc">GetDocflowsByPacketId (версия 3)</span></a>, <a class="reference internal" href="../http/SearchDocflows_V3.html"><span class="doc">SearchDocflows (версия 3)</span></a>, <a class="reference internal" href="../http/GetDocflowEvents_V3.html"><span class="doc">GetDocflowEvents (версия 3)</span></a> в виде структур:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../proto/OuterDocflow.html"><span class="doc">OuterDocflow</span></a> - информация о последнем полученном статусе ГИС МТ.</p></li>
+<li><p><a class="reference internal" href="../proto/OuterDocflowEntities.html"><span class="doc">OuterDocflowEntities</span></a> - информация о всех полученных статусах ГИС МТ.</p></li>
+</ul>
+<p>В <a class="reference internal" href="../proto/OuterDocflow.html"><span class="doc">OuterDocflow</span></a> и <a class="reference internal" href="../proto/OuterDocflowEntities.html"><span class="doc">OuterDocflowEntities</span></a> может содержаться информация не только о взаимодействии с ГИС МТ «Честный ЗНАК», но и о других внешних документооборотах. Статусам ГИС МТ «Честный ЗНАК» соответствует DocflowNamedId=TtGis.</p>
+<p>В зависимости от сущности, для которой получен статус ГИС МТ, подробная информация о статусе <a class="reference internal" href="../proto/OuterDocflowEntities.html"><span class="doc">OuterDocflowEntities</span></a> будет содержаться в структуре:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../proto/DocflowV3.html"><span class="doc">DocflowV3</span></a> - для документа</p></li>
+<li><p><a class="reference internal" href="../proto/RevocationDocflowV3.html"><span class="doc">RevocationDocflowV3</span></a> - для запроса на аннулирование.</p></li>
+</ul>
+<p>Пример ответа:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;OuterDocflows&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;DocflowNamedId&quot;</span><span class="p">:</span> <span class="s2">&quot;TtGis&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ParentEntityId&quot;</span><span class="p">:</span> <span class="s2">&quot;d2cdd36a-a1bc-47a4-a358-3e344dca7bc2&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;OuterDocflowEntityId&quot;</span><span class="p">:</span> <span class="s2">&quot;c75815a2-6dfc-43bb-997a-1dbaba4b08a3&quot;</span>
+   <span class="p">}</span>
+<span class="p">],</span>
+<span class="nt">&quot;OuterDocflowEntities&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="p">{</span>
+      <span class="nt">&quot;DocflowNamedId&quot;</span><span class="p">:</span> <span class="s2">&quot;TtGis&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;DocflowFriendlyName&quot;</span><span class="p">:</span> <span class="s2">&quot;ГИС МТ&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;StatusEntities&quot;</span><span class="p">:</span> <span class="p">[</span>
+         <span class="p">{</span>
+            <span class="nt">&quot;Attachment&quot;</span><span class="p">:</span> <span class="p">{</span>
+               <span class="nt">&quot;Attachment&quot;</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="nt">&quot;Entity&quot;</span><span class="p">:</span> <span class="p">{</span>
+                     <span class="nt">&quot;EntityId&quot;</span><span class="p">:</span> <span class="s2">&quot;14aed39d-70e3-49e4-a3e4-c1cde04fd506&quot;</span><span class="p">,</span>
+                     <span class="nt">&quot;CreationTimestamp&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;Ticks&quot;</span><span class="p">:</span> <span class="mi">637359498817771378</span>
+                     <span class="p">},</span>
+                     <span class="nt">&quot;Content&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;Size&quot;</span><span class="p">:</span> <span class="mi">829</span>
+                     <span class="p">}</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;AttachmentFilename&quot;</span><span class="p">:</span> <span class="s2">&quot;TtGis_InProcessing_20200904_145417.xml&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;DisplayFilename&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+               <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;Status&quot;</span><span class="p">:</span> <span class="p">{</span>
+               <span class="nt">&quot;NamedId&quot;</span><span class="p">:</span> <span class="s2">&quot;InProcessing&quot;</span><span class="p">,</span>
+               <span class="nt">&quot;FriendlyName&quot;</span><span class="p">:</span> <span class="s2">&quot;Обрабатывается в ГИС МТ \&quot;Честный ЗНАК\&quot;&quot;</span><span class="p">,</span>
+               <span class="nt">&quot;Type&quot;</span><span class="p">:</span> <span class="s2">&quot;Normal&quot;</span><span class="p">,</span>
+               <span class="nt">&quot;Description&quot;</span><span class="p">:</span> <span class="s2">&quot;Документ обрабатывается в ГИС МТ \&quot;Честный ЗНАК\&quot;.&quot;</span><span class="p">,</span>
+               <span class="nt">&quot;Details&quot;</span><span class="p">:</span> <span class="p">[]</span>
+            <span class="p">}</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+            <span class="nt">&quot;Attachment&quot;</span><span class="p">:</span> <span class="p">{</span>
+               <span class="nt">&quot;Attachment&quot;</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="nt">&quot;Entity&quot;</span><span class="p">:</span> <span class="p">{</span>
+                     <span class="nt">&quot;EntityId&quot;</span><span class="p">:</span> <span class="s2">&quot;c75815a2-6dfc-43bb-997a-1dbaba4b08a3&quot;</span><span class="p">,</span>
+                     <span class="nt">&quot;CreationTimestamp&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;Ticks&quot;</span><span class="p">:</span> <span class="mi">637359499045398064</span>
+                     <span class="p">},</span>
+                     <span class="nt">&quot;Content&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;Size&quot;</span><span class="p">:</span> <span class="mi">1092</span>
+                     <span class="p">}</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;AttachmentFilename&quot;</span><span class="p">:</span> <span class="s2">&quot;TtGis_SuccessProcessed_20200904_145520.json&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;DisplayFilename&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+               <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;Status&quot;</span><span class="p">:</span> <span class="p">{</span>
+               <span class="nt">&quot;NamedId&quot;</span><span class="p">:</span> <span class="s2">&quot;SuccessProcessed&quot;</span><span class="p">,</span>
+               <span class="nt">&quot;FriendlyName&quot;</span><span class="p">:</span> <span class="s2">&quot;Обработан в ГИС МТ \&quot;Честный ЗНАК\&quot;&quot;</span><span class="p">,</span>
+               <span class="nt">&quot;Type&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span><span class="p">,</span>
+               <span class="nt">&quot;Description&quot;</span><span class="p">:</span> <span class="s2">&quot;Документ обработан в ГИС МТ \&quot;Честный ЗНАК\&quot;.&quot;</span><span class="p">,</span>
+               <span class="nt">&quot;Details&quot;</span><span class="p">:</span> <span class="p">[]</span>
+            <span class="p">}</span>
+         <span class="p">}</span>
+      <span class="p">]</span>
+   <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Для получения контента квитанций ГИС МТ «Честный ЗНАК» нужно использовать метод <a class="reference internal" href="../http/GetEntityContent.html"><span class="doc">GetEntityContent</span></a>. Квитанции будут возвращаться в том виде, в котором получены от ГИС МТ.</p>
+</div>
+<div class="section" id="id9">
+<h2>Список статусов ГИС МТ «Честный ЗНАК»<a class="headerlink" href="#id9" title="Ссылка на этот заголовок">¶</a></h2>
+<dl>
+<dt>Обрабатывается в ГИС МТ Честный ЗНАК</dt><dd><p>Статус возвращается после успешной передачи документа в ГИС МТ Честный ЗНАК. Статус не предполагает никаких дополнительных действий от участников документооборота.</p>
+<p>В ответе возвращается:</p>
+<ul class="simple">
+<li><p>статус,</p></li>
+<li><p>транспортная квитанция ГИС МТ.</p></li>
+</ul>
+</dd>
+<dt>Обработан в ГИС МТ Честный ЗНАК</dt><dd><p>Статус возвращается после успешной обработки документа в ГИС МТ Честный ЗНАК. Данный статус означает, что произошел переход прав собственности на маркированные товары. Товары из документа можно реализовывать дальше.</p>
+<p>В ответе возвращается:</p>
+<ul class="simple">
+<li><p>статус,</p></li>
+<li><p>технологическая квитанция ГИС МТ.</p></li>
+</ul>
+</dd>
+<dt>Ошибка в ГИС МТ Честный ЗНАК</dt><dd><p>Статус возвращается, если в процессе обработки документа в ГИС МТ Честный ЗНАК возникли ошибки. Нужно проанализировать ошибку и предпринять действия по ее устранению. В большинстве случаев потребуется аннулирование текущего документа и перевыставление нового либо отправка исправления или корректировки.</p>
+<p>В ответе возвращается:</p>
+<ul class="simple">
+<li><p>статус,</p></li>
+<li><p>технологическая квитанция ГИС МТ,</p></li>
+<li><p>список ошибок, которые возникли в ходе обработки документа.</p></li>
+</ul>
+</dd>
+<dt>Передается в ГИС МТ Честный ЗНАК</dt><dd><p>Статус возвращается, если ГИС МТ Честный ЗНАК недоступен, документ передать не удалось, но попытки передачи продолжаются. Статус не предполагает никаких дополнительных действий от участников документооборота.</p>
+<p>В ответе возвращается:</p>
+<ul class="simple">
+<li><p>статус,</p></li>
+<li><p>файл с текстом ошибки.</p></li>
+</ul>
+</dd>
+<dt>Ошибка передачи в ГИС МТ Честный ЗНАК</dt><dd><p>Статус возвращается, если при передаче документа в ГИС МТ Честный ЗНАК получена ошибка 4хх или 500, документ передать не удалось, повторные попытки передачи не выполняются. Статус не предполагает никаких дополнительных действий от участников документооборота. После устранения проблем передачи документы будут повторно отправлены в ручном режиме.</p>
+<p>В ответе возвращается:</p>
+<ul class="simple">
+<li><p>статус,</p></li>
+<li><p>транспортная квитанция ГИС МТ.</p></li>
+</ul>
+</dd>
+</dl>
+<table class="colwidths-given docutils align-default" id="id11">
+<caption><span class="caption-text">Соответствие возвращаемых в ответе значений</span><a class="headerlink" href="#id11" title="Постоянная ссылка на таблицу">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>DocflowNamedId</p></th>
+<th class="head"><p>Status.NamedId</p></th>
+<th class="head"><p>Status.FriendlyName</p></th>
+<th class="head"><p>Status.Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TtGis</p></td>
+<td><p>SendingInProgress</p></td>
+<td><p>Отправляется в ГИС МТ Честный ЗНАК</p></td>
+<td><p>Normal</p></td>
+</tr>
+<tr class="row-odd"><td><p>TtGis</p></td>
+<td><p>GisReceivingError</p></td>
+<td><p>Ошибка передачи в ГИС МТ Честный ЗНАК</p></td>
+<td><p>Error</p></td>
+</tr>
+<tr class="row-even"><td><p>TtGis</p></td>
+<td><p>InProcessing</p></td>
+<td><p>Обрабатывается в ГИС МТ Честный ЗНАК</p></td>
+<td><p>Normal</p></td>
+</tr>
+<tr class="row-odd"><td><p>TtGis</p></td>
+<td><p>SuccessProcessed</p></td>
+<td><p>Обработан в ГИС МТ Честный ЗНАК</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-even"><td><p>TtGis</p></td>
+<td><p>ProcessingError</p></td>
+<td><p>Ошибка в ГИС МТ Честный ЗНАК</p></td>
+<td><p>Error</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="utd820.html" class="btn btn-neutral float-right" title="Работа с документами в 820 формате" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="powerofattorney.html" class="btn btn-neutral float-left" title="Работа с машиночитаемой доверенностью" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

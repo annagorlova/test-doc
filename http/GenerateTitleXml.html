@@ -1,0 +1,712 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>GenerateTitleXml &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="GenerateReceiptXml" href="GenerateReceiptXml.html" />
+    <link rel="prev" title="CanSendInvoice" href="CanSendInvoice.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howto/powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../API_UniversalTransferDocument.html">Работа с УПД</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GenerateTitleXml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GenerateReceiptXml.html">GenerateReceiptXml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utd/ExtendedSignerDetailsV2.html">ExtendedSignerDetails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PrepareDocumentsToSign.html">PrepareDocumentsToSign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PostMessage.html">PostMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PostMessagePatch.html">PostMessagePatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ParseTitleXml.html">ParseTitleXml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proto/utd/ExtendedOrganizationInfo.html">ExtendedOrganizationInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proto/utd/ExtendedSigner.html">ExtendedSigner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proto/utd/ExtendedSignerDetailsToPost.html">ExtendedSignerDetailsToPost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proto/utd/UniversalCorrectionDocumentSellerTitleInfo.html">UniversalCorrectionDocumentSellerTitleInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proto/utd/UniversalDocumentMetadata.html">UniversalDocumentMetadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proto/utd/UniversalTransferDocumentBuyerTitleInfo.html">UniversalTransferDocumentBuyerTitleInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proto/utd/UniversalTransferDocumentSellerTitleInfo.html">UniversalTransferDocumentSellerTitleInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proto/PrepareDocumentsToSignRequest.html">PrepareDocumentsToSignRequest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proto/PrepareDocumentsToSignResponse.html">PrepareDocumentsToSignResponse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Messages.html">Работа с сообщениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../API_Invoices.html">Работа со счетами-фактурами</a> &raquo;</li>
+        
+      <li>GenerateTitleXml</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/http/GenerateTitleXml.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="generatetitlexml">
+<h1>GenerateTitleXml<a class="headerlink" href="#generatetitlexml" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="contents local topic" id="id1">
+<ul class="simple">
+<li><p><a class="reference internal" href="#id2" id="id7">Генерация титула отправителя</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id8">Генерация последующих титулов</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id9">Генерация титула с настройкой редактирования</a></p></li>
+<li><p><a class="reference internal" href="#generate-title-xml-poa" id="id10">Генерация титула с машиночитаемой доверенностью</a></p></li>
+</ul>
+</div>
+<p>Метод <code class="docutils literal notranslate"><span class="pre">GenerateTitleXml</span></code> генерирует XML-файл любого титула для любого типа документа.</p>
+<dl class="http post">
+<dt id="post--GenerateTitleXml">
+<code class="sig-name descname"><span class="pre">POST</span> </code><code class="sig-name descname"><span class="pre">/GenerateTitleXml</span></code><a class="headerlink" href="#post--GenerateTitleXml" title="Ссылка на это определение">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Query Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>boxId</strong> – идентификатор ящика</p></li>
+<li><p><strong>documentTypeNamedId</strong> – уникальный строковый идентификатор типа документа</p></li>
+<li><p><strong>documentFunction</strong> – строковый идентификатор функции, уникальный в рамках типа документа</p></li>
+<li><p><strong>documentVersion</strong> – строковый идентификатор версии, уникальный в рамках функции типа документа</p></li>
+<li><p><strong>titleIndex</strong> – числовой идентификатор титула документа</p></li>
+<li><p><strong>disableValidation</strong> – отключение валидации полученного XML-документа по XSD-схеме данного типа документа, необязательный параметр</p></li>
+<li><p><strong>editingSettingId</strong> – идентификатор настройки редактирования содержимого документа, необязательный параметр</p></li>
+<li><p><strong>letterId</strong> – идентификатор сообщения, содержащего соответствующий титул отправителя; параметр обязателен при генерации титула получателя (<code class="docutils literal notranslate"><span class="pre">titleIndex</span></code> &gt; 0), необязательный в остальных случаях</p></li>
+<li><p><strong>documentId</strong> – идентификатор документа, содержащего соответствующий титул отправителя; параметр обязателен при генерации титула получателя (<code class="docutils literal notranslate"><span class="pre">titleIndex</span></code> &gt; 0), необязательный в остальных случаях</p></li>
+</ul>
+</dd>
+<dt class="field-even">Request Headers</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a> – данные, необходимые для <a class="reference internal" href="../Authorization.html"><span class="doc">авторизации</span></a></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Request Body</dt>
+<dd class="field-odd"><p>Тело запроса должно содержать упрощенный XML-файл <code class="docutils literal notranslate"><span class="pre">UserDataXsd</span></code>, соответствующий XSD-схеме контракта для генерации титула. XSD-схему контракта можно получить с помощью ссылки из поля <code class="docutils literal notranslate"><span class="pre">UserDataXsdUrl</span></code> контракта <a class="reference internal" href="../proto/DocumentTypeDescription.html#document-title"><span class="std std-ref">DocumentTitle</span></a>, полученного методом <a class="reference internal" href="GetDocumentTypes.html"><span class="doc">GetDocumentTypes</span></a>.</p>
+</dd>
+<dt class="field-even">Response Headers</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><em>Content-Disposition</em> – имя файла сгенерированного титула</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Body</dt>
+<dd class="field-odd"><p>Тело ответа содержит сгенерированный XML-файл титула, построенный на основании данных из запроса в соответствии с XSD-схемой.</p>
+</dd>
+<dt class="field-even">Status Codes</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – операция успешно завершена</p></li>
+<li><p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> – данные в запросе имеют неверный формат или отсутствуют обязательные параметры</p></li>
+<li><p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> – в запросе отсутствует HTTP-заголовок <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> или в этом заголовке содержатся некорректные авторизационные данные</p></li>
+<li><p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.3">402 Payment Required</a> – закончилась подписка на API</p></li>
+<li><p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4">403 Forbidden</a> – у пользователя нет права для работы с указанным типом документа</p></li>
+<li><p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6">405 Method Not Allowed</a> – используется неподходящий HTTP-метод</p></li>
+<li><p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1">500 Internal Server Error</a> – при обработке запроса возникла непредвиденная ошибка</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id7">Генерация титула отправителя</a><a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Пример генерации счета-фактуры формата приказа ФНС №820.</p>
+<ol class="arabic simple">
+<li><p>Найдем нужный тип и версию документа с помощью метода <a class="reference internal" href="GetDocumentTypes.html"><span class="doc">GetDocumentTypes</span></a>.</p></li>
+</ol>
+<blockquote>
+<div><p>Ниже приведено тело ответа метода <code class="docutils literal notranslate"><span class="pre">GetDocumentTypes</span></code>. Для упрощения из него удалены другие типы, функции, версии и информация о метаданных.</p>
+</div></blockquote>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;DocumentTypes&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;Name&quot;</span><span class="o">:</span> <span class="s2">&quot;Invoice&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Title&quot;</span><span class="o">:</span> <span class="s2">&quot;Счет-фактура&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;SupportedDocflows&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="mf">0</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;RequiresFnsRegistration&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">&quot;Functions&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;Name&quot;</span><span class="o">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Versions&quot;</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;Version&quot;</span><span class="o">:</span> <span class="s2">&quot;utd820_05_01_02_hyphen&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;SupportsContentPatching&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                        <span class="s2">&quot;SupportsEncrypting&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                        <span class="s2">&quot;SupportsPredefinedRecipientTitle&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                        <span class="s2">&quot;SupportsAmendmentRequest&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                        <span class="s2">&quot;Titles&quot;</span><span class="o">:</span> <span class="p">[</span>
+                            <span class="p">{</span>
+                                <span class="s2">&quot;Index&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+                                <span class="s2">&quot;IsFormal&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                                <span class="s2">&quot;XsdUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;/GetContent?typeNamedId=Invoice&amp;function=default&amp;version=utd820_05_01_02_hyphen&amp;titleIndex=0&amp;contentType=TitleXsd&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;UserDataXsdUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;/GetContent?typeNamedId=Invoice&amp;function=default&amp;version=utd820_05_01_02_hyphen&amp;titleIndex=0&amp;contentType=UserContractXsd&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;SignerInfo&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                    <span class="s2">&quot;SignerType&quot;</span><span class="o">:</span> <span class="mf">2</span><span class="p">,</span>
+                                    <span class="s2">&quot;ExtendedDocumentTitleType&quot;</span><span class="o">:</span> <span class="mf">0</span>
+                                <span class="p">},</span>
+                                <span class="s2">&quot;MetadataItems&quot;</span><span class="o">:</span> <span class="p">[...],</span>
+                                <span class="s2">&quot;EncryptedMetadataItems&quot;</span><span class="o">:</span> <span class="p">[...]</span>
+                            <span class="p">}</span>
+                        <span class="p">],</span>
+                        <span class="s2">&quot;IsActual&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                        <span class="s2">&quot;Workflows&quot;</span><span class="o">:</span> <span class="p">[</span>
+                            <span class="p">{</span>
+                                <span class="s2">&quot;Id&quot;</span><span class="o">:</span> <span class="mf">17</span><span class="p">,</span>
+                                <span class="s2">&quot;IsDefault&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                            <span class="p">},</span>
+                            <span class="p">{</span>
+                                <span class="s2">&quot;Id&quot;</span><span class="o">:</span> <span class="mf">10</span><span class="p">,</span>
+                                <span class="s2">&quot;IsDefault&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                            <span class="p">}</span>
+                        <span class="p">]</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Из полученной информации важны следующие значения:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">documentTypeNamedId</span></code> = <code class="docutils literal notranslate"><span class="pre">Invoice</span></code> — имя типа документа</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">documentFunction</span></code> = <code class="docutils literal notranslate"><span class="pre">default</span></code> — функция документа, у счета-фактуры она единственная</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">documentVersion</span></code> = <code class="docutils literal notranslate"><span class="pre">utd820_05_01_02_hyphen</span></code> — версия формата, в примере указана для приказа №820</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">titleIndex</span></code> = <code class="docutils literal notranslate"><span class="pre">0</span></code> — номер титула, для счета-фактуры указан 0, потому что счет-фактура — однотитульный документ, и вторая сторона (получатель) свой титул не отправляет</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Подготовим контент для титула.</p></li>
+</ol>
+<blockquote>
+<div><p>Титул — это XML-файл, соответствующий XSD-схеме.</p>
+<p>Некоторые данные в титуле может заполнить только пользователь — это информация о товарах, услугах и т.д. Остальные данные могут быть заполнены автоматически на основании формата документа и информации в Диадоке, например, реквизиты организации продавца и покупателя по идентификатору ящика, значения КНД, версии формата, версии программы и т.д.</p>
+<p>Чтобы упростить процесс генерации для пользователя, Диадок позволяет заполнить только «пользовательский» XML-файл, он же <code class="docutils literal notranslate"><span class="pre">UserDataXml</span></code>. На его основе метод генерации сформирует основной титул, автоматически дополнив его всеми необходимыми данными согласно XSD-схеме.</p>
+<p>Схема работы:</p>
+<blockquote>
+<div><img alt="../_images/diadoc-api-generate-xml-schema1.png" class="align-center" src="../_images/diadoc-api-generate-xml-schema1.png" />
+</div></blockquote>
+<p>Как формировать <code class="docutils literal notranslate"><span class="pre">UserDataXml</span></code> — решает разработчик интеграционного решения. Один из вариантов — это кодогенерация из XSD-схемы упрощенного титула. Ссылка на схему находится в поле <code class="docutils literal notranslate"><span class="pre">UserDataXsdUrl</span></code> в теле ответа метода <code class="docutils literal notranslate"><span class="pre">GetDocumentTypes</span></code>, приведенного выше.</p>
+<p>В C# SDK для всех версий формата приказа №820 есть <a class="reference external" href="https://github.com/diadoc/diadocsdk-csharp/tree/master/src/DataXml">пример кодогенерации</a>.
+Кодогенерация осуществлена <a class="reference external" href="https://docs.microsoft.com/ru-ru/dotnet/standard/serialization/xml-schema-definition-tool-xsd-exe">инструментом xsd.exe</a>.
+Чтобы воспользоваться ей в C#-клиенте, нужно заполнить объект <code class="docutils literal notranslate"><span class="pre">UniversalTransferDocument</span></code> для титула отправителя или <code class="docutils literal notranslate"><span class="pre">UniversalTransferDocumentBuyerTitle</span></code> для титула получателя и <a class="reference external" href="https://github.com/diadoc/diadocsdk-csharp/blob/master/src/XmlSerializerExtensions.cs">сериализовать его в XML</a>.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Получим титул счета-фактуры.</p></li>
+</ol>
+<blockquote>
+<div><p>Имея идентификаторы типа, функции, версии, порядкового номера титула и пользовательский контент, мы можем получить сам титул счета-фактуры.</p>
+</div></blockquote>
+<p><em>Пример HTTP-запроса</em>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/GenerateTitleXml?boxId=a96be310-0982-461a-8b2a-91d198b7861c&amp;documentTypeNamedId=Invoice&amp;documentFunction=default&amp;documentVersion=utd820_05_01_02_hyphen&amp;titleIndex=0</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">diadoc-api.kontur.ru</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">DiadocAuth ddauth_api_client_id={{ключ разработчика}}, ddauth_token={{авторизационный токен}}</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/xml; charset=utf-8</span>
+</pre></div>
+</div>
+<p><em>Пример тела запроса (UserDataXml)</em>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;UniversalTransferDocumentWithHyphens</span> <span class="na">Function=</span><span class="s">&quot;СЧФ&quot;</span>
+                <span class="na">DocumentDate=</span><span class="s">&quot;01.08.2019&quot;</span>
+                <span class="na">DocumentNumber=</span><span class="s">&quot;140&quot;</span>
+                <span class="na">DocumentCreator=</span><span class="s">&quot;1&quot;</span>
+                <span class="na">DocumentCreatorBase=</span><span class="s">&quot;1&quot;</span>
+                <span class="na">CircumFormatInvoice=</span><span class="s">&quot;1&quot;</span>
+                <span class="na">Currency=</span><span class="s">&quot;643&quot;</span> <span class="nt">&gt;</span>
+        <span class="nt">&lt;Sellers&gt;</span>
+                <span class="nt">&lt;Seller&gt;</span>
+                        <span class="nt">&lt;OrganizationDetails</span> <span class="na">OrgType=</span><span class="s">&quot;2&quot;</span>
+                                        <span class="na">Inn=</span><span class="s">&quot;114500647890&quot;</span>
+                                        <span class="na">FnsParticipantId=</span><span class="s">&quot;2BM-participantId1&quot;</span>
+                                        <span class="na">OrgName=</span><span class="s">&quot;ИП Продавец Иван Иванович&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;Address&gt;</span>
+                                        <span class="nt">&lt;RussianAddress</span> <span class="na">Region=</span><span class="s">&quot;02&quot;</span><span class="nt">/&gt;</span>
+                                <span class="nt">&lt;/Address&gt;</span>
+                        <span class="nt">&lt;/OrganizationDetails&gt;</span>
+                <span class="nt">&lt;/Seller&gt;</span>
+        <span class="nt">&lt;/Sellers&gt;</span>
+        <span class="nt">&lt;Buyers&gt;</span>
+                <span class="nt">&lt;Buyer&gt;</span>
+                        <span class="nt">&lt;OrganizationReference</span> <span class="na">OrgType=</span><span class="s">&quot;1&quot;</span>
+                                        <span class="na">BoxId=</span><span class="s">&quot;53d55d52-9317-4ad4-a7d9-5e9dd3cd6367&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/Buyer&gt;</span>
+        <span class="nt">&lt;/Buyers&gt;</span>
+        <span class="nt">&lt;Table</span> <span class="na">TotalWithVatExcluded=</span><span class="s">&quot;0&quot;</span> <span class="na">Vat=</span><span class="s">&quot;0&quot;</span> <span class="na">Total=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;Item</span> <span class="na">Product=</span><span class="s">&quot;Товарная позиция&quot;</span>
+                                <span class="na">Unit=</span><span class="s">&quot;796&quot;</span>
+                                <span class="na">Quantity=</span><span class="s">&quot;0&quot;</span>
+                                <span class="na">Price=</span><span class="s">&quot;0&quot;</span>
+                                <span class="na">TaxRate=</span><span class="s">&quot;без НДС&quot;</span>
+                                <span class="na">SubtotalWithVatExcluded=</span><span class="s">&quot;0&quot;</span>
+                                <span class="na">Vat=</span><span class="s">&quot;0&quot;</span>
+                                <span class="na">Subtotal=</span><span class="s">&quot;0&quot;</span>
+                                <span class="na">Excise=</span><span class="s">&quot;10&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Table&gt;</span>
+        <span class="nt">&lt;TransferInfo</span> <span class="na">OperationInfo=</span><span class="s">&quot;Товары переданы&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Signers&gt;</span>
+                <span class="nt">&lt;SignerDetails</span> <span class="na">Inn=</span><span class="s">&quot;123456789047&quot;</span>
+                                <span class="na">LastName=</span><span class="s">&quot;Подписантов&quot;</span>
+                                <span class="na">FirstName=</span><span class="s">&quot;Иван&quot;</span>
+                                <span class="na">MiddleName=</span><span class="s">&quot;Иванович&quot;</span>
+                                <span class="na">RegistrationCertificate=</span><span class="s">&quot;1&quot;</span>
+                                <span class="na">SignerPowers=</span><span class="s">&quot;0&quot;</span>
+                                <span class="na">SignerType=</span><span class="s">&quot;3&quot;</span>
+                                <span class="na">SignerStatus=</span><span class="s">&quot;1&quot;</span>
+                                <span class="na">SignerPowersBase=</span><span class="s">&quot;Должностные обязанности&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Signers&gt;</span>
+<span class="nt">&lt;/UniversalTransferDocumentWithHyphens&gt;</span>
+</pre></div>
+</div>
+<p><em>Пример тела ответа</em>:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="p">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="n">OK</span>
+
+    <span class="p">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="p">=</span><span class="s">&quot;1.0&quot;</span> <span class="n">encoding</span><span class="p">=</span><span class="s">&quot;windows-1251&quot;</span><span class="p">?&gt;</span>
+    <span class="p">&lt;</span><span class="n">Файл</span> <span class="n">ИдФайл</span><span class="p">=</span><span class="s">&quot;ON_NSCHFDOPPR_2BM-9670670494-967001000-202201240241297341956_2BM-participantId1_20220303_c1ffd60b-0925-4e08-a133-cc55e9fc5b3b&quot;</span> <span class="n">ВерсФорм</span><span class="p">=</span><span class="s">&quot;5.01&quot;</span> <span class="n">ВерсПрог</span><span class="p">=</span><span class="s">&quot;Diadoc 1.0&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="n">СвУчДокОбор</span> <span class="n">ИдОтпр</span><span class="p">=</span><span class="s">&quot;2BM-participantId1&quot;</span> <span class="n">ИдПол</span><span class="p">=</span><span class="s">&quot;2BM-9670670494-967001000-202201240241297341956&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="n">СвОЭДОтпр</span> <span class="n">ИННЮЛ</span><span class="p">=</span><span class="s">&quot;6663003127&quot;</span> <span class="n">ИдЭДО</span><span class="p">=</span><span class="s">&quot;2BM&quot;</span> <span class="n">НаимОрг</span><span class="p">=</span><span class="s">&quot;АО &amp;quot;ПФ &amp;quot;СКБ Контур&amp;quot;&quot;</span> <span class="p">/&gt;</span>
+      <span class="p">&lt;/</span><span class="n">СвУчДокОбор</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="n">Документ</span> <span class="n">КНД</span><span class="p">=</span><span class="s">&quot;1115131&quot;</span> <span class="n">ВремИнфПр</span><span class="p">=</span><span class="s">&quot;09.16.16&quot;</span> <span class="n">ДатаИнфПр</span><span class="p">=</span><span class="s">&quot;03.03.2022&quot;</span> <span class="n">НаимЭконСубСост</span><span class="p">=</span><span class="s">&quot;1&quot;</span> <span class="n">Функция</span><span class="p">=</span><span class="s">&quot;СЧФ&quot;</span> <span class="n">ОснДоверОргСост</span><span class="p">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="n">СвСчФакт</span> <span class="n">НомерСчФ</span><span class="p">=</span><span class="s">&quot;140&quot;</span> <span class="n">ДатаСчФ</span><span class="p">=</span><span class="s">&quot;01.08.2019&quot;</span> <span class="n">КодОКВ</span><span class="p">=</span><span class="s">&quot;643&quot;</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="n">СвПрод</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="n">ИдСв</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="n">СвИП</span> <span class="n">ИННФЛ</span><span class="p">=</span><span class="s">&quot;114500647890&quot;</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="n">ФИО</span> <span class="n">Фамилия</span><span class="p">=</span><span class="s">&quot;Продавец&quot;</span> <span class="n">Имя</span><span class="p">=</span><span class="s">&quot;Иван&quot;</span> <span class="n">Отчество</span><span class="p">=</span><span class="s">&quot;Иванович&quot;</span> <span class="p">/&gt;</span>
+                      <span class="p">&lt;/</span><span class="n">СвИП</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="n">ИдСв</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="n">Адрес</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="n">АдрРФ</span> <span class="n">КодРегион</span><span class="p">=</span><span class="s">&quot;02&quot;</span> <span class="p">/&gt;</span>
+                    <span class="p">&lt;/</span><span class="n">Адрес</span><span class="p">&gt;</span>
+              <span class="p">&lt;/</span><span class="n">СвПрод</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="n">СвПокуп</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="n">ИдСв</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="n">СвЮЛУч</span> <span class="n">НаимОрг</span><span class="p">=</span><span class="s">&quot;Документация-получатель&quot;</span> <span class="n">ИННЮЛ</span><span class="p">=</span><span class="s">&quot;9670670494&quot;</span> <span class="n">КПП</span><span class="p">=</span><span class="s">&quot;967001000&quot;</span> <span class="p">/&gt;</span>
+                    <span class="p">&lt;/</span><span class="n">ИдСв</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="n">Адрес</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="n">АдрРФ</span> <span class="n">Индекс</span><span class="p">=</span><span class="s">&quot;777777&quot;</span> <span class="n">КодРегион</span><span class="p">=</span><span class="s">&quot;50&quot;</span> <span class="n">Город</span><span class="p">=</span><span class="s">&quot;г. Москва&quot;</span> <span class="p">/&gt;</span>
+                    <span class="p">&lt;/</span><span class="n">Адрес</span><span class="p">&gt;</span>
+              <span class="p">&lt;/</span><span class="n">СвПокуп</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="n">ДопСвФХЖ1</span> <span class="n">НаимОКВ</span><span class="p">=</span><span class="s">&quot;Российский рубль&quot;</span> <span class="n">ОбстФормСЧФ</span><span class="p">=</span><span class="s">&quot;1&quot;</span> <span class="p">/&gt;</span>
+            <span class="p">&lt;/</span><span class="n">СвСчФакт</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="n">ТаблСчФакт</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="n">СведТов</span> <span class="n">НомСтр</span><span class="p">=</span><span class="s">&quot;1&quot;</span> <span class="n">НаимТов</span><span class="p">=</span><span class="s">&quot;Товарная позиция&quot;</span> <span class="n">ОКЕИ_Тов</span><span class="p">=</span><span class="s">&quot;796&quot;</span> <span class="n">КолТов</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">ЦенаТов</span><span class="p">=</span><span class="s">&quot;0.00&quot;</span> <span class="n">СтТовБезНДС</span><span class="p">=</span><span class="s">&quot;0.00&quot;</span> <span class="n">НалСт</span><span class="p">=</span><span class="s">&quot;без НДС&quot;</span> <span class="n">СтТовУчНал</span><span class="p">=</span><span class="s">&quot;0.00&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="n">Акциз</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="n">СумАкциз</span><span class="p">&gt;</span><span class="m">10.00</span><span class="p">&lt;/</span><span class="n">СумАкциз</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="n">Акциз</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="n">СумНал</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="n">СумНал</span><span class="p">&gt;</span><span class="m">0.00</span><span class="p">&lt;/</span><span class="n">СумНал</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="n">СумНал</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="n">ДопСведТов</span> <span class="n">НаимЕдИзм</span><span class="p">=</span><span class="s">&quot;шт&quot;</span> <span class="p">/&gt;</span>
+              <span class="p">&lt;/</span><span class="n">СведТов</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="n">ВсегоОпл</span> <span class="n">СтТовБезНДСВсего</span><span class="p">=</span><span class="s">&quot;0.00&quot;</span> <span class="n">СтТовУчНалВсего</span><span class="p">=</span><span class="s">&quot;0.00&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="n">СумНалВсего</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="n">СумНал</span><span class="p">&gt;</span><span class="m">0.00</span><span class="p">&lt;/</span><span class="n">СумНал</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="n">СумНалВсего</span><span class="p">&gt;</span>
+              <span class="p">&lt;/</span><span class="n">ВсегоОпл</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="n">ТаблСчФакт</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="n">СвПродПер</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="n">СвПер</span> <span class="n">СодОпер</span><span class="p">=</span><span class="s">&quot;Товары переданы&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="n">ОснПер</span> <span class="n">НаимОсн</span><span class="p">=</span><span class="s">&quot;Без документа-основания&quot;</span> <span class="p">/&gt;</span>
+              <span class="p">&lt;/</span><span class="n">СвПер</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="n">СвПродПер</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="n">Подписант</span> <span class="n">ОснПолн</span><span class="p">=</span><span class="s">&quot;Должностные обязанности&quot;</span> <span class="n">ОблПолн</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">Статус</span><span class="p">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="n">ФЛ</span> <span class="n">ИННФЛ</span><span class="p">=</span><span class="s">&quot;123456789047&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="n">ФИО</span> <span class="n">Фамилия</span><span class="p">=</span><span class="s">&quot;Подписантов&quot;</span> <span class="n">Имя</span><span class="p">=</span><span class="s">&quot;Иван&quot;</span> <span class="n">Отчество</span><span class="p">=</span><span class="s">&quot;Иванович&quot;</span> <span class="p">/&gt;</span>
+              <span class="p">&lt;/</span><span class="n">ФЛ</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="n">Подписант</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="n">Документ</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="n">Файл</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Полученное тело ответа содержит XML-файл первого титула документа.</p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id8">Генерация последующих титулов</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Если тип документа содержит более одного титула и нужно сгенерировать титулы для последующих участников (т.е. когда <code class="docutils literal notranslate"><span class="pre">titleIndex</span></code> &gt; 0), то сценарий аналогичен примеру выше, за исключением дополнительных параметров в запросе.</p>
+<p>В большинстве случаев в контенте последующих титулов нужна информация из предыдущих, поэтому в запрос нужно передать идентификаторы уже существующего в Диадоке документа (<code class="docutils literal notranslate"><span class="pre">letterId</span></code> + <code class="docutils literal notranslate"><span class="pre">documentId</span></code>).</p>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id9">Генерация титула с настройкой редактирования</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Если при создании документа заданы <a class="reference internal" href="../docflows/TemplateDocflow.html#template-editing-settings"><span class="std std-ref">настройки редактирования</span></a>, то валидация сгенерированного файла будет выполняться по XSD-схеме, соответствующей указанной настройке редактирования. То есть если настройка редактирования позволяет не указывать какой-либо атрибут, то с помощью метода <code class="docutils literal notranslate"><span class="pre">GenerateTitleXml</span></code> можно сгенерировать XML-файл, в котором этот атрибут будет отсутствовать. Валидация такого файла будет осуществлятся так, как будто неуказанный атрибут является опциональным по XSD-схеме.</p>
+</div>
+<div class="section" id="generate-title-xml-poa">
+<span id="id6"></span><h2><a class="toc-backref" href="#id10">Генерация титула с машиночитаемой доверенностью</a><a class="headerlink" href="#generate-title-xml-poa" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Чтобы сгенерировать титул с машиночитаемой доверенностью (МЧД), нужно указать информацию о МЧД для подписанта при формировании упрощенного титула <code class="docutils literal notranslate"><span class="pre">UserDataXml</span></code>. Сделать это можно следующим образом:</p>
+<ul class="simple">
+<li><p>если детали подписанта генерируются по сертификату <code class="docutils literal notranslate"><span class="pre">SignerReference</span></code>, то необходимо заполнить структуру <code class="docutils literal notranslate"><span class="pre">PowerOfAttorney</span></code>: указать регистрационный номер МЧД и ИНН доверителя или использовать МЧД по умолчанию;</p></li>
+<li><p>если при генерации детали подписанта задаются в явном виде с помощью структуры <code class="docutils literal notranslate"><span class="pre">SignerDetails</span></code>, то в случае формирования подписанта по МЧД интегратор сам определяет необходимость использования ИНН подписанта и название организации для ЮЛ из МЧД.</p></li>
+</ul>
+<p><em>Структура PowerOfAttorney в XSD-схеме</em></p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xs:complexType</span> <span class="na">name=</span><span class="s">&quot;PowerOfAttorney&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;xs:sequence&gt;</span>
+  <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;FullId&quot;</span> <span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xs:complexType&gt;</span>
+          <span class="nt">&lt;xs:attribute</span> <span class="na">name=</span><span class="s">&quot;RegistrationNumber&quot;</span> <span class="na">use=</span><span class="s">&quot;required&quot;</span> <span class="na">type=</span><span class="s">&quot;guid&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;xs:attribute</span> <span class="na">name=</span><span class="s">&quot;IssuerInn&quot;</span> <span class="na">use=</span><span class="s">&quot;required&quot;</span> <span class="na">type=</span><span class="s">&quot;inn&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/xs:complexType&gt;</span>
+  <span class="nt">&lt;/xs:element&gt;</span>
+<span class="nt">&lt;/xs:sequence&gt;</span>
+<span class="nt">&lt;xs:attribute</span> <span class="na">name=</span><span class="s">&quot;UseDefault&quot;</span> <span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;xs:simpleType&gt;</span>
+        <span class="nt">&lt;xs:restriction</span> <span class="na">base=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xs:enumeration</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;xs:enumeration</span> <span class="na">value=</span><span class="s">&quot;false&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/xs:restriction&gt;</span>
+  <span class="nt">&lt;/xs:simpleType&gt;</span>
+<span class="nt">&lt;/xs:attribute&gt;</span>
+<span class="nt">&lt;/xs:complexType&gt;</span>
+</pre></div>
+</div>
+<p><em>Пример тела запроса для документа с МЧД</em></p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;UniversalTransferDocumentWithHyphens</span> <span class="na">Function=</span><span class="s">&quot;СЧФ&quot;</span>
+                <span class="na">DocumentDate=</span><span class="s">&quot;01.08.2019&quot;</span>
+                <span class="na">DocumentNumber=</span><span class="s">&quot;140&quot;</span>
+                <span class="na">DocumentCreator=</span><span class="s">&quot;1&quot;</span>
+                <span class="na">DocumentCreatorBase=</span><span class="s">&quot;1&quot;</span>
+                <span class="na">CircumFormatInvoice=</span><span class="s">&quot;1&quot;</span>
+                <span class="na">Currency=</span><span class="s">&quot;643&quot;</span> <span class="nt">&gt;</span>
+        <span class="nt">&lt;Sellers&gt;</span>
+                <span class="nt">&lt;Seller&gt;</span>
+                        <span class="nt">&lt;OrganizationDetails</span> <span class="na">OrgType=</span><span class="s">&quot;2&quot;</span>
+                                        <span class="na">Inn=</span><span class="s">&quot;114500647890&quot;</span>
+                                        <span class="na">FnsParticipantId=</span><span class="s">&quot;2BM-participantId1&quot;</span>
+                                        <span class="na">OrgName=</span><span class="s">&quot;ИП Продавец Иван Иванович&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;Address&gt;</span>
+                                        <span class="nt">&lt;RussianAddress</span> <span class="na">Region=</span><span class="s">&quot;02&quot;</span><span class="nt">/&gt;</span>
+                                <span class="nt">&lt;/Address&gt;</span>
+                        <span class="nt">&lt;/OrganizationDetails&gt;</span>
+                <span class="nt">&lt;/Seller&gt;</span>
+        <span class="nt">&lt;/Sellers&gt;</span>
+        <span class="nt">&lt;Buyers&gt;</span>
+                <span class="nt">&lt;Buyer&gt;</span>
+                        <span class="nt">&lt;OrganizationReference</span> <span class="na">OrgType=</span><span class="s">&quot;1&quot;</span>
+                                        <span class="na">BoxId=</span><span class="s">&quot;53d55d52-9317-4ad4-a7d9-5e9dd3cd6367&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/Buyer&gt;</span>
+        <span class="nt">&lt;/Buyers&gt;</span>
+        <span class="nt">&lt;Table</span> <span class="na">TotalWithVatExcluded=</span><span class="s">&quot;0&quot;</span> <span class="na">Vat=</span><span class="s">&quot;0&quot;</span> <span class="na">Total=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;Item</span> <span class="na">Product=</span><span class="s">&quot;Товарная позиция&quot;</span>
+                                <span class="na">Unit=</span><span class="s">&quot;796&quot;</span>
+                                <span class="na">Quantity=</span><span class="s">&quot;0&quot;</span>
+                                <span class="na">Price=</span><span class="s">&quot;0&quot;</span>
+                                <span class="na">TaxRate=</span><span class="s">&quot;без НДС&quot;</span>
+                                <span class="na">SubtotalWithVatExcluded=</span><span class="s">&quot;0&quot;</span>
+                                <span class="na">Vat=</span><span class="s">&quot;0&quot;</span>
+                                <span class="na">Subtotal=</span><span class="s">&quot;0&quot;</span>
+                                <span class="na">Excise=</span><span class="s">&quot;10&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Table&gt;</span>
+        <span class="nt">&lt;TransferInfo</span> <span class="na">OperationInfo=</span><span class="s">&quot;Товары переданы&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Signers&gt;</span>
+                <span class="nt">&lt;SignerReference</span> <span class="na">BoxId=</span><span class="s">&quot;74ef3a00-c625-3ef0-9b50-65bf7f96b9ae&quot;</span> <span class="na">CertificateThumbprint=</span><span class="s">&quot;8A80C2723DBC4F0A94F8CEE21C0A15A68A80C272&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;PowerOfAttorney</span> <span class="na">UseDefault=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;FullId</span> <span class="na">RegistrationNumber=</span><span class="s">&quot;4F73C574-CF7C-4664-91B9-48185BC66A27&quot;</span> <span class="na">IssuerInn=</span><span class="s">&quot;114500647890&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/PowerOfAttorney&gt;</span>
+                <span class="nt">&lt;/SignerReference&gt;</span>
+        <span class="nt">&lt;/Signers&gt;</span>
+<span class="nt">&lt;/UniversalTransferDocumentWithHyphens&gt;</span>
+</pre></div>
+</div>
+<p><em>Пример тела ответа</em></p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="p">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="n">OK</span>
+
+    <span class="p">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="p">=</span><span class="s">&quot;1.0&quot;</span> <span class="n">encoding</span><span class="p">=</span><span class="s">&quot;windows-1251&quot;</span><span class="p">?&gt;</span>
+<span class="p">&lt;</span><span class="n">Файл</span> <span class="n">ИдФайл</span><span class="p">=</span><span class="s">&quot;ON_NSCHFDOPPR_2BM-9670670494-967001000-202201240241297341956_2BM-participantId1_20220303_c1ffd60b-0925-4e08-a133-cc55e9fc5b3b&quot;</span> <span class="n">ВерсФорм</span><span class="p">=</span><span class="s">&quot;5.01&quot;</span> <span class="n">ВерсПрог</span><span class="p">=</span><span class="s">&quot;Diadoc 1.0&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="n">СвУчДокОбор</span> <span class="n">ИдОтпр</span><span class="p">=</span><span class="s">&quot;2BM-participantId1&quot;</span> <span class="n">ИдПол</span><span class="p">=</span><span class="s">&quot;2BM-9670670494-967001000-202201240241297341956&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="n">СвОЭДОтпр</span> <span class="n">ИННЮЛ</span><span class="p">=</span><span class="s">&quot;6663003127&quot;</span> <span class="n">ИдЭДО</span><span class="p">=</span><span class="s">&quot;2BM&quot;</span> <span class="n">НаимОрг</span><span class="p">=</span><span class="s">&quot;АО &amp;quot;ПФ &amp;quot;СКБ Контур&amp;quot;&quot;</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;/</span><span class="n">СвУчДокОбор</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="n">Документ</span> <span class="n">КНД</span><span class="p">=</span><span class="s">&quot;1115131&quot;</span> <span class="n">ВремИнфПр</span><span class="p">=</span><span class="s">&quot;09.16.16&quot;</span> <span class="n">ДатаИнфПр</span><span class="p">=</span><span class="s">&quot;03.03.2022&quot;</span> <span class="n">НаимЭконСубСост</span><span class="p">=</span><span class="s">&quot;1&quot;</span> <span class="n">Функция</span><span class="p">=</span><span class="s">&quot;СЧФ&quot;</span> <span class="n">ОснДоверОргСост</span><span class="p">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="n">СвСчФакт</span> <span class="n">НомерСчФ</span><span class="p">=</span><span class="s">&quot;140&quot;</span> <span class="n">ДатаСчФ</span><span class="p">=</span><span class="s">&quot;01.08.2019&quot;</span> <span class="n">КодОКВ</span><span class="p">=</span><span class="s">&quot;643&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="n">СвПрод</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="n">ИдСв</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="n">СвИП</span> <span class="n">ИННФЛ</span><span class="p">=</span><span class="s">&quot;114500647890&quot;</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="n">ФИО</span> <span class="n">Фамилия</span><span class="p">=</span><span class="s">&quot;Продавец&quot;</span> <span class="n">Имя</span><span class="p">=</span><span class="s">&quot;Иван&quot;</span> <span class="n">Отчество</span><span class="p">=</span><span class="s">&quot;Иванович&quot;</span> <span class="p">/&gt;</span>
+                  <span class="p">&lt;/</span><span class="n">СвИП</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="n">ИдСв</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="n">Адрес</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="n">АдрРФ</span> <span class="n">КодРегион</span><span class="p">=</span><span class="s">&quot;02&quot;</span> <span class="p">/&gt;</span>
+                <span class="p">&lt;/</span><span class="n">Адрес</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="n">СвПрод</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="n">СвПокуп</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="n">ИдСв</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="n">СвЮЛУч</span> <span class="n">НаимОрг</span><span class="p">=</span><span class="s">&quot;Документация-получатель&quot;</span> <span class="n">ИННЮЛ</span><span class="p">=</span><span class="s">&quot;9670670494&quot;</span> <span class="n">КПП</span><span class="p">=</span><span class="s">&quot;967001000&quot;</span> <span class="p">/&gt;</span>
+                <span class="p">&lt;/</span><span class="n">ИдСв</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="n">Адрес</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="n">АдрРФ</span> <span class="n">Индекс</span><span class="p">=</span><span class="s">&quot;777777&quot;</span> <span class="n">КодРегион</span><span class="p">=</span><span class="s">&quot;50&quot;</span> <span class="n">Город</span><span class="p">=</span><span class="s">&quot;г. Москва&quot;</span> <span class="p">/&gt;</span>
+                <span class="p">&lt;/</span><span class="n">Адрес</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="n">СвПокуп</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="n">ДопСвФХЖ1</span> <span class="n">НаимОКВ</span><span class="p">=</span><span class="s">&quot;Российский рубль&quot;</span> <span class="n">ОбстФормСЧФ</span><span class="p">=</span><span class="s">&quot;1&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;/</span><span class="n">СвСчФакт</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="n">ТаблСчФакт</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="n">СведТов</span> <span class="n">НомСтр</span><span class="p">=</span><span class="s">&quot;1&quot;</span> <span class="n">НаимТов</span><span class="p">=</span><span class="s">&quot;Товарная позиция&quot;</span> <span class="n">ОКЕИ_Тов</span><span class="p">=</span><span class="s">&quot;796&quot;</span> <span class="n">КолТов</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">ЦенаТов</span><span class="p">=</span><span class="s">&quot;0.00&quot;</span> <span class="n">СтТовБезНДС</span><span class="p">=</span><span class="s">&quot;0.00&quot;</span> <span class="n">НалСт</span><span class="p">=</span><span class="s">&quot;без НДС&quot;</span> <span class="n">СтТовУчНал</span><span class="p">=</span><span class="s">&quot;0.00&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="n">Акциз</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="n">СумАкциз</span><span class="p">&gt;</span><span class="m">10.00</span><span class="p">&lt;/</span><span class="n">СумАкциз</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="n">Акциз</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="n">СумНал</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="n">СумНал</span><span class="p">&gt;</span><span class="m">0.00</span><span class="p">&lt;/</span><span class="n">СумНал</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="n">СумНал</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="n">ДопСведТов</span> <span class="n">НаимЕдИзм</span><span class="p">=</span><span class="s">&quot;шт&quot;</span> <span class="p">/&gt;</span>
+          <span class="p">&lt;/</span><span class="n">СведТов</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="n">ВсегоОпл</span> <span class="n">СтТовБезНДСВсего</span><span class="p">=</span><span class="s">&quot;0.00&quot;</span> <span class="n">СтТовУчНалВсего</span><span class="p">=</span><span class="s">&quot;0.00&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="n">СумНалВсего</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="n">СумНал</span><span class="p">&gt;</span><span class="m">0.00</span><span class="p">&lt;/</span><span class="n">СумНал</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="n">СумНалВсего</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="n">ВсегоОпл</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="n">ТаблСчФакт</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="n">СвПродПер</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="n">СвПер</span> <span class="n">СодОпер</span><span class="p">=</span><span class="s">&quot;Товары переданы&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="n">ОснПер</span> <span class="n">НаимОсн</span><span class="p">=</span><span class="s">&quot;Без документа-основания&quot;</span> <span class="p">/&gt;</span>
+          <span class="p">&lt;/</span><span class="n">СвПер</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="n">СвПродПер</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="n">Подписант</span> <span class="n">ОснПолн</span><span class="p">=</span><span class="s">&quot;Должностные обязанности&quot;</span> <span class="n">ОблПолн</span><span class="p">=</span><span class="s">&quot;0&quot;</span> <span class="n">Статус</span><span class="p">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="n">ЮЛ</span> <span class="n">ИННЮЛ</span><span class="p">=</span><span class="s">&quot;114500647890&quot;</span> <span class="n">Должн</span><span class="p">=</span><span class="s">&quot;Сотрудник&quot;</span> <span class="n">НаимОрг</span><span class="p">=</span><span class="s">&quot;Тестовая организация&quot;</span><span class="p">&gt;</span>
+                                    <span class="p">&lt;</span><span class="n">ФИО</span> <span class="n">Фамилия</span><span class="p">=</span><span class="s">&quot;Тестовый&quot;</span> <span class="n">Имя</span><span class="p">=</span><span class="s">&quot;Сертификат&quot;</span> <span class="n">Отчество</span><span class="p">=</span><span class="s">&quot;Сертификатович&quot;</span> <span class="p">/&gt;</span>
+                    <span class="p">&lt;/</span><span class="n">ЮЛ</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="n">Подписант</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="n">Документ</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="n">Файл</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="GenerateReceiptXml.html" class="btn btn-neutral float-right" title="GenerateReceiptXml" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="CanSendInvoice.html" class="btn btn-neutral float-left" title="CanSendInvoice" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Документооборот счетов-фактур &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Документооборот накладных" href="Torg12Docflow.html" />
+    <link rel="prev" title="GetDocumentTypes" href="../http/GetDocumentTypes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../http/GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howto/powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_UniversalTransferDocument.html">Работа с УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Messages.html">Работа с сообщениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Документооборот счетов-фактур</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/docflows/InvoiceDocflow.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>Документооборот счетов-фактур<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Обмен электронными счетами-фактурами в России регулируется Министерством финансов РФ и Федеральной налоговой службой.</p>
+<p>Порядок документооборота, связанного с выставлением и получением счетов-фактур в электронном виде с ЭП, утвержден приказом Минфина <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=385831">от 05.02.2021 N 14Н</a>. До 01.07.2021 действовал порядок обмена счетов-фактур, определенный приказом Минфина <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=268278">от 10.11.2015 N 174Н</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Порядок обмена электронными счетами-фактурами между компаниями через интернет описан <a class="reference external" href="http://www.diadoc.ru/docs/e-invoice/interchange">здесь</a></p>
+</div>
+<div class="section" id="id2">
+<h2>Форматы<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Электронные счета-фактуры можно создавать по формату, утвержденному приказом ФНС России <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=328588">от 19.12.2018 N ММВ-7-15/820&#64;</a>.</p>
+<p>Корректировочные счета-фактуры можно создавать по форматам, утвержденным приказами ФНС России <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=375857">от 12.10.2020 N ЕД-7-26/736&#64;</a>, <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=339567">от 13.04.2016 N ММВ-7-15/189&#64;</a> (действовал до 01.10.2021).</p>
+<p>Форматы служебных документов, используемых при выставлении и получении счетов-фактур в электронном виде, утверждены приказом ФНС России <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=200672">от 30.01.2012 N ММВ-7-6/36&#64;</a>.</p>
+<p>XSD-схемы счетов-фактур формата 820, корректировочных счетов-фактур форматов 189 и 736 могут быть получены с помощью ссылки, доступной в поле <em>XsdUrl</em> контракта <a class="reference internal" href="../proto/DocumentTypeDescription.html"><span class="doc">DocumentTitle</span></a>, в результате вызова метода <a class="reference internal" href="../http/GetDocumentTypes.html"><span class="doc">GetDocumentTypes</span></a>.</p>
+<p>Для СФ и КСФ форматы электронных документов, возникающих в ходе реализации порядка обмена ЭСФ, описываются следующими XSD-схемами:</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/df54ac6d29f7ab7862959493ff7f4d50/DP_IZVPOL_1_982_00_01_01_02.xsd"><code class="xref download docutils literal notranslate"><span class="pre">XSD-схема</span> <span class="pre">извещения</span> <span class="pre">о</span> <span class="pre">получении</span> <span class="pre">документа</span></code></a>;</p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/3cc81e0c3fca9d2bbad4d29f6193cde9/DP_PDPOL_1_984_00_01_01_02.xsd"><code class="xref download docutils literal notranslate"><span class="pre">XSD-схема</span> <span class="pre">подтверждения</span> <span class="pre">оператора</span> <span class="pre">о</span> <span class="pre">дате</span> <span class="pre">отправки</span> <span class="pre">СФ/ИСФ/КСФ/ИКСФ</span></code></a> (выдается Продавцу);</p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/9086c7e748f648de68ce7a1e97bf2e8b/DP_PDOTPR_1_983_00_01_01_02.xsd"><code class="xref download docutils literal notranslate"><span class="pre">XSD-схема</span> <span class="pre">подтверждения</span> <span class="pre">оператора</span> <span class="pre">о</span> <span class="pre">дате</span> <span class="pre">доставки</span> <span class="pre">СФ/ИСФ/КСФ/ИКСФ</span></code></a> (выдается Покупателю);</p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/c6ecda7967d2fcc81c4dd45b659eacdd/DP_UVUTOCH_1_985_00_01_02_02.xsd"><code class="xref download docutils literal notranslate"><span class="pre">XSD-схема</span> <span class="pre">уведомления</span> <span class="pre">об</span> <span class="pre">уточнении</span> <span class="pre">СФ/ИСФ/КСФ/ИКСФ</span></code></a> (формируется Покупателем).</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>Структуры<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Для документов, возникающих в ходе документооборота счетов-фактур, в Диадоке зарезервированы специальные <a class="reference internal" href="../proto/Entity%20message.html"><span class="doc">типы сущностей</span></a>:</p>
+<ul class="simple">
+<li><p>для счета-фактуры (СФ) - <em>Attachment/Invoice</em>,</p></li>
+<li><p>для исправления СФ (ИСФ) - <em>Attachment/InvoiceRevision</em>,</p></li>
+<li><p>для корректировки СФ (КСФ) <em>Attachment/InvoiceCorrection</em>,</p></li>
+<li><p>для исправления корректировки СФ (ИКСФ) - <em>Attachment/InvoiceCorrectionRevision</em>.</p></li>
+</ul>
+<p>Для служебных документов, возникающих в ходе реализации порядка обмена ЭСФ:</p>
+<ul class="simple">
+<li><p><em>Attachment/InvoiceConfirmation</em> (подтверждение оператора электронного документооборота на СФ/ИСФ/КСФ/ИКСФ, на извещение о получении СФ/ИСФ/КСФ/ИКСФ, на уведомление об уточнении СФ/ИСФ/КСФ/ИКСФ),</p></li>
+<li><p><em>Attachment/InvoiceCorrectionRequest</em> (уведомление об уточнении СФ/ИСФ/КСФ/ИКСФ),</p></li>
+<li><p><em>Attachment/InvoiceReceipt</em> (извещение о получении СФ/ИСФ/КСФ/ИКСФ, подтверждения оператора электронного документооборота, уведомления об уточнении СФ/ИСФ/КСФ/ИКСФ).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Набор служебных документов отличается в порядке согласно приказам <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=385831">N 14Н</a> и <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=268278">N 174Н</a>. Подробнее см. в разделе Порядок обмена</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Порядок обмена<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Счет-фактура и все множество служебных документов, предусмотренных порядком Минфина, помещаются в Диадоке в одно <a class="reference internal" href="../proto/Message.html"><span class="doc">сообщение</span></a> (в одну цепочку документооборота).</p>
+<p>Добавление служебных документов к счету-фактуре по мере прохождения им различных этапов документооборота производится при помощи описанного механизма дополнений (см. описание <a class="reference internal" href="../DataModel.html"><span class="doc">модели данных</span></a>).</p>
+<p>Передача исправлений СФ, а также корректировочных СФ и исправлений КСФ с точки зрения API Диадока производится точно также, как и передача СФ.</p>
+<div class="section" id="id5">
+<h3>Порядок обмена согласно приказу 14Н<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Схема, приведенная ниже, демонстрирует порядок обмена счетами-фактурами, утвержденный приказом Минфина от <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=385831">05.02.2021 N 14Н</a> и реализованный в Диадоке:</p>
+<ol class="arabic simple">
+<li><p>Продавец формирует счет-фактуру <em>Invoice</em><sub>1</sub>, подписывает его и направляет Покупателю.</p></li>
+<li><p>Диадок формирует подтверждение оператора <em>InvoiceConfirmation</em><sub>2</sub> о дате получения счета-фактуры, подписывает его и направляет Продавцу.</p></li>
+<li><p>Диадок формирует подтверждение оператора <em>InvoiceConfirmation</em><sub>2“</sub> о дате отправки счета-фактуры, подписывает его и направляет вместе со счетом фактурой Покупателю.</p></li>
+<li><p>Покупатель получает счет-фактуру и подтверждение оператора и отправляет в ответ подписанное извещение <em>InvoiceReceipt</em><sub>3</sub>о получении счета-фактуры.</p></li>
+<li><p>Диадок формирует подтверждение оператора <em>InvoiceConfirmation</em><sub>4</sub> о дате получения извещения о получении счета-фактуры, подписывает его и направляет Покупателю.</p></li>
+<li><p>Диадок формирует подтверждение оператора <em>InvoiceConfirmation</em><sub>4“</sub> о дате отправки извещения о получении счета-фактуры, подписывает его и направляет вместе с извещением о получении Продавцу.</p></li>
+<li><p>Если Покупатель обнаружил ошибки в полученном счете-фактуре, он формирует уведомление об уточнении счета-фактуры <em>InvoiceCorrectionRequest</em><sub>5</sub>, подписывает его и направляет Продавцу.</p></li>
+<li><p>Диадок формирует подтверждение оператора <em>InvoiceConfirmation</em><sub>6</sub> о дате получения уведомления об уточнении счета-фактуры, подписывает его и направляет Покупателю.</p></li>
+<li><p>Диадок формирует подтверждение оператора <em>InvoiceConfirmation</em><sub>6“</sub> о дате отправки уведомления об уточнении счета-фактуры, подписывает его и направляет вместе с уведомлением об уточнении счета-фактуры Продавцу.</p></li>
+</ol>
+<img alt="../_images/scheme-14n-invoice-docflow.png" class="align-center" src="../_images/scheme-14n-invoice-docflow.png" />
+<p>На схемах ниже изображены структуры Диадок-сообщений в ящиках Продавца и Покупателя, представляющих один и тот же полностью завершенный документооборот (со всеми возможными служебными документами):</p>
+<img alt="../_images/scheme-14n-invoice-seller-docflow.png" class="align-center" src="../_images/scheme-14n-invoice-seller-docflow.png" />
+<img alt="../_images/scheme-14n-invoice-buyer-docflow.png" class="align-center" src="../_images/scheme-14n-invoice-buyer-docflow.png" />
+<p>Сущности - документы, относящиеся к документообороту одного счета-фактуры, в рамках Диадок-сообщения связываются между собой при помощи атрибутов <em>ParentEntityId</em>.</p>
+<p>Например, у сущности <em>InvoiceConfirmation</em><sub>2</sub> поле <em>ParentEntityId</em> будет указывать на сущность <em>Invoice</em><sub>1</sub>.</p>
+<p>Также у сущности <em>InvoiceCorrectionRequest</em><sub>5</sub> поле <em>ParentEntityId</em> будет указывать на сущность <em>Invoice</em><sub>1</sub>.</p>
+<p>Если же мы рассмотрим сущности <em>InvoiceConfirmation</em><sub>4</sub> и <em>InvoiceConfirmation</em><sub>4“</sub>, представляющие подтверждение оператора, отправленные Покупателю и Продавцу в ответ на извещение о получении счета-фактуры Покупателем, то у них поле <em>ParentEntityId</em> будет указывать на сущность <em>InvoiceReceipt</em><sub>3</sub>, представляющую это извещение.</p>
+<p>На схеме стрелками обозначаются связи типа <em>ParentEntityId</em> между сущностями. Сущности типа <em>Signature</em>, представляющие ЭП под документами (в соответствии с порядком Минфина все документы возникающие в ходе документооборота счетов-фактур должны сопровождаться ЭП), на схемах не изображены.</p>
+</div>
+<div class="section" id="id7">
+<h3>Порядок обмена согласно приказу 174Н<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h3>
+<p>До 01.07.2021 порядок документооборота счетов-фактур определялся приказом Минфина от <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=268278">10.11.2015 N 174Н</a>.</p>
+<details>
+<summary><a>Подробнее</a></summary><p>Схема, приведенная ниже, демонстрирует порядок обмена счетами-фактурами согласно приказа 174Н:</p>
+<ol class="arabic simple">
+<li><p>Продавец формирует счет-фактуру <em>Invoice</em><sub>1</sub>, подписывает его и направляет Покупателю.</p></li>
+<li><p>Диадок формирует подтверждение оператора <em>InvoiceConfirmation</em><sub>2</sub> о дате получения счета-фактуры, подписывает его и направляет Продавцу.</p></li>
+<li><p>Диадок формирует подтверждение оператора <em>InvoiceConfirmation</em><sub>2“</sub> о дате отправки счета-фактуры, подписывает его и направляет вместе со счетом фактурой Покупателю.</p></li>
+<li><p>Продавец получает подтверждение оператора и отправляет в ответ подписанное извещение <em>InvoiceReceipt</em><sub>3</sub> о получении подтверждения.</p></li>
+<li><p>Покупатель получает счет-фактуру и подтверждение оператора и отправляет в ответ подписанные извещение <em>InvoiceReceipt</em><sub>5</sub> о получении счета-фактуры и извещение <em>InvoiceReceipt</em><sub>4</sub> о получении подтверждения.</p></li>
+<li><p>Диадок формирует подтверждение оператора <em>InvoiceConfirmation</em><sub>6</sub> о дате отправки извещения о получении счета-фактуры, подписывает его и направляет Покупателю.</p></li>
+<li><p>Покупатель получает подтверждение оператора и отправляет в ответ подписанное извещение <em>InvoiceReceipt</em><sub>7</sub> о получении подтверждения.</p></li>
+<li><p>Если Покупатель обнаружил ошибки в полученном счете-фактуре, он формирует уведомление об уточнении счета-фактуры <em>InvoiceCorrectionRequest</em><sub>8</sub>, подписывает его и направляет Продавцу.</p></li>
+<li><p>Продавец получает уведомление об уточнении счета-фактуры, и отправляет в ответ подписанное извещение <em>InvoiceReceipt</em><sub>9</sub> о получении уведомления.</p></li>
+</ol>
+<img alt="../_images/scheme-01-invoice-docflow.png" class="align-center" src="../_images/scheme-01-invoice-docflow.png" />
+<p>На схеме, на зеленом фоне, изображены документы, которые формирует Продавец, на желтом фоне – документы, которые формирует Покупатель, на синем – документы, формируемые Диадоком, в качестве оператора электронного документооборота.</p>
+<p>На схемах ниже изображены структуры Диадок-сообщений в ящиках Продавца и Покупателя, представляющих один и тот же полностью завершенный документооборот (со всеми возможными служебными документами):</p>
+<img alt="../_images/scheme-07-invoice-docflow-2.png" class="align-center" src="../_images/scheme-07-invoice-docflow-2.png" />
+<img alt="../_images/scheme-08-invoice-docflow-3.png" class="align-center" src="../_images/scheme-08-invoice-docflow-3.png" />
+</details><p>Для облегчения процесса формирования корректного XML-файла счета-фактуры Диадок предоставляет API метод <a class="reference internal" href="../http/GenerateTitleXml.html"><span class="doc">GenerateTitleXml</span></a> для счетов-фактур в формате №820.</p>
+<p>Метод позволяет интегратору не погружаться в детали XML-формата счета-фактуры, а передавать в Диадок только необходимые первичные данные в виде упрощенной структуры.</p>
+<p>В частности, можно не заполнять все реквизиты продавца и покупателя, достаточно указать идентификаторы их ящиков в Диадоке, и тогда соответствующие реквизиты будут автоматически загружены из справочника организаций Диадока.</p>
+<p>Как видно из представленных выше схем, порядок Минфина помимо построения в специальном XML-формате собственно счета-фактуры требует от Продавца и Покупателя умения формировать ряд служебных документов, XML-формат которых также строго определен.</p>
+<p>Диадок облегчает работу интеграторов в части формирования таких служебных документов, предоставляя методы API <a class="reference internal" href="../http/GenerateReceiptXml.html"><span class="doc">GenerateReceiptXml</span></a> и <a class="reference internal" href="../http/GenerateInvoiceCorrectionRequestXml.html"><span class="doc">GenerateInvoiceCorrectionRequestXml</span></a>, которые скрывают знание о деталях XML-форматов этих документов.</p>
+<p>Кроме того, для удобства работы с документами (в частности, со счетами-фактурами) в Диадоке реализован метод <a class="reference internal" href="../http/GetDocuments.html"><span class="doc">GetDocuments</span></a>, позволяющий быстро получать списки документов, удовлетворяющих различным условиям отбора.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Torg12Docflow.html" class="btn btn-neutral float-right" title="Документооборот накладных" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../http/GetDocumentTypes.html" class="btn btn-neutral float-left" title="GetDocumentTypes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

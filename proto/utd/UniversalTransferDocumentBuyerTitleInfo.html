@@ -1,0 +1,323 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>UniversalTransferDocumentBuyerTitleInfo &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../search.html" />
+    <link rel="next" title="UniversalTransferDocumentSellerTitleInfo" href="UniversalTransferDocumentSellerTitleInfo.html" />
+    <link rel="prev" title="UniversalDocumentMetadata" href="UniversalDocumentMetadata.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../docflows/AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../http/GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docflows/InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docflows/Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docflows/AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docflows/UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docflows/NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docflows/TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../API_UniversalTransferDocument.html">Работа с УПД</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../http/GenerateTitleXml.html">GenerateTitleXml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../http/GenerateReceiptXml.html">GenerateReceiptXml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../http/utd/ExtendedSignerDetailsV2.html">ExtendedSignerDetails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../http/PrepareDocumentsToSign.html">PrepareDocumentsToSign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../http/PostMessage.html">PostMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../http/PostMessagePatch.html">PostMessagePatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../http/ParseTitleXml.html">ParseTitleXml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ExtendedOrganizationInfo.html">ExtendedOrganizationInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ExtendedSigner.html">ExtendedSigner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ExtendedSignerDetailsToPost.html">ExtendedSignerDetailsToPost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalCorrectionDocumentSellerTitleInfo.html">UniversalCorrectionDocumentSellerTitleInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalDocumentMetadata.html">UniversalDocumentMetadata</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">UniversalTransferDocumentBuyerTitleInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalTransferDocumentSellerTitleInfo.html">UniversalTransferDocumentSellerTitleInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PrepareDocumentsToSignRequest.html">PrepareDocumentsToSignRequest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PrepareDocumentsToSignResponse.html">PrepareDocumentsToSignResponse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Messages.html">Работа с сообщениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../API_Invoices.html">Работа со счетами-фактурами</a> &raquo;</li>
+        
+      <li>UniversalTransferDocumentBuyerTitleInfo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/proto/utd/UniversalTransferDocumentBuyerTitleInfo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="universaltransferdocumentbuyertitleinfo">
+<h1>UniversalTransferDocumentBuyerTitleInfo<a class="headerlink" href="#universaltransferdocumentbuyertitleinfo" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Эта структура использовалась в методах <a class="reference internal" href="../../http/utd/GenerateUniversalTransferDocumentXmlForBuyer.html"><span class="doc">GenerateUniversalTransferDocumentXmlForBuyer</span></a>, <a class="reference internal" href="../../http/utd/ParseUniversalTransferDocumentBuyerTitleXml.html"><span class="doc">ParseUniversalTransferDocumentBuyerTitleXml</span></a> и <a class="reference internal" href="../../http/utd/ParseUniversalCorrectionDocumentBuyerTitleXml.html"><span class="doc">ParseUniversalCorrectionDocumentBuyerTitleXml</span></a>, которые устарели с 1 октября 2021 года.</p>
+</div>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span> <span class="nc">UniversalTransferDocumentBuyerTitleInfo</span> <span class="p">{</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">DocumentCreator</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// НаимЭконСубСост - Наименование экономического субъекта - составителя файла обмена информации покупателя</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">DocumentCreatorBase</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// ОснДоверОргСост - Основание, по которому экономический субъект является составителем файла обмена информации покупателя</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">OperationCode</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// ВидОперации - ВидОперации</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">OperationContent</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// СодОпер - Содержание операции</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">AcceptanceDate</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// ДатаПрин - Дата принятия товаров (результатов выполненных работ), имущественных прав (подтверждения факта оказания услуг)</span>
+    <span class="k">optional</span> <span class="n">Employee</span> <span class="na">Employee</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span> <span class="c1">// РабОргПок - работник организации покупателя</span>
+    <span class="k">optional</span> <span class="n">OtherIssuer</span> <span class="na">OtherIssuer</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">// ИнЛицо - Иное Лицо</span>
+    <span class="k">optional</span> <span class="n">AdditionalInfoId</span> <span class="na">AdditionalInfoId</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="c1">// ИнфПолФХЖ4</span>
+    <span class="k">repeated</span> <span class="n">ExtendedSigner</span> <span class="na">Signers</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span> <span class="c1">// Подписант</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Структура данных <em>UniversalTransferDocumentBuyerTitleInfo</em> представляет исходные данные для формирования файлов в XML-формате при помощи метода <a class="reference internal" href="../../http/utd/GenerateUniversalTransferDocumentXmlForBuyer.html"><span class="doc">GenerateUniversalTransferDocumentXmlForBuyer</span></a> в формате УПД и УКД.</p>
+<p>При заполнении структуры <em>UniversalTransferDocumentBuyerTitleInfo</em> нужно иметь в виду:</p>
+<ul class="simple">
+<li><p>Реквизиты подписанта счета-фактуры <em>UniversalTransferDocumentBuyerTitleInfo.Signers</em> заполняются в виде структуры данных <a class="reference internal" href="ExtendedSigner.html"><span class="doc">ExtendedSigner</span></a>.</p></li>
+<li><p>Даты документов должны указываться в формате ДД.ММ.ГГГГ.</p></li>
+<li><p>Информация о работнике покупателя представляется в виде структуры <a class="reference internal" href="UniversalTransferDocumentSellerTitleInfo.html"><span class="doc">Employee</span></a>.</p></li>
+<li><p>Информация об ином лице, принявшем товар, представляется в виде структуры <a class="reference internal" href="UniversalTransferDocumentSellerTitleInfo.html"><span class="doc">OtherIssuer</span></a>.</p></li>
+<li><p>Сведения информационного поля о факте хозяйственной жизни представляется в виде структуры <a class="reference internal" href="UniversalTransferDocumentSellerTitleInfo.html"><span class="doc">AdditionalInfoId</span></a>.</p></li>
+<li><p>Для формата УКД не заполняются поля <em>OperationCode</em>, <em>OtherIssuer</em> и <em>Employee</em></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="UniversalTransferDocumentSellerTitleInfo.html" class="btn btn-neutral float-right" title="UniversalTransferDocumentSellerTitleInfo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="UniversalDocumentMetadata.html" class="btn btn-neutral float-left" title="UniversalDocumentMetadata" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

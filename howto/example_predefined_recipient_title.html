@@ -1,0 +1,375 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Как работать с предопределённым титулом получателя &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../http/GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_UniversalTransferDocument.html">Работа с УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Messages.html">Работа с сообщениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Как работать с предопределённым титулом получателя</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/howto/example_predefined_recipient_title.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>Как работать с предопределённым титулом получателя<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Классическая схема обмена двухтитульными документами выглядит так:
+отправитель готовит титул (отправителя, продавца, первый), подписывает его и отправляет вместе с подписью получателю.</p>
+<p>В свою очередь, получатель готовит ответный титул (получателя, покупателя, второй), и также подписывает и отправляет его вместе с подписью.</p>
+<p>Схема через предопределённый титул позволяет отправителю приложить сразу оба титула. Получателю останется лишь проверить его валидность и подписать, либо же отказать в подписи.</p>
+<div class="section" id="c">
+<h2>Примеры использования (C#)<a class="headerlink" href="#c" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Узнать версию типа, которая поддерживает такую отправку, можно через метод <a class="reference internal" href="../http/GetDocumentTypes.html"><span class="doc">GetDocumentTypes</span></a> (поле SupportsPredefinedRecipientTitle = true).</p>
+<p>Сейчас отправить документ с двумя титулами сразу можно через шаблоны:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span> <span class="n">senderTitle</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="n">ReadAllBytes</span><span class="p">(</span><span class="s">&quot;C:\\path\\to\\sender\\title.xml&quot;</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">recipientTitle</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="n">ReadAllBytes</span>  <span class="p">(</span><span class="s">&quot;C:\\path\\to\\recipient\\title.xml&quot;</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">documentAttachmentWithTwoTitles</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateDocumentAttachment</span>
+  <span class="p">{</span>
+    <span class="c1">// Указать тип, для версии которого разрешен предопределённый титул покупателя</span>
+    <span class="c1">// Саму версию явно можно не указывать, т.к. она должна быть указана  под узлом ВерсФорм в XML.</span>
+    <span class="n">TypeNamedId</span> <span class="p">=</span> <span class="s">&quot;typenamedid&quot;</span><span class="p">,</span>
+    <span class="n">UnsignedContent</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnsignedContent</span>
+    <span class="p">{</span>
+      <span class="n">Content</span> <span class="p">=</span> <span class="n">senderTitle</span>
+    <span class="p">},</span>
+    <span class="n">PredefinedRecipientTitle</span> <span class="p">=</span> <span class="k">new</span> <span class="n">PredefinedRecipientTitle</span>
+    <span class="p">{</span>
+      <span class="n">UnsignedContent</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnsignedContent</span>
+      <span class="p">{</span>
+        <span class="n">Content</span> <span class="p">=</span> <span class="n">recipientTitle</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+<span class="kt">var</span> <span class="n">templateToPost</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateToPost</span>
+  <span class="p">{</span>
+    <span class="n">FromBoxId</span> <span class="p">=</span> <span class="n">fromBoxId</span><span class="p">,</span>
+    <span class="n">ToBoxId</span> <span class="p">=</span> <span class="n">toBoxId</span><span class="p">,</span>
+    <span class="n">MessageFromBoxId</span> <span class="p">=</span> <span class="n">messageFromBoxId</span><span class="p">,</span>
+    <span class="n">MessageToBoxId</span> <span class="p">=</span> <span class="n">messageToBoxId</span><span class="p">,</span>
+    <span class="n">DocumentAttachments</span> <span class="p">=</span> <span class="p">{</span><span class="n">documentAttachmentWithTwoTitles</span><span class="p">}</span>
+  <span class="p">};</span>
+
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="n">PostTemplate</span><span class="p">(</span><span class="n">authToken</span><span class="p">,</span> <span class="n">templateToPost</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Далее получатель превращает шаблон в документ:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span> <span class="n">templateDocumentToTransform</span> <span class="p">=</span> <span class="n">template</span>
+    <span class="p">.</span><span class="n">Entities</span>
+    <span class="p">.</span><span class="n">FirstOrDefault</span><span class="p">(</span><span class="n">e</span> <span class="p">=&gt;</span> <span class="n">e</span><span class="p">.</span><span class="n">DocumentInfo</span><span class="p">.</span><span class="n">TypeNamedId</span> <span class="p">==</span> <span class="s">&quot;typenamedid&quot;</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">transformationToPost</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateTransformationToPost</span>
+  <span class="p">{</span>
+    <span class="n">BoxId</span> <span class="p">=</span> <span class="n">toBoxId</span><span class="p">,</span>
+    <span class="n">TemplateId</span> <span class="p">=</span> <span class="n">template</span><span class="p">.</span><span class="n">MessageId</span><span class="p">,</span>
+    <span class="n">DocumentTransformations</span> <span class="p">=</span>
+    <span class="p">{</span>
+      <span class="k">new</span> <span class="n">DocumentTransformation</span>
+        <span class="p">{</span>
+          <span class="n">DocumentId</span> <span class="p">=</span> <span class="n">templateDocumentToTransform</span><span class="p">.</span><span class="n">EntityId</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="n">api</span><span class="p">.</span><span class="n">TransformTemplateToMessage</span><span class="p">(</span><span class="n">authToken</span><span class="p">,</span> <span class="n">transformationToPost</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>После превращения документу требуется подпись, чтобы дойти до получателя.
+Отправитель документа <cite>(messageFromBoxId)</cite> генерирует подпись и отправляет к своему титулу:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span> <span class="n">senderTitleContent</span> <span class="p">=</span> <span class="n">message</span>
+        <span class="p">.</span><span class="n">Entities</span>
+        <span class="p">.</span><span class="n">FirstOrDefault</span><span class="p">(</span><span class="n">e</span> <span class="p">=&gt;</span> <span class="n">e</span><span class="p">.</span><span class="n">EntityId</span> <span class="p">==</span> <span class="n">documentId</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">Content</span><span class="p">;</span>
+
+<span class="kt">var</span> <span class="n">signatureForSenderTitlePatch</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MessagePatchToPost</span>
+<span class="p">{</span>
+        <span class="n">Signatures</span> <span class="p">=</span>
+        <span class="p">{</span>
+                <span class="k">new</span> <span class="n">DocumentSignature</span>
+                <span class="p">{</span>
+                        <span class="n">ParentEntityId</span> <span class="p">=</span> <span class="n">documentId</span><span class="p">;</span>
+                        <span class="n">Signature</span> <span class="p">=</span> <span class="n">crypt</span><span class="p">.</span><span class="n">Sign</span><span class="p">(</span><span class="n">senderTitleContent</span><span class="p">.</span><span class="n">Data</span><span class="p">,</span> <span class="n">senderCertificateContent</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Нужные entityId сущностей титулов отправителя и получателя можно получить через метод <a class="reference internal" href="../http/GetMessage.html"><span class="doc">GetMessage</span></a>.</p>
+<p>До получателя документа дойдет как подписанный титул отправителя, так и неподписанный предопределенный титул получателя. С его стороны останется также отправить подпись, но уже к предопределённому титулу:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span> <span class="n">recipientTitleContent</span> <span class="p">=</span> <span class="n">message</span>
+        <span class="p">.</span><span class="n">Entities</span>
+        <span class="p">.</span><span class="n">FirstOrDefault</span><span class="p">(</span><span class="n">e</span> <span class="p">=&gt;</span> <span class="n">e</span><span class="p">.</span><span class="n">EntityId</span> <span class="p">==</span> <span class="n">recipientTitleEntityId</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">Content</span><span class="p">;</span>
+
+<span class="kt">var</span> <span class="n">signatureForRecipientTitlePatch</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MessagePatchToPost</span>
+<span class="p">{</span>
+        <span class="n">Signatures</span> <span class="p">=</span>
+        <span class="p">{</span>
+                <span class="k">new</span> <span class="n">DocumentSignature</span>
+                <span class="p">{</span>
+                        <span class="n">ParentEntityId</span> <span class="p">=</span> <span class="n">documentId</span><span class="p">;</span>
+                        <span class="n">Signature</span> <span class="p">=</span> <span class="n">crypt</span><span class="p">.</span><span class="n">Sign</span><span class="p">(</span><span class="n">recipientTitleContent</span><span class="p">.</span><span class="n">Data</span><span class="p">,</span> <span class="n">recipientCertificateContent</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">api</span><span class="p">.</span><span class="n">PostMessagePatch</span><span class="p">(</span><span class="n">authToken</span><span class="p">,</span> <span class="n">signatureForRecipientTitlePatch</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

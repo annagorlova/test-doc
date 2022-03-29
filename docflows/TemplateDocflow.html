@@ -1,0 +1,523 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Документооборот шаблонов &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Работа с машиночитаемой доверенностью" href="../howto/powerofattorney.html" />
+    <link rel="prev" title="Неформализованный документооборот" href="NonformalizedDocflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../http/GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howto/powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_UniversalTransferDocument.html">Работа с УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Messages.html">Работа с сообщениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Документооборот шаблонов</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/docflows/TemplateDocflow.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>Документооборот шаблонов<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="contents local topic" id="id2">
+<ul class="simple">
+<li><p><a class="reference internal" href="#id3" id="id14">Сценарии использования шаблонов</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id15">Возможности и ограничения шаблонов</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id16">Действия с шаблонами</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id6" id="id17">Отправка шаблона</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id7" id="id18">Схемы использования шаблонов</a></p></li>
+<li><p><a class="reference internal" href="#template-editing-settings" id="id19">Редактируемые шаблоны</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id9" id="id20">Получение шаблонов и событий</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id21">Создание документа из шаблона</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id22">Отзыв и отклонение шаблона</a></p></li>
+<li><p><a class="reference internal" href="#id12" id="id23">Другие действия</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Шаблон — это предзаполненный документ, не имеющий юридической силы, который можно отправить контрагенту без подписи.</p>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id14">Сценарии использования шаблонов</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li><p>У получателя документа есть определенные требования к этому документу. Получатель может сам создать шаблон документа, удовлетворяющего этим требованиям, и передать этот шаблон отправителю документа. Отправитель создаст документ на основе шаблона и отправит его получателю. Так получателю придет документ, который удовлетворяет его требованиям.</p></li>
+<li><p>У получателя документов много контрагентов. Получатель хочет уменьшить количество ошибок во входящих документах. Он может создать шаблон и отправить его контрагентам. Так получатель будет уверен, что получит от контрагентов документы без ошибок.</p></li>
+<li><p>Отправитель документа хочет показать документ получателю до его подписания. Он может создать шаблон и отправить его получателю для ознакомления. Когда получатель подтвердит, что документ соответствует его ожиданиям, отправитель создаст документ из шаблона и отправит его получателю.</p></li>
+<li><p>Отправитель документа не знает, как должен выглядеть отправляемый документ. Он просит третью сторону подготовить для него шаблон документа, который нужно отправить получателю. Третья сторона готовит шаблон и передает его отправителю. Отправитель создает из шаблона документ и отправляет получателю.</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id15">Возможности и ограничения шаблонов</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li><p>Из шаблона можно создать юридически значимый документ <a class="reference internal" href="../http/GetDocumentTypes.html"><span class="doc">любого типа</span></a>.</p></li>
+<li><p>Шаблоны можно связать в пакет, в том числе в закрытый. Шаблоны из закрытого пакета могут быть обработаны только вместе. Документы, созданные из шаблонов в закрытом пакете, будут отправлены в пакете, состав которого изменить нельзя.</p></li>
+<li><p>Шаблоны могут быть одноразовыми и многоразовыми. На основе одноразового шаблона можно создать только один документ, на основе многоразового — неограниченное количество документов.</p></li>
+<li><p>В шаблоне можно указать настройки будущего документа: запрос подписи, данные о документе и т.д.</p></li>
+<li><p>Шаблоны могут быть <a class="reference external" href="#id8">редактируемыми</a>, то есть их настройки можно будет изменить перед отправкой.</p></li>
+<li><p>Функционал шаблонов недоступен по умолчанию. Чтобы получить возможность отправлять шаблоны, обратитесь к вашему менеджеру или в <a class="reference external" href="https://www.diadoc.ru/support">техническую поддержку</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id16">Действия с шаблонами</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Организации могут производить с шаблонами следующие действия.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Отправитель шаблона может:</dt><dd><ul>
+<li><p><a class="reference external" href="#id6">настроить и отправить шаблон получателю</a>,</p></li>
+<li><p><a class="reference external" href="#id11">отозвать отправленный шаблон</a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Получатель шаблона может:</dt><dd><ul>
+<li><p><a class="reference external" href="#id11">отклонить шаблон</a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Обе стороны могут:</dt><dd><ul>
+<li><p><a class="reference external" href="#id10">создать из шаблона документ</a>,</p></li>
+<li><p><a class="reference external" href="#id9">получить шаблон по идентификаторам или получить список событий по шаблону</a>,</p></li>
+<li><p><a class="reference external" href="#id12">удалить, восстановить или переместить шаблон</a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id17">Отправка шаблона</a><a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Отправить шаблон можно с помощью метода <a class="reference internal" href="../http/PostTemplate.html"><span class="doc">PostTemplate</span></a>.
+В метод передается структура <a class="reference internal" href="../proto/TemplateToPost.html"><span class="doc">TemplateToPost</span></a>, содержащая сведения об отправляемом шаблоне.</p>
+<p>Структура <code class="docutils literal notranslate"><span class="pre">TemplateToPost</span></code> содержит список документов <a class="reference internal" href="../proto/TemplateDocumentAttachment.html"><span class="doc">TemplateDocumentAttachment</span></a>, которые отправляются в шаблоне.</p>
+<p>Получатель шаблона может <a class="reference external" href="#id11">отклонить документ из шаблона</a>. Чтобы запретить отклонение, установите значение свойства <code class="docutils literal notranslate"><span class="pre">RefusalDisabled</span> <span class="pre">=</span> <span class="pre">true</span></code> структуре <code class="docutils literal notranslate"><span class="pre">TemplateDocumentAttachment</span></code>.</p>
+<p>Чтобы создать многоразовый шаблон, установите значение свойства <code class="docutils literal notranslate"><span class="pre">IsReusable</span> <span class="pre">=</span> <span class="pre">true</span></code> в структуре <code class="docutils literal notranslate"><span class="pre">TemplateToPost</span></code>.</p>
+<p>Чтобы создать редактируемый шаблон, установите <a class="reference external" href="#id8">настройки редактирования</a>.</p>
+<p>Организация, которая сможет создать документ из шаблона, указывается при отправке шаблона в поле <code class="docutils literal notranslate"><span class="pre">MessageFromBoxId</span></code> структуры <code class="docutils literal notranslate"><span class="pre">TemplateToPost</span></code>.
+Ниже перечислены <a class="reference external" href="#id7">примеры заполнения значений ящиков</a> в структуре <code class="docutils literal notranslate"><span class="pre">TemplateToPost</span></code> в зависимости от схемы использования шаблона.</p>
+<div class="section" id="id7">
+<h4><a class="toc-backref" href="#id18">Схемы использования шаблонов</a><a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h4>
+<p><strong>1. Документ готовит получатель</strong></p>
+<blockquote>
+<div><p>В этой схеме получатель документа подготавливает его за отправителя.</p>
+<ol class="arabic simple">
+<li><p>Организация <em>boxId1</em> создает шаблон и отправляет его организации <em>boxId2</em>.</p></li>
+<li><p>Организация <em>boxId2</em> получает шаблон, создает из него документ и отправляет его организации <em>boxId1</em>.</p></li>
+<li><p>Организация <em>boxId1</em>, которая отправила шаблон, получает от организации <em>boxId2</em> входящий документ, созданный из этого шаблона.</p></li>
+</ol>
+<img alt="../_images/template_dockflow_schema1.png" class="align-center" src="../_images/template_dockflow_schema1.png" />
+<p>Чтобы отправить документ по этой схеме, идентификаторы ящиков в структуре <a class="reference internal" href="../proto/TemplateToPost.html"><span class="doc">TemplateToPost</span></a> нужно заполнить так:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;FromBoxId&quot;</span><span class="p">:</span> <span class="s">&quot;boxId1&quot;</span><span class="p">,</span>
+<span class="s">&quot;ToBoxId&quot;</span><span class="p">:</span> <span class="s">&quot;boxId2&quot;</span><span class="p">,</span>
+<span class="s">&quot;MessageFromBoxId&quot;</span><span class="p">:</span> <span class="s">&quot;boxId2&quot;</span><span class="p">,</span>
+<span class="s">&quot;MessageToBoxId&quot;</span><span class="p">:</span> <span class="s">&quot;boxId1&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>2. Предварительный просмотр документа</strong></p>
+<blockquote>
+<div><p>В этой схеме шаблон используется для предварительного просмотра документа будущим получателем.</p>
+<ol class="arabic simple">
+<li><p>Организация <em>boxId1</em> создает шаблон и отправляет его организации <em>boxId2</em>.</p></li>
+<li><p>Организация <em>boxId2</em> получает шаблон и знакомится с его содержимым.</p></li>
+<li><p>Организация <em>boxId1</em>, которая создала шаблон, теперь создает документ из этого шаблона и отправляет его организации <em>boxId2</em>.</p></li>
+<li><p>Организация <em>boxId2</em> получает документ, созданный из шаблона, с которым ознакомилась ранее.</p></li>
+</ol>
+<img alt="../_images/template_dockflow_schema2.png" class="align-center" src="../_images/template_dockflow_schema2.png" />
+<p>Чтобы отправить документ по этой схеме, идентификаторы ящиков в структуре <a class="reference internal" href="../proto/TemplateToPost.html"><span class="doc">TemplateToPost</span></a> нужно заполнить так:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;FromBoxId&quot;</span><span class="p">:</span> <span class="s">&quot;boxId1&quot;</span><span class="p">,</span>
+<span class="s">&quot;ToBoxId&quot;</span><span class="p">:</span> <span class="s">&quot;boxId2&quot;</span><span class="p">,</span>
+<span class="s">&quot;MessageFromBoxId&quot;</span><span class="p">:</span> <span class="s">&quot;boxId1&quot;</span><span class="p">,</span>
+<span class="s">&quot;MessageToBoxId&quot;</span><span class="p">:</span> <span class="s">&quot;boxId2&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>3. Документ готовит третья сторона</strong></p>
+<blockquote>
+<div><p>В этой схеме документ подготавливает сторона, не участвующая в юридически значимом документообороте. Получатель документа не имеет доступа к шаблону. Шаблон согласовывают между собой две организации, документ получает третья организация.</p>
+<ol class="arabic simple">
+<li><p>Организация <em>boxId1</em> создает шаблон и отправляет ее организации <em>boxId2</em>.</p></li>
+<li><p>Организация <em>boxId2</em> получает шаблон, создает из него документ и отправляет его организации <em>boxId3</em>.</p></li>
+<li><p>Организация <em>boxId3</em> получает документ, но не имеет доступа к шаблону, из которого он был создан.</p></li>
+</ol>
+<img alt="../_images/template_dockflow_schema3.png" class="align-center" src="../_images/template_dockflow_schema3.png" />
+<p>Чтобы отправить документ по этой схеме, идентификаторы ящиков в структуре <a class="reference internal" href="../proto/TemplateToPost.html"><span class="doc">TemplateToPost</span></a> нужно заполнить так:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;FromBoxId&quot;</span><span class="p">:</span> <span class="s">&quot;boxId1&quot;</span><span class="p">,</span>
+<span class="s">&quot;ToBoxId&quot;</span><span class="p">:</span> <span class="s">&quot;boxId2&quot;</span><span class="p">,</span>
+<span class="s">&quot;MessageFromBoxId&quot;</span><span class="p">:</span> <span class="s">&quot;boxId2&quot;</span><span class="p">,</span>
+<span class="s">&quot;MessageToBoxId&quot;</span><span class="p">:</span> <span class="s">&quot;boxId3&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="template-editing-settings">
+<span id="id8"></span><h4><a class="toc-backref" href="#id19">Редактируемые шаблоны</a><a class="headerlink" href="#template-editing-settings" title="Ссылка на этот заголовок">¶</a></h4>
+<p>Чтобы отправить шаблон документа, который можно будет отредактировать перед отправкой, используйте <strong>настройки редактирования</strong>. Шаблон с настройками редактирования будет называться <strong>редактируемым шаблоном</strong>.</p>
+<p>Настройки редактирования «ослабляют» требования к документу и позволяют отправить в шаблоне документ с незаполненными полями. Незаполнены могут быть даже обязательные поля формализованного документа, например, номер документа. Документ из такого шаблона нужно будет дозаполнить перед отправкой.</p>
+<p>Кроме этого настройки редактирования позволяют отправить шаблон документа с заполенными полями, которые можно будет отредактировать перед отправкой.</p>
+<p>В Диадоке доступна отправка редактируемых шаблонов для следующих типов документов и настроек:</p>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text">Настройки редактирования</span><a class="headerlink" href="#id13" title="Постоянная ссылка на таблицу">¶</a></caption>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Тип документа</p></th>
+<th class="head"><p>Редактируемые поля</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>УПД</p></td>
+<td><ul class="simple">
+<li><p>Номер документа</p></li>
+<li><p>Номер + дата документа</p></li>
+<li><p>Номер документа + упрощенные банковские реквизиты</p></li>
+<li><p>Номер + дата документа + упрощенные банковские реквизиты</p></li>
+<li><p>Номер + дата документа + расширенные банковские реквизиты</p></li>
+<li><p>Номер документа + строка 5А</p></li>
+<li><p>Номер + дата документа + строка 5А</p></li>
+<li><p>Номер документа + упрощенные банковские реквизиты + строка 5А</p></li>
+<li><p>Номер + дата документа + упрощенные банковские реквизиты + строка 5А</p></li>
+<li><p>Номер + дата документа + расширенные банковские реквизиты + строка 5А</p></li>
+<li><p>Маркировка</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Приложение к УПД</p></td>
+<td><ul class="simple">
+<li><p>Номер документа</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Показания электроэнергии</p></td>
+<td><ul class="simple">
+<li><p>Показания счетчика новое</p></li>
+<li><p>Дополнительный расход электроэнергии</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Поручение экспедитору</p></td>
+<td><ul class="simple">
+<li><p>Данные о водителе</p></li>
+<li><p>Данные о транспортном средстве</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Заявка на перевозку</p></td>
+<td><ul class="simple">
+<li><p>Данные о водителе</p></li>
+<li><p>Данные о транспортном средстве</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Заявка на оказание транспортно-
+экспеиционных услуг</p></td>
+<td><ul class="simple">
+<li><p>Данные о водителе</p></li>
+<li><p>Данные о транспортном средстве</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Чтобы создать редактируемый шаблон, укажите в поле <code class="docutils literal notranslate"><span class="pre">EditingSettingId</span></code> структуры <a class="reference internal" href="../proto/TemplateDocumentAttachment.html"><span class="doc">TemplateDocumentAttachment</span></a> значение идентификатора настройки редактирования. Для получения идентификатора настройки редактирования обратитесь к вашему менеджеру или в <a class="reference external" href="https://www.diadoc.ru/support">техническую поддержку</a>.</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id20">Получение шаблонов и событий</a><a class="headerlink" href="#id9" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Получить шаблон по идентификаторам можно с помощью метода <a class="reference internal" href="../http/GetMessage.html"><span class="doc">GetMessage</span></a>.</p>
+<p>Получить события по шаблонам можно с помощью методов:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../http/GetNewEvents.html"><span class="doc">GetNewEvents</span></a></p></li>
+<li><p><a class="reference internal" href="../http/GetDocflows_V3.html"><span class="doc">GetDocflows (версия 3)</span></a></p></li>
+<li><p><a class="reference internal" href="../http/GetMessage.html"><span class="doc">GetMessage</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id21">Создание документа из шаблона</a><a class="headerlink" href="#id10" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Создать документ из шаблона можно с помощью метода <a class="reference internal" href="../http/TransformTemplateToMessage.html"><span class="doc">TransformTemplateToMessage</span></a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Важно</p>
+<p>Создать документ может только организация, ящик которой указан в поле <code class="docutils literal notranslate"><span class="pre">MessageFromBoxId</span></code> структуры <a class="reference internal" href="../proto/TemplateToPost.html"><span class="doc">TemplateToPost</span></a> при отправке шаблона.</p>
+</div>
+<p>Если шаблон имеет <a class="reference external" href="#id8">настройки редактирования</a>, то созданный из него документ необходимо дозаполнить. Чтобы заполнить документ, отправьте <a class="reference internal" href="../proto/MessagePatchToPost.html"><span class="doc">патч</span></a> c типом <code class="docutils literal notranslate"><span class="pre">EditingPatches</span></code>.</p>
+<p>Созданный документ можно найти среди исходящих неподписанных документов.</p>
+<p>Узнать, из какого шаблона был создан документ, можно с помощью свойства <a class="reference internal" href="../proto/Origin.html"><span class="doc">Origin</span></a> в структуре <a class="reference internal" href="../proto/Document.html"><span class="doc">Document</span></a>.</p>
+<p>Нельзя массово подписать и отправить документы, созданные из шаблонов с настройками редактирования.</p>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id22">Отзыв и отклонение шаблона</a><a class="headerlink" href="#id11" title="Ссылка на этот заголовок">¶</a></h3>
+<p><strong>Отправитель</strong> может отозвать шаблон после отправки. После отзыва получатель шаблона не сможет создать документ из шаблона, отклонить шаблон или отправить документы, созданные из шаблона до его отзыва.</p>
+<p><strong>Получатель</strong> может отклонить входящий шаблон, если он не согласен с шаблоном и не готов формировать и подписывать документ из этого шаблона. Отклонить шаблон можно только в случае, если отклонение не запрещено отправителем шаблона.</p>
+<p>Эти действия можно осуществить с помощью метода <a class="reference internal" href="../http/PostTemplatePatch.html"><span class="doc">PostTemplatePatch</span></a>.</p>
+</div>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id23">Другие действия</a><a class="headerlink" href="#id12" title="Ссылка на этот заголовок">¶</a></h3>
+<ul class="simple">
+<li><p>Удаление шаблона — метод <a class="reference internal" href="../http/Delete.html"><span class="doc">Delete</span></a>.</p></li>
+<li><p>Восстановление шаблона — метод <a class="reference internal" href="../http/Restore.html"><span class="doc">Restore</span></a>.</p></li>
+<li><p>Перемещение шаблонов — метод <a class="reference internal" href="../http/MoveDocuments.html"><span class="doc">MoveDocuments</span></a>.</p></li>
+</ul>
+<p>Все остальные действия для шаблонов недоступны.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../howto/powerofattorney.html" class="btn btn-neutral float-right" title="Работа с машиночитаемой доверенностью" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="NonformalizedDocflow.html" class="btn btn-neutral float-left" title="Неформализованный документооборот" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,436 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Работа с машиночитаемой доверенностью &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Работа с документами с маркированными товарами" href="marking_ttgis.html" />
+    <link rel="prev" title="Документооборот шаблонов" href="../docflows/TemplateDocflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../http/GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_UniversalTransferDocument.html">Работа с УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Messages.html">Работа с сообщениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Работа с машиночитаемой доверенностью</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/howto/powerofattorney.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>Работа с машиночитаемой доверенностью<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="contents local topic" id="id2">
+<ul class="simple">
+<li><p><a class="reference internal" href="#id4" id="id14">Управление доверенностями</a></p>
+<ul>
+<li><p><a class="reference internal" href="#powerofattorney-register" id="id15">Регистрация МЧД</a></p></li>
+<li><p><a class="reference internal" href="#powerofattorney-employee" id="id16">Работа с МЧД сотрудника</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id7" id="id17">Формирование документа</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id18">Предварительная проверка МЧД</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id19">Отправка документа</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id20">Получение документа</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id11" id="id21">Получение МЧД в сообщении</a></p></li>
+<li><p><a class="reference internal" href="#docflow" id="id22">Получение МЧД в docflow</a></p></li>
+<li><p><a class="reference internal" href="#id12" id="id23">Получение МЧД в документах</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id13" id="id24">Ответное действие по документу</a></p></li>
+</ul>
+</div>
+<p>С 1 марта 2022 года вступают в силу поправки в <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=416095">Федеральный закон от 06.04.2011 № 63-ФЗ</a>. Изменения заключаются том, что для подписания документов сотрудники компаний могут использовать сертификаты физического лица, в которых указаны только их личные данные без указания принадлежности к организации. Однако только подписи физического лица при обмене документами недостаточно, чтобы вести юридически значимый документооборот организации. Для подтверждения полномочий сотрудника и его принадлежности к компании руководитель должен выпустить машиночитаемую доверенность (МЧД).</p>
+<p><strong>Машиночитаемая доверенность</strong> — это электронный документ в формате XML, используя который руководитель организации передает сотруднику полномочия для подписания документов. С помощью МЧД сотрудники могут ставить подписи от лица организации.
+Документ содержит данные о:</p>
+<ul class="simple">
+<li><p>доверителе — организации, которая выдала доверенность,</p></li>
+<li><p>доверенном лице — физическом лице, которое уполномочено совершать действие,</p></li>
+<li><p>полномочиях сотрудника.</p></li>
+</ul>
+<p>МЧД нужно передавать вместе с каждым документом, который был подписан сертификатом физического лица. Она будет использоваться при подписании документа и действиях с документом:</p>
+<ul class="simple">
+<li><p>отказ в подписи,</p></li>
+<li><p>запрос аннулирования,</p></li>
+<li><p>отказ в аннулировании,</p></li>
+<li><p>аннулирование,</p></li>
+<li><p>запрос уточнения,</p></li>
+<li><p>подписание извещения о получении документа.</p></li>
+</ul>
+<p>Сотрудники и уполномоченные лица организаций могут перейти на новый формат подписания документов — использовать сертификат физического лица и прикладывать к нему МЧД.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>На время переходного периода, пока МЧД не является обязательным требованием, использовать МЧД с сертификатом физического лица не обязательно.</p>
+</div>
+<p>Процесс работы с МЧД в Диадоке может быть представлен следующими этапами:</p>
+<div class="contents local topic" id="id3">
+<ul class="simple">
+<li><p><a class="reference internal" href="#id4" id="id25">Управление доверенностями</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id26">Формирование документа</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id27">Предварительная проверка МЧД</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id28">Отправка документа</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id29">Получение документа</a></p></li>
+<li><p><a class="reference internal" href="#id13" id="id30">Ответное действие по документу</a></p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id25">Управление доверенностями</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Чтобы сотрудник мог использовать МЧД при работе с документами, ее нужно зарегистрировать и привязать к сотруднику в Диадоке. Это может сделать администратор ящика организации или сам сотрудник. Для этого нужно:</p>
+<ul class="simple">
+<li><p>выпустить доверенность в специальном сервисе: Диадок не выпускает МЧД;</p></li>
+<li><p>получить информацию о МЧД для ее добавления в Диадок: <em>XML-файл МЧД + ЭП руководителя</em> или <em>регистрационный номер МЧД + ИНН доверителя</em>;</p></li>
+<li><p><a class="reference internal" href="#powerofattorney-register"><span class="std std-ref">зарегистрировать МЧД в Диадоке</span></a>;</p></li>
+<li><p><a class="reference internal" href="#powerofattorney-employee"><span class="std std-ref">привязать МЧД к сотруднику</span></a>;</p></li>
+<li><p><a class="reference internal" href="#powerofattorney-employee"><span class="std std-ref">установить МЧД по умолчанию</span></a>, чтобы не выбирать ее при каждом действии с документами (необязательно).</p></li>
+</ul>
+<p>Кроме этого Диадок позволяет <a class="reference internal" href="#powerofattorney-employee"><span class="std std-ref">управлять</span></a> уже привязанными к сотруднику доверенностями:</p>
+<ul class="simple">
+<li><p>получить список МЧД, привязанных к сотруднику,</p></li>
+<li><p>отвязать МЧД от сотрудника,</p></li>
+<li><p>изменить для МЧД настройку «по умолчанию».</p></li>
+</ul>
+<div class="section" id="powerofattorney-register">
+<span id="id5"></span><h3><a class="toc-backref" href="#id15">Регистрация МЧД</a><a class="headerlink" href="#powerofattorney-register" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Если у вас есть МЧД и вы хотите использовать ее для работы в Диадоке, ее нужно зарегистрировать. Сделать это можно двумя способами:</p>
+<ul class="simple">
+<li><p>используя регистрационный номер МЧД и ИНН доверителя,</p></li>
+<li><p>используя XML-файл МЧД с электронной подписью руководителя.</p></li>
+</ul>
+<p>Для регистрации МЧД вызовите метод <a class="reference internal" href="../http/RegisterPowerOfAttorney.html"><span class="doc">RegisterPowerOfAttorney</span></a>, который вернет идентификатор задачи <code class="docutils literal notranslate"><span class="pre">taskId</span></code>. По этому идентификатору с помощью метода <a class="reference internal" href="../http/RegisterPowerOfAttorneyResult.html"><span class="doc">RegisterPowerOfAttorneyResult</span></a> можно узнать результат регистрации.</p>
+<p>Зарегистрированную МЧД нужно привязать к сотруднику, чтобы использовать ее для выполнения операций в Диадоке.</p>
+</div>
+<div class="section" id="powerofattorney-employee">
+<span id="id6"></span><h3><a class="toc-backref" href="#id16">Работа с МЧД сотрудника</a><a class="headerlink" href="#powerofattorney-employee" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Чтобы сотрудник мог использовать МЧД, она должна быть привязана к этому сотруднику. К каждому сотруднику может быть привязано несколько МЧД. Любую из них можно использовать как доверенность по умолчанию. Пользователь может в любой момент может сделать доверенностью по умолчанию другую МЧД или убрать доверенность по умолчанию совсем. Любую МЧД, уже привязанную к сотруднику, можно отвязать.</p>
+<p>Работать с МЧД сотрудника можно с помощью методов:</p>
+<ul class="simple">
+<li><p>метод <a class="reference internal" href="../http/AddEmployeePowerOfAttorney.html"><span class="doc">AddEmployeePowerOfAttorney</span></a> привязывает МЧД к сотруднику;</p></li>
+<li><p>метод <a class="reference internal" href="../http/DeleteEmployeePowerOfAttorney.html"><span class="doc">DeleteEmployeePowerOfAttorney</span></a> отвязывает МЧД от сотрудника;</p></li>
+<li><p>метод <a class="reference internal" href="../http/UpdateEmployeePowerOfAttorney.html"><span class="doc">UpdateEmployeePowerOfAttorney</span></a> устанавливает сотруднику доверенность по умолчанию или снимает с доверенности такой признак;</p></li>
+<li><p>метод <a class="reference internal" href="../http/GetEmployeePowersOfAttorney.html"><span class="doc">GetEmployeePowersOfAttorney</span></a> возвращает список всех МЧД, привязанных к сотруднику.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id26">Формирование документа</a><a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h2>
+<p>При формировании формализованного документа нужно учесть МЧД в блоке <code class="docutils literal notranslate"><span class="pre">Подписант</span></code>. Для этого вместе с сертификатом физического лица укажите МЧД:</p>
+<ul class="simple">
+<li><p>при генерации <a class="reference internal" href="../http/GenerateTitleXml.html#generate-title-xml-poa"><span class="std std-ref">титула с МЧД</span></a> методом <a class="reference internal" href="../http/GenerateTitleXml.html"><span class="doc">GenerateTitleXml</span></a>;</p></li>
+<li><p>при подготовке документа к подписанию методом <a class="reference internal" href="../http/PrepareDocumentsToSign.html"><span class="doc">PrepareDocumentsToSign</span></a>: для этого в структуре <a class="reference internal" href="../proto/utd/ExtendedSigner.html"><span class="doc">ExtendedSigner</span></a> заполните структуру <a class="reference internal" href="../proto/PowerOfAttorneyToPost.html"><span class="doc">PowerOfAttorneyToPost</span></a>, указав в ней данные о МЧД.</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id27">Предварительная проверка МЧД</a><a class="headerlink" href="#id8" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Перед отправкой документа можно проверить МЧД:</p>
+<ul class="simple">
+<li><p>соответствует ли МЧД установленному формату,</p></li>
+<li><p>является ли МЧД действующей (без учета отзыва),</p></li>
+<li><p>верна ли подпись, которой подписана МЧД,</p></li>
+<li><p>соответствует ли МЧД сертификату, которым будет подписан документ,</p></li>
+<li><p>отозвана ли МЧД — проверяется в тех случаях, когда за отведенное время удастся получить информацию о статусе МЧД от сервиса ФНС.</p></li>
+</ul>
+<p>Для предварительной проверки МЧД используйте метод <a class="reference internal" href="../http/PrevalidatePowerOfAttorney.html"><span class="doc">PrevalidatePowerOfAttorney</span></a>.</p>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id28">Отправка документа</a><a class="headerlink" href="#id9" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Для отправки документа вызовите метод <a class="reference internal" href="../http/PostMessage.html"><span class="doc">PostMessage</span></a> или <a class="reference internal" href="../http/SendDraft.html"><span class="doc">SendDraft</span></a>, указав в теле запроса регистрационный номер МЧД и ИНН доверителя или признак «использовать МЧД по умолчанию». Эти методы принимают на вход структуры <a class="reference internal" href="../proto/SignedContent.html"><span class="doc">SignedContent</span></a> и <a class="reference internal" href="../proto/DocumentSenderSignature.html"><span class="doc">DocumentSenderSignature</span></a>, которые хранят информацию о МЧД внутри структуры <a class="reference internal" href="../proto/PowerOfAttorneyToPost.html"><span class="doc">PowerOfAttorneyToPost</span></a>.</p>
+</div>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id29">Получение документа</a><a class="headerlink" href="#id10" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id21">Получение МЧД в сообщении</a><a class="headerlink" href="#id11" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Чтобы получить информацию о МЧД в сообщении, используйте методы</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../http/GetMessage.html"><span class="doc">GetMessage</span></a>,</p></li>
+<li><p><a class="reference internal" href="../http/GetNewEvents.html"><span class="doc">GetNewEvents</span></a>,</p></li>
+<li><p><a class="reference internal" href="../http/GetLastEvent.html"><span class="doc">GetLastEvent</span></a>,</p></li>
+<li><p><a class="reference internal" href="../http/GetEvent.html"><span class="doc">GetEvent</span></a>.</p></li>
+</ul>
+<p>Они возвращают информацию о МЧД и ее статусе внутри структуры <a class="reference internal" href="../proto/PowerOfAttorneyInfo.html"><span class="doc">PowerOfAttorneyInfo</span></a>.</p>
+</div>
+<div class="section" id="docflow">
+<h3><a class="toc-backref" href="#id22">Получение МЧД в docflow</a><a class="headerlink" href="#docflow" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Чтобы получить информацию о МЧД в docflow, используйте методы</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../http/GetDocflowEvents_V3.html"><span class="doc">V3/GetDocflowEvents</span></a>,</p></li>
+<li><p><a class="reference internal" href="../http/GetDocflows_V3.html"><span class="doc">V3/GetDocflows</span></a>,</p></li>
+<li><p><a class="reference internal" href="../http/GetDocflowsByPacketId_V3.html"><span class="doc">V3/GetDocflowsByPacketId</span></a>,</p></li>
+<li><p><a class="reference internal" href="../http/SearchDocflows_V3.html"><span class="doc">V3/SearchDocflows</span></a>.</p></li>
+</ul>
+<p>Они возвращают:</p>
+<ul class="simple">
+<li><p>информацию об общем (сводном) статусе по всем МЧД для всех сущностей документа внутри структуры <a class="reference internal" href="../proto/PowerOfAttorneyValidationStatus.html"><span class="doc">PowerOfAttorneyValidationStatus</span></a>, хранящейся в <a class="reference internal" href="../proto/DocflowStatusV3.html"><span class="doc">DocflowStatusV3</span></a>,</p></li>
+<li><p>информацию о МЧД и ее статусе из подписи под документом внутри структуры <a class="reference internal" href="../proto/SignaturePowerOfAttorney.html"><span class="doc">SignaturePowerOfAttorney</span></a>, хранящейся в <a class="reference internal" href="../proto/SignatureV3.html"><span class="doc">SignatureV3</span></a>.</p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id23">Получение МЧД в документах</a><a class="headerlink" href="#id12" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Чтобы получить информацию о МЧД в документах, используйте методы</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../http/GetDocument.html"><span class="doc">GetDocument</span></a>,</p></li>
+<li><p><a class="reference internal" href="../http/GetDocuments.html"><span class="doc">GetDocuments</span></a>,</p></li>
+<li><p><a class="reference internal" href="../http/GetDocumentsByMessageId.html"><span class="doc">GetDocumentsByMessageId</span></a>.</p></li>
+</ul>
+<p>Они возвращают информацию об общем (сводном) статусе по всем МЧД для всех сущностей документа внутри структуры <a class="reference internal" href="../proto/PowerOfAttorneyValidationStatus.html"><span class="doc">PowerOfAttorneyValidationStatus</span></a>, хранящейся в <a class="reference internal" href="../proto/DocflowStatusV3.html"><span class="doc">DocflowStatusV3</span></a>.</p>
+<p>Чтобы получить информацию о МЧД, отправленной с документом, используйте метод <a class="reference internal" href="../http/GetPowerOfAttorneyInfo.html"><span class="doc">GetPowerOfAttorneyInfo</span></a>.</p>
+</div>
+</div>
+<div class="section" id="id13">
+<h2><a class="toc-backref" href="#id30">Ответное действие по документу</a><a class="headerlink" href="#id13" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Для ответного действия по документу вызовите метод <a class="reference internal" href="../http/PostMessagePatch.html"><span class="doc">PostMessagePatch</span></a>, указав в теле запроса регистрационный номер МЧД и ИНН доверителя или признак «использовать МЧД по умолчанию». Этот метод принимает на вход структуру <a class="reference internal" href="../proto/DocumentSignature.html"><span class="doc">DocumentSignature</span></a>, которая хранят информацию о МЧД внутри структуры <a class="reference internal" href="../proto/PowerOfAttorneyToPost.html"><span class="doc">PowerOfAttorneyToPost</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="marking_ttgis.html" class="btn btn-neutral float-right" title="Работа с документами с маркированными товарами" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../docflows/TemplateDocflow.html" class="btn btn-neutral float-left" title="Документооборот шаблонов" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

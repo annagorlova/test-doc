@@ -1,0 +1,640 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Entity &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Message" href="Message.html" />
+    <link rel="prev" title="GetMessage" href="../http/GetMessage.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../http/GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howto/powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_UniversalTransferDocument.html">Работа с УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../API_Messages.html">Работа с сообщениями</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../http/GetEntityContent.html">GetEntityContent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/GetMessage.html">GetMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/PostMessage.html">PostMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/PostMessagePatch.html">PostMessagePatch</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Entity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Message.html">Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MessagePatch.html">MessagePatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MessagePatchToPost.html">MessagePatchToPost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MessageToPost.html">MessageToPost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SignedContent.html">SignedContent</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../API_Messages.html">Работа с сообщениями</a> &raquo;</li>
+        
+      <li>Entity</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/proto/Entity message.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="entity">
+<h1>Entity<a class="headerlink" href="#entity" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span> <span class="nc">Entity</span> <span class="p">{</span>
+    <span class="k">optional</span> <span class="n">EntityType</span> <span class="na">EntityType</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="n">UnknownEntityType</span><span class="p">];</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">EntityId</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">ParentEntityId</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">Content</span> <span class="na">Content</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// значение отсутствует тогда и только тогда, когда у сущности не предусмотрен контент</span>
+    <span class="k">optional</span> <span class="n">AttachmentType</span> <span class="na">AttachmentType</span> <span class="o">=</span> <span class="mi">5</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="n">UnknownAttachmentType</span><span class="p">];</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">FileName</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">NeedRecipientSignature</span> <span class="o">=</span> <span class="mi">7</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">SignerBoxId</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">NotDeliveredEventId</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">Documents.Document</span> <span class="na">DocumentInfo</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">sfixed64</span> <span class="na">RawCreationDate</span> <span class="o">=</span> <span class="mi">12</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="mi">0</span><span class="p">];</span>
+    <span class="k">optional</span> <span class="n">ResolutionInfo</span> <span class="na">ResolutionInfo</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span> <span class="c1">// заполняется только для вложений с типом AttachmentType.Resolution</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">SignerDepartmentId</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span> <span class="c1">// заполняется только для вложений с типом EntityType.Signature</span>
+    <span class="k">optional</span> <span class="n">ResolutionRequestInfo</span> <span class="na">ResolutionRequestInfo</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span> <span class="c1">// заполняется только для вложений с типом AttachmentType.ResolutionRequest</span>
+    <span class="k">optional</span> <span class="n">ResolutionRequestDenialInfo</span> <span class="na">ResolutionRequestDenialInfo</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span> <span class="c1">// заполняется только для вложений с типом AttachmentType.ResolutionRequestDenial</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">NeedReceipt</span> <span class="o">=</span> <span class="mi">17</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span> <span class="c1">// заполняется только для вложений с типом EntityType.Attachment</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">PacketId</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">IsApprovementSignature</span> <span class="o">=</span> <span class="mi">19</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span> <span class="c1">// заполняется только для вложений с типом EntityType.Signature</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">IsEncryptedContent</span> <span class="o">=</span> <span class="mi">20</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">AttachmentVersion</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">ResolutionRouteAssignmentInfo</span> <span class="na">ResolutionRouteAssignmentInfo</span> <span class="o">=</span> <span class="mi">22</span><span class="p">;</span> <span class="c1">// заполняется только для вложений с типом AttachmentType.ResolutionRouteAssignment</span>
+    <span class="k">optional</span> <span class="n">ResolutionRouteRemovalInfo</span> <span class="na">ResolutionRouteRemovalInfo</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span> <span class="c1">// заполняется только для вложений с типом AttachmentType.ResolutionRouteRemoval</span>
+    <span class="k">optional</span> <span class="n">CancellationInfo</span> <span class="na">CancellationInfo</span> <span class="o">=</span> <span class="mi">24</span><span class="p">;</span> <span class="c1">// заполняется только для вложений с типом AttachmentType.Cancellation</span>
+    <span class="k">repeated</span> <span class="kt">string</span> <span class="na">Labels</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">Version</span> <span class="o">=</span> <span class="mi">26</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">TemplateTransformationInfo</span> <span class="na">TemplateTransformationInfo</span> <span class="o">=</span> <span class="mi">27</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">TemplateRefusalInfo</span> <span class="na">TemplateRefusalInfo</span> <span class="o">=</span> <span class="mi">28</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">OuterDocflowInfo</span> <span class="na">OuterDocflow</span> <span class="o">=</span> <span class="mi">29</span><span class="p">;</span> <span class="c1">// заполняется только для вложений с типом AttachmentType.OuterDocflow</span>
+    <span class="k">optional</span> <span class="n">RevocationRequestInfo</span> <span class="na">RevocationRequestInfo</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span> <span class="c1">// заполняется только для вложений с типом AttachmentType.RevocationRequest</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">ContentTypeId</span> <span class="o">=</span> <span class="mi">31</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">PowerOfAtorneyInfo</span> <span class="na">PowerOfAttorneyInfo</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span> <span class="c1">// заполняется долько для вложений с типом AttachmentType.PowerOfAttorney и AttachmentType.PowerOfAttorneyStatus</span>
+<span class="p">}</span>
+
+<span class="kd">enum</span> <span class="n">EntityType</span> <span class="p">{</span>
+    <span class="na">UnknownEntityType</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Reserved type to report to legacy clients for newly introduced entity types</span>
+    <span class="na">Attachment</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="na">Signature</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">enum</span> <span class="n">AttachmentType</span> <span class="p">{</span>
+    <span class="na">UnknownAttachmentType</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// Reserved attachment type to report to legacy clients for newly introduced attachment types</span>
+    <span class="na">Nonformalized</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="na">Invoice</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="na">InvoiceReceipt</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="na">InvoiceConfirmation</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="na">InvoiceCorrectionRequest</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="na">AttachmentComment</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="na">DeliveryFailureNotification</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+    <span class="na">SignatureRequestRejection</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="na">SignatureVerificationReport</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="na">TrustConnectionRequest</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+    <span class="na">Torg12</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="na">InvoiceRevision</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+    <span class="na">InvoiceCorrection</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+    <span class="na">InvoiceCorrectionRevision</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+    <span class="na">AcceptanceCertificate</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+    <span class="na">StructuredData</span> <span class="o">=</span> <span class="mi">17</span><span class="p">;</span>
+    <span class="na">ProformaInvoice</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+    <span class="na">XmlTorg12</span> <span class="o">=</span> <span class="mi">19</span><span class="p">;</span>
+    <span class="na">XmlAcceptanceCertificate</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="na">XmlTorg12BuyerTitle</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
+    <span class="na">XmlAcceptanceCertificateBuyerTitle</span> <span class="o">=</span> <span class="mi">22</span><span class="p">;</span>
+    <span class="na">Resolution</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+    <span class="na">ResolutionRequest</span> <span class="o">=</span> <span class="mi">24</span><span class="p">;</span>
+    <span class="na">ResolutionRequestDenial</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+    <span class="na">PriceList</span> <span class="o">=</span> <span class="mi">26</span><span class="p">;</span>
+    <span class="na">Receipt</span> <span class="o">=</span> <span class="mi">27</span><span class="p">;</span>
+    <span class="na">XmlSignatureRejection</span> <span class="o">=</span> <span class="mi">28</span><span class="p">;</span>
+    <span class="na">RevocationRequest</span> <span class="o">=</span> <span class="mi">29</span><span class="p">;</span>
+    <span class="na">PriceListAgreement</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+    <span class="na">CertificateRegistry</span> <span class="o">=</span> <span class="mi">34</span><span class="p">;</span>
+    <span class="na">ReconciliationAct</span> <span class="o">=</span> <span class="mi">35</span><span class="p">;</span>
+    <span class="na">Contract</span> <span class="o">=</span> <span class="mi">36</span><span class="p">;</span>
+    <span class="na">Torg13</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
+    <span class="na">ServiceDetails</span> <span class="o">=</span> <span class="mi">38</span><span class="p">;</span>
+    <span class="na">RoamingNotification</span> <span class="o">=</span> <span class="mi">39</span><span class="p">;</span>
+    <span class="na">SupplementaryAgreement</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+    <span class="na">UniversalTransferDocument</span> <span class="o">=</span> <span class="mi">41</span><span class="p">;</span>
+    <span class="na">UniversalTransferDocumentBuyerTitle</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+    <span class="na">UniversalTransferDocumentRevision</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+    <span class="na">UniversalCorrectionDocument</span> <span class="o">=</span> <span class="mi">49</span><span class="p">;</span>
+    <span class="na">UniversalCorrectionDocumentRevision</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="na">UniversalCorrectionDocumentBuyerTitle</span> <span class="o">=</span> <span class="mi">51</span><span class="p">;</span>
+    <span class="na">CustomData</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
+    <span class="na">MoveDocument</span> <span class="o">=</span> <span class="mi">65</span><span class="p">;</span> <span class="c1">// является устаревшим, в ответе методов не возвращается</span>
+    <span class="na">ResolutionRouteAssignment</span> <span class="o">=</span> <span class="mi">66</span><span class="p">;</span>
+    <span class="na">ResolutionRouteRemoval</span> <span class="o">=</span> <span class="mi">67</span><span class="p">;</span>
+    <span class="na">Title</span> <span class="o">=</span> <span class="mi">68</span><span class="p">;</span>
+    <span class="na">Cancellation</span> <span class="o">=</span> <span class="mi">69</span><span class="p">;</span>
+    <span class="na">Edition</span> <span class="o">=</span> <span class="mi">71</span><span class="p">;</span>
+    <span class="na">DeletionRestoration</span> <span class="o">=</span> <span class="mi">72</span><span class="p">;</span>
+    <span class="na">TemplateTransformation</span> <span class="o">=</span> <span class="mi">73</span><span class="p">;</span>
+    <span class="na">TemplateRefusal</span> <span class="o">=</span> <span class="mi">74</span><span class="p">;</span>
+    <span class="na">OuterDocflow</span> <span class="o">=</span> <span class="mi">75</span><span class="p">;</span>
+    <span class="na">RoamingConfirmation</span> <span class="o">=</span> <span class="mi">76</span><span class="p">;</span>
+    <span class="na">PowerOfAttorney</span> <span class="o">=</span> <span class="mi">77</span><span class="p">;</span>
+    <span class="na">PowerOfAttorneyStatus</span> <span class="o">=</span> <span class="mi">78</span><span class="p">;</span>
+    <span class="c1">// Неизвестные типы должны обрабатываться как Nonformalized</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Структура данных <code class="docutils literal notranslate"><span class="pre">Entity</span></code> представляет одну сущность, входящую в сообщение или в дополнение к сообщению. Содержится в структурах <a class="reference internal" href="Message.html"><span class="doc">Message</span></a> и <a class="reference internal" href="MessagePatch.html"><span class="doc">MessagePatch</span></a>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">EntityType</span></code> — тип сущности. Может принимать значения:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Attachment</span></code> — файл-вложение в сообщении</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Signature</span></code> — электронная подпись под вложением</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EntityId</span></code> — уникальный идентификатор сущности.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ParentEntityId</span></code> — идентификатор родительской сущности. Например, для сущности <code class="docutils literal notranslate"><span class="pre">Signature</span></code> это будет идентификатор соответствующей сущности <code class="docutils literal notranslate"><span class="pre">Attachment</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Content</span></code> — содержимое сущности (подробнее в описании структуры <a class="reference internal" href="Content.html"><span class="doc">Content</span></a>).</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Content.Size</span></code> — размер содержимого в байтах</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Content.Data</span></code> — если присутствует, содержит массив байтов с данными. Его нужно интерпретировать в зависимости от типа сущности <code class="docutils literal notranslate"><span class="pre">EntityType</span></code> и типа вложения <code class="docutils literal notranslate"><span class="pre">AttachmentType</span></code>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Содержимое Content.Data в зависимости от типа сущности и типа вложения</span><a class="headerlink" href="#id1" title="Постоянная ссылка на таблицу">¶</a></caption>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 25%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>EntityType</p></th>
+<th class="head"><p>AttachmentType</p></th>
+<th class="head"><p>Content.Data</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Signature</p></td>
+<td></td>
+<td><p>Электронная подпись в формате
+<span class="target" id="index-0"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc5652.html#section-5"><strong>CMS SignedData</strong></a> в
+в <a class="reference external" href="http://www.itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf">DER</a>-кодировке</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="9"><p>Attachment</p></td>
+<td><ul class="simple">
+<li><p>Nonformalized</p></li>
+<li><p>ProformaInvoice</p></li>
+<li><p>Torg12</p></li>
+<li><p>AcceptanceCertificate</p></li>
+<li><p>StructuredData</p></li>
+<li><p>PriceList</p></li>
+</ul>
+</td>
+<td><p>Двоичное содержимое исходного файла</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Invoice</p></li>
+<li><p>InvoiceRevision</p></li>
+<li><p>InvoiceCorrection</p></li>
+<li><p>InvoiceCorrectionRevision</p></li>
+<li><p>InvoiceReceipt</p></li>
+<li><p>InvoiceConfirmation</p></li>
+<li><p>InvoiceCorrectionRequest</p></li>
+</ul>
+</td>
+<td><p>XML-файлы, которыми продавец и покупатель обмениваются</p>
+<p>в ходе выставления/получения электронных счетов-фактур</p>
+<p>согласно порядку, утвержденному Минфином России</p>
+</td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>XmlTorg12</p></li>
+<li><p>XmlTorg12BuyerTitle</p></li>
+<li><p>XmlAcceptanceCertificate</p></li>
+<li><p>XmlAcceptanceCertificateBuyerTitle</p></li>
+</ul>
+</td>
+<td><p>XML-файлы накладных и актов в формате, утвержденном ФНС России</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>TrustConnectionRequest</p></li>
+</ul>
+</td>
+<td><p>XML-файл в формате <code class="docutils literal notranslate"><span class="pre">TrustConnectionRequestAttachment</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>RevocationRequest</p></li>
+</ul>
+</td>
+<td><p>XML-файл (формат файла)</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>XmlSignatureRejection</p></li>
+</ul>
+</td>
+<td><p>XML-файл (формат файла)</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>AttachmentComment</p></li>
+<li><p>SignatureRequestRejection</p></li>
+<li><p>DeliveryFailureNotification</p></li>
+<li><p>Resolution</p></li>
+<li><p>ResolutionRequest</p></li>
+<li><p>ResolutionRequestDenial</p></li>
+<li><p>ResolutionRouteAssignment</p></li>
+<li><p>ResolutionRouteRemoval</p></li>
+<li><p>RoamingNotification</p></li>
+</ul>
+</td>
+<td><p>Строка в кодировке UTF-8</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>SignatureVerificationReport</p></li>
+</ul>
+</td>
+<td><p>Структура <code class="docutils literal notranslate"><span class="pre">SignatureVerificationResult</span></code>,
+сериализованная в протобуфер</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>RoamingConfirmation</p></li>
+</ul>
+</td>
+<td><p>XML-файл в формате,
+<a class="reference external" href="https://base.garant.ru/72145228/53f89421bbdaf741eb2d1ecc4ddb4c33">утвержденном ФНС</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">AttachmentType</span></code> — тип вложения (имеет смысл только для сущностей типа <code class="docutils literal notranslate"><span class="pre">Attachment</span></code>). Может принимать значения:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UnknownAttachmentType</span></code> — неизвестный тип документа. Возвращается только в случае, когда клиент использует устаревшую версию SDK и не может интерпретировать тип документа, переданный сервером.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Nonformalized</span></code> — неформализованный документ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Invoice</span></code> — счет-фактура</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InvoiceRevision</span></code> — исправление счета-фактуры</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InvoiceCorrection</span></code> — корректировочный счет-фактура</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InvoiceCorrectionRevision</span></code> — исправление корректировочного счета-фактуры</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InvoiceReceipt</span></code> — извещение о получении счета-фактуры, подтверждения оператора электронного документооборота или уведомления об уточнении счета-фактуры</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InvoiceConfirmation</span></code> — подтверждение оператора электронного документооборота</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InvoiceCorrectionRequest</span></code> — уведомление об уточнении счета-фактуры</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AttachmentComment</span></code> — текстовый комментарий к другой сущности-вложению</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeliveryFailureNotification</span></code> — уведомление о невозможности доставки сообщения</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SignatureRequestRejection</span></code> — отказ в формировании запрошенной подписи</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SignatureVerificationReport</span></code> — протокол проверки подписи, сформированный Диадоком</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TrustConnectionRequest</span></code> — запрос на инициацию канала обмена документами через Диадок</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ProformaInvoice</span></code> — счет на оплату</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Torg12</span></code> — товарная накладная ТОРГ-12</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AcceptanceCertificate</span></code> — акт о выполнении работ или оказании услуг</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">XmlTorg12</span></code> — товарная накладная ТОРГ-12 в XML-формате, титул продавца</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">XmlTorg12BuyerTitle</span></code> — товарная накладная ТОРГ-12 в XML-формате, титул покупателя</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">XmlAcceptanceCertificate</span></code> — акт о выполнении работ / оказании услуг в XML-формате, титул исполнителя</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">XmlAcceptanceCertificateBuyerTitle</span></code> — акт о выполнении работ / оказании услуг в XML-формате, титул заказчика</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StructuredData</span></code> — произвольный файл со структурированными данными, описывающими тот или иной документ, представленный в виде печатной формы</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Resolution</span></code> — информация о статусе согласования документа</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ResolutionRequest</span></code> — запрос согласования документа</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ResolutionRequestDenial</span></code> — отказ в запросе подписи документа</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PriceList</span></code> — ценовой лист</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PriceListAgreement</span></code> — протокол согласования цены</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CertificateRegistry</span></code> — реестр сертификатов</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ReconciliationAct</span></code> — акт сверки</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Contract</span></code> — договор</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Torg13</span></code> — накладная ТОРГ-13</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ServiceDetails</span></code> — детализация</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Receipt</span></code> — извещение о получении</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">XmlSignatureRejection</span></code> — формализованный отказ в подписи</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RevocationRequest</span></code> — предложение об аннулировании</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RoamingNotification</span></code> — роуминговая квитанция</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SupplementaryAgreement</span></code> — дополнительное соглашение к договору</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CustomData</span></code> — произвольные данные к документу</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MoveDocument</span></code> — информация о перемещении документа в подразделение</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ResolutionRouteAssignment</span></code> — информация о запуске документа по маршруту согласования</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ResolutionRouteRemoval</span></code> — информация о снятии документа с маршрута согласования</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Title</span></code> — титул документа. Возвращается для всех типов документов, кроме типов от 0 (<code class="docutils literal notranslate"><span class="pre">AttachmentType=Nonformalized</span></code>) до 51 (<code class="docutils literal notranslate"><span class="pre">AttachmentType=UniversalCorrectionDocumentBuyerTitle</span></code>). Это сделано для сохранения обратной совместимости: для первых титулов (титулов отправителя) с типами от <code class="docutils literal notranslate"><span class="pre">Nonformalized</span></code> до <code class="docutils literal notranslate"><span class="pre">UniversalCorrectionDocumentBuyerTitle</span></code> возвращается соответствующее значение, например, <code class="docutils literal notranslate"><span class="pre">Invoice</span></code> для счета-фактуры и т.п.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cancellation</span></code> — информация об отмене сущности, которая указана родительской по отношению к данной</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Edition</span></code> — информация о редактировании контента документа, который указан родительским по отношению к данной сущности</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeletionRestoration</span></code> — восстановление удаленного документа</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TemplateTransformation</span></code> — информация о трансформации</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TemplateRefusal</span></code> — информация об отклонении или отзыве шаблона</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OuterDocflow</span></code> — информация о внешнем документообороте</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RoamingConfirmation</span></code> — подтверждение оператора, отправленное в роуминг или полученное из роуминга</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PowerOfAttorney</span></code> — информация о машиночитаемой доверенности</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PowerOfAttorneyStatus</span></code> — статус проверки машиночитаемой доверенности</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FileName</span></code> — для сущности типа <code class="docutils literal notranslate"><span class="pre">Attachment</span></code> это исходное имя файла, для других типов сущностей не заполняется.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NeedRecipientSignature</span></code> — флаг, обозначающий запрос подписи получателя под данной сущностью. Имеет смысл только для сущностей типа <code class="docutils literal notranslate"><span class="pre">Attachment</span></code> с типом вложения <code class="docutils literal notranslate"><span class="pre">Nonformalized</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SignerBoxId</span></code> — для сущности типа <code class="docutils literal notranslate"><span class="pre">Signature</span></code> это идентификатор ящика автора данной подписи, для других типов сущностей не заполняется.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NotDeliveredEventId</span></code> — это идентификатор сообщения или патча, который не удалось доставить (например, из-за некорректности одной или нескольких подписей в нем). Получить недоставленный кусок сообщения можно с помощью метода <a class="reference internal" href="../http/GetEvent.html"><span class="doc">GetEvent</span></a>, передав в качестве параметра <code class="docutils literal notranslate"><span class="pre">eventId</span></code> значение <code class="docutils literal notranslate"><span class="pre">NotDeliveredEventId</span></code>. Данное поле заполняется только у сущности типа <code class="docutils literal notranslate"><span class="pre">Attachment</span></code> с типом вложения <code class="docutils literal notranslate"><span class="pre">DeliveryFailureNotification</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DocumentInfo</span></code> — для сущности типа <code class="docutils literal notranslate"><span class="pre">Attachment</span></code> содержит расширенную информацию о документе, представляемом данной сущностью, в виде структуры данных <a class="reference internal" href="Document.html"><span class="doc">Document</span></a>. Заполняется только для сущностей со следующими типами вложений:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Nonformalized</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Invoice</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InvoiceRevision</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InvoiceCorrection</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InvoiceCorrectionRevision</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TrustConnectionRequest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ProformaInvoice</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Torg12</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AcceptanceCertificate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">XmlTorg12</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">XmlAcceptanceCertificate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PriceList</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PriceListAgreement</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CertificateRegistry</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ReconciliationAct</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Contract</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Torg13</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ServiceDetails</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Title</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RawCreationDate</span></code> — <a class="reference internal" href="Timestamp.html"><span class="doc">метка времени</span></a> создания сущности.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ResolutionInfo</span></code> — информация о согласовании в виде структуры данных <a class="reference internal" href="Resolution.html"><span class="doc">ResolutionInfo</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SignerDepartmentId</span></code> — для сущности типа <code class="docutils literal notranslate"><span class="pre">Signature</span></code> это идентификатор подразделения в котором лежала сущность в момент подписания, для других типов сущностей не заполняется.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ResolutionRequestInfo</span></code> — информация о запросе согласования в виде структуры данных <a class="reference internal" href="ResolutionRequest.html"><span class="doc">ResolutionRequestInfo</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ResolutionRequestDenialInfo</span></code> — информация об отказе в запросе подписи в виде структуры данных <a class="reference internal" href="ResolutionRequestDenial.html"><span class="doc">ResolutionRequestDenialInfo</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IsApprovementSignature</span></code> — флаг, указывающий, является ли подпись согласующей или обычной. Заполняется только для сущностей типа <code class="docutils literal notranslate"><span class="pre">Signature</span></code>. Подробнее про согласующие подписи см. <a class="reference internal" href="DocumentSignature.html"><span class="doc">DocumentSignature</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IsEncryptedContent</span></code> — флаг, указывающий, зашифрован ли контент документа.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AttachmentVersion</span></code> — информация о версии XSD схемы, в соответствии с которой сформирована данная сущность.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ResolutionRouteAssignmentInfo</span></code> — информация о запуске документа по маршруту согласования в виде структуры данных <a class="reference internal" href="ResolutionRouteInfo.html"><span class="doc">ResolutionRouteAssignmentInfo</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ResolutionRouteRemovalInfo</span></code> — информация о снятии документа с маршрута согласования в виде структуры данных <a class="reference internal" href="ResolutionRouteInfo.html"><span class="doc">ResolutionRouteRemovalInfo</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CancellationInfo</span></code> — информация об отмене сущности в виде структуры данных <a class="reference internal" href="CancellationInfo.html"><span class="doc">CancellationInfo</span></a>. Отмененной является сущность, которая указана родительской по отношению к данной. Например, это может быть идентификатор запроса на согласование.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Labels</span></code> — <a class="reference internal" href="Labels.html"><span class="doc">метки сущности</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Version</span></code> — идентификатор версии документа.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TemplateTransformationInfos</span></code> — информация о документе, созданном на основе шаблона. Заполняется только для вложений с типом <code class="docutils literal notranslate"><span class="pre">TemplateTransformation</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TemplateRefusalInfo</span></code> — информация об отклонении или отзыве шаблона, представленная в виде структуры <a class="reference internal" href="TemplateRefusalInfo.html"><span class="doc">TemplateRefusalInfo</span></a>. Заполняется только для вложений с типом <code class="docutils literal notranslate"><span class="pre">TemplateRefusal</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OuterDocflow</span></code> — информация о внешнем документообороте, например, о статусе обработки документа с маркированными товарами в ГИС МТ «Честный ЗНАК». Представлена в виде структуры <a class="reference internal" href="OuterDocflowInfo.html"><span class="doc">OuterDocflowInfo</span></a>. Заполняется только для вложений с типом <code class="docutils literal notranslate"><span class="pre">OuterDocflow</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RevocationRequestInfo</span></code> — информация о соглашении об аннулировании, представленная в виде структуры <a class="reference internal" href="RevocationRequestInfo_Entity.html"><span class="doc">RevocationRequestInfo</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ContentTypeId</span></code> — уникальный идентификатор контента документа. <code class="docutils literal notranslate"><span class="pre">ContentTypeId</span></code> будет единым для документов с одинаковой структурой и одинаковыми правилами обработки. Идентификатор будет свой для каждого типа документа, титула и служебного документа. Например, УПД 820 формата с функцией СЧФДОП будет иметь <code class="docutils literal notranslate"><span class="pre">ContentTypeId=utd820_schfdop_orig_t1_05_01_01</span></code> для первого титула и <code class="docutils literal notranslate"><span class="pre">ContentTypeId=utd820_schfdop_t2_05_01_01</span></code> для второго титула, а для отказа в подписи в формате уведомления об уточнении <code class="docutils literal notranslate"><span class="pre">ContentTypeId=signature_rejection_02</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PowerOfAttorneyInfo</span></code> — информация о машиночитаемой доверенности и статусе ее проверки, представленная структурой <a class="reference internal" href="PowerOfAttorneyInfo.html"><span class="doc">PowerOfAttorneyInfo</span></a>. Возвращается только для вложений с типами <code class="docutils literal notranslate"><span class="pre">AttachmentType=PowerOfAttorney</span></code> и  <code class="docutils literal notranslate"><span class="pre">AttachmentType=PowerOfAttorneyStatus</span></code>. Статус проверки машиночитаемой доверенности <code class="docutils literal notranslate"><span class="pre">PowerOfAttorneyValidationStatus</span></code> возвращается только для вложений с типом <code class="docutils literal notranslate"><span class="pre">AttachmentType=PowerOfAttorneyStatus</span></code>. Для машиночитаемой доверенности в поле <code class="docutils literal notranslate"><span class="pre">ParentEntityId</span></code> возвращается:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>для вложения с типом <code class="docutils literal notranslate"><span class="pre">AttachmentType=PowerOfAttorney</span></code> — идентификатор подписи,</p></li>
+<li><p>для вложения с типом <code class="docutils literal notranslate"><span class="pre">AttachmentType=PowerOfAttorneyStatus</span></code> — идентификатор МЧД.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<hr class="docutils" />
+<p class="rubric">Использование</p>
+<p>Структура <code class="docutils literal notranslate"><span class="pre">Entity</span></code> возвращается внутри структуры <a class="reference internal" href="Message.html"><span class="doc">Message</span></a> следующими методами:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../http/GetMessage.html"><span class="doc">GetMessage</span></a></p></li>
+<li><p><a class="reference internal" href="../http/GetNewEvents.html"><span class="doc">GetNewEvents</span></a></p></li>
+<li><p><a class="reference internal" href="../http/GetLastEvent.html"><span class="doc">GetLastEvent</span></a></p></li>
+<li><p><a class="reference internal" href="../http/GetEvent.html"><span class="doc">GetEvent</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Message.html" class="btn btn-neutral float-right" title="Message" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../http/GetMessage.html" class="btn btn-neutral float-left" title="GetMessage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

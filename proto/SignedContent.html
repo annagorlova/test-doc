@@ -1,0 +1,316 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>SignedContent &mdash; документация Диадок 1.87.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-16.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Работа с событиями" href="../API_Events.html" />
+    <link rel="prev" title="MessageToPost" href="MessageToPost.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.87
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ReleaseNotes.html">История изменений API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">С чего начать</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howtostart/IntegrationOptions.html">Возможности для интеграции</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntegrationOptions_obsolete.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Документооборот</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AttachmentVersion.html">Форматы документов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../http/GetDocumentTypes.html">GetDocumentTypes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/InvoiceDocflow.html">Документооборот счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/Torg12Docflow.html">Документооборот накладных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/AktDocflow.html">Документооборот актов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/UtdDocflow.html">Документооборот УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docflows/TemplateDocflow.html">Документооборот шаблонов</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../howto/powerofattorney.html">Работа с машиночитаемой доверенностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/marking_ttgis.html">Работа с документами с маркированными товарами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/utd820.html">Работа с документами в 820 формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_torg12.html">Как отправить и получить товарную накладную ТОРГ-12 в рекомендованном ФНС формате</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/example_acceptance_certificate.html">Как отправить и получить акт о выполнении работ/оказании услуг в рекомендованном ФНС формате</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Invoices.html">Работа со счетами-фактурами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_UniversalTransferDocument.html">Работа с УПД</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../API_Messages.html">Работа с сообщениями</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../http/GetEntityContent.html">GetEntityContent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/GetMessage.html">GetMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/PostMessage.html">PostMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../http/PostMessagePatch.html">PostMessagePatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Entity%20message.html">Entity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Message.html">Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MessagePatch.html">MessagePatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MessagePatchToPost.html">MessagePatchToPost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MessageToPost.html">MessageToPost</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SignedContent</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Departments.html">Работа с подразделениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Employees.html">Работа с сотрудниками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Templates.html">Работа с шаблонами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Registration.html">Регистрация организации и сотрудника по сертификату</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Docflow%20API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CloudSignApi.html">Подпись Контур.Сертификатом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API_Dss.html">Подпись сертификатом без носителя</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Справочное руководство</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../http_methods.html">Справочник HTTP-интерфейсов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protos.html">Справочник структур данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists.html">Список HTTP-интерфейсов и структур данных</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Диадок</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../API_Messages.html">Работа с сообщениями</a> &raquo;</li>
+        
+      <li>SignedContent</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/proto/SignedContent.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="signedcontent">
+<h1>SignedContent<a class="headerlink" href="#signedcontent" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Структура <code class="docutils literal notranslate"><span class="pre">SignedContent</span></code> предназначена для представления подписанных ЭП данных в отправляемом сообщении:</p>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span> <span class="nc">SignedContent</span> <span class="p">{</span>
+    <span class="k">optional</span> <span class="kt">bytes</span> <span class="na">Content</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">bytes</span> <span class="na">Signature</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">NameOnShelf</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">bool</span> <span class="na">SignWithTestSignature</span> <span class="o">=</span> <span class="mi">5</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">SignatureNameOnShelf</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">PowerOfAttorneyToPost</span> <span class="na">PowerOfAttorney</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Content</span></code> — подписываемые данные (бинарное представление документа). Должно оставаться пустым (не заполняться), если заполнено поле <code class="docutils literal notranslate"><span class="pre">NameOnShelf</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NameOnShelf</span></code> — имя файла с подписываемыми данными на «полке документов». Должно оставаться пустым (не заполняться), если содержимое подписанного документа размещено в поле <code class="docutils literal notranslate"><span class="pre">Content</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Signature</span></code> — ЭП (в некоторых случаях может отсутствовать). Если ЭП присутствует, то она должна быть представлена в формате <span class="target" id="index-0"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc5652.html#section-5"><strong>CMS SignedData</strong></a> в <a class="reference external" href="http://www.itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf">DER</a>-кодировке.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SignWithTestSignature</span></code> — флаг, который позволяет запросить формирование тестовой ЭП под пересылаемыми данными.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SignatureNameOnShelf</span></code> — имя подписи на «полке документов».</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PowerOfAttorney</span></code> — данные машиночитаемой доверенности, представленные структурой <a class="reference internal" href="PowerOfAttorneyToPost.html"><span class="doc">PowerOfAttorneyToPost</span></a>.</p></li>
+</ul>
+<p>Следует придерживаться следующей схемы использования структуры <code class="docutils literal notranslate"><span class="pre">SignedContent</span></code>. Если подписываемый документ имеет небольшой размер (не превышает 500Кб), его бинарное представление можно разместить непосредственно в структуре <code class="docutils literal notranslate"><span class="pre">SignedContent</span></code> в поле <code class="docutils literal notranslate"><span class="pre">Content</span></code>.
+Если же размер документа не укладывается в эти ограничения, следует предварительно загрузить этот документ на «полку документов» при помощи серии вызовов <a class="reference internal" href="../http/ShelfUpload.html"><span class="doc">ShelfUpload</span></a>, а затем указать имя документа на «полке» в поле <code class="docutils literal notranslate"><span class="pre">NameOnShelf</span></code> структуры <code class="docutils literal notranslate"><span class="pre">SignedContent</span></code>.
+В противном случае сервер может отказаться обрабатывать запрос, содержащий структуры <code class="docutils literal notranslate"><span class="pre">SignedContent</span></code> большого размера.</p>
+<p>Ограничения на размер передаваемых документов действуют не только на уровне отдельного документа, но и на уровне запроса к серверу. А именно, если запрос к серверу содержит несколько документов (несколько структур <code class="docutils literal notranslate"><span class="pre">SignedContent</span></code>), то суммарный размер передаваемых в рамках запроса данных не должен превышать 70Мб (с учетом передаваемой служебной информации). Поэтому для повышения устойчивости интеграционного решения использование загрузки документов через сервис «полки документов» является рекомендуемым.</p>
+<hr class="docutils" />
+<p class="rubric">Использование</p>
+<p>Структура <code class="docutils literal notranslate"><span class="pre">SignedContent</span></code> используется внутри структур <a class="reference internal" href="Message.html"><span class="doc">Message</span></a> и <a class="reference internal" href="MessageToPost.html"><span class="doc">MessageToPost</span></a> при отправке документов методами <a class="reference internal" href="../http/PostMessage.html"><span class="doc">PostMessage</span></a> и <a class="reference internal" href="../http/PostMessagePatch.html"><span class="doc">PostMessagePatch</span></a>.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../API_Events.html" class="btn btn-neutral float-right" title="Работа с событиями" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="MessageToPost.html" class="btn btn-neutral float-left" title="MessageToPost" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Диадок.
+      <span class="lastupdated">
+        Обновлено: мар. 28, 2022.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
